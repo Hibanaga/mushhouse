@@ -7,9 +7,41 @@ export default styled.div`
         
         .input {
             width: 100%;
-            border: none;
             outline: none;
-            border: 1px solid #333;
+        }
+    }
+    
+    
+    
+    &.size-medium {
+        .wrapper-input {
+            .input {
+                padding: .65em .45em;
+            }
+        }
+    }
+    
+    &.style-primary {
+        .wrapper-input {
+            .input {
+                padding: .65em .45em;
+            }
+        }
+    }
+    
+    &.variant-contained {
+        .wrapper-input {
+            .input {
+                border: 1px solid #ebebeb;
+            }
+        }
+    }
+
+    &.variant-primary {
+        .wrapper-input {
+            .input {
+                border-bottom: 1px solid #ebebeb;
+            }
         }
     }
 `;
