@@ -1,11 +1,11 @@
-import React from 'react';
-import { Switch } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom';
+
+import Home from '../pages/home';
 
 
-const Router = () => {
-    return (
-        <Switch></Switch>
-    );
-};
-
-export default Router;
+export default createBrowserRouter([
+    {
+        path: '/',
+        element: <Home />,
+    },
+]);
