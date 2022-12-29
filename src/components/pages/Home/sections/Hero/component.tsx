@@ -4,13 +4,17 @@ import { Option } from 'types/options';
 
 import AccordionCollapse from 'components/layout/AccordionCollapse';
 
+import LayoutSelect from '../../../../layout/Select';
+
 import StyledComponent from './styles';
 import { Props } from './types';
 
 const HeroSection: FunctionComponent<Props> = ({ }) => {
     const [selectedOption, setSelectedOption] = useState<Option>({ label:'hello', value:'hello' });
+    const [selectedVariant, setSelectedVariant] = useState<Option>({ label:'hello', value:'hello' });
 
     const handleChangeOption = (nextValue: Option) => setSelectedOption(nextValue);
+    const handleChangeVariant = (nextValue: Option) => setSelectedVariant(nextValue);
 
     return (
         <StyledComponent className="wrapper-page-container">
@@ -21,7 +25,13 @@ const HeroSection: FunctionComponent<Props> = ({ }) => {
                     onChange={handleChangeOption}
                 />
             </div>
-            <div className="wrapper wrapper-hero"></div>
+            <div className="wrapper wrapper-hero">
+                <LayoutSelect
+                    value={selectedVariant}
+                    options={[{ label:'hello', value:'hello' }, { label:'world', value:'world' }, { label:'goodbye', value:'goodbye' }]}
+                    onChange={handleChangeVariant}
+                />
+            </div>
         </StyledComponent>
     );
 };

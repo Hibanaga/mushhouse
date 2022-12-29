@@ -5,6 +5,9 @@ export default styled.div`
     position: relative;
     
     .hero {
+        display: flex;
+        align-items: center;
+        
         .wrapper-icon {}
         .headline {}
     }
