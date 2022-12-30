@@ -24,6 +24,7 @@ export default styled.div`
     &.medium-size {
         .button {
             height: 100%;
+            padding: .95em 0;
             
             .description {
                 font-size: 1.2em;

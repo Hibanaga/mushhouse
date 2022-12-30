@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent, useState } from 'react';
-import { IoIosArrowDown } from 'react-icons/io';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { Transition } from '@headlessui/react';
 import classNames from 'classnames';
 
@@ -7,7 +7,7 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 const LayoutSelect: FunctionComponent<Props> = ({ value, options, onChange, size }) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isExpand, setIsExpand] = useState(false);
 
     return (
         <StyledComponent className={classNames([
@@ -17,11 +17,11 @@ const LayoutSelect: FunctionComponent<Props> = ({ value, options, onChange, size
         >
             <div
                 className="wrapper-header"
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => setIsExpand(!isExpand)}
             >
                 <span className="header">{value.label}</span>
                 <div className="wrapper-icon">
-                    <IoIosArrowDown />
+                    {isExpand ? <IoIosArrowUp /> : <IoIosArrowDown />}
                 </div>
             </div>
             <Transition
@@ -29,7 +29,7 @@ const LayoutSelect: FunctionComponent<Props> = ({ value, options, onChange, size
                 leave="transition-leave"
                 leaveFrom="transition-leave-from"
                 leaveTo="transition-leave-to"
-                show={isOpen}
+                show={isExpand}
             >
                 <ul className="list">
                     {options.map((option) =>  (

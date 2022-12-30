@@ -14,7 +14,7 @@ import { Props } from './types';
 const ModuleSearchBar: FunctionComponent<Props> = ({ selectedOption, onChangeVariant }) => {
     return (
         <StyledComponent className="module-search-bar">
-            <div className="row">
+            <div className="row-user-inputs">
                 <div className="container-select">
                     <LayoutSelect
                         value={selectedOption}
@@ -27,6 +27,7 @@ const ModuleSearchBar: FunctionComponent<Props> = ({ selectedOption, onChangeVar
                 <Input
                     size={InputSizes.Medium}
                     variant={InputVariants.Primary}
+                    placeholder="random placeholder"
                 />
             </div>
             <Button size={ButtonSizes.Medium}>

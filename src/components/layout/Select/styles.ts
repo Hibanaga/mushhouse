@@ -47,7 +47,6 @@ export default styled.div`
     // SIZES //
     &.small-size {
         .wrapper-header {
-            background-color: red;
             min-height: 2.35em;
             
             .header {

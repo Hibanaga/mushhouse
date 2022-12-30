@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export default styled.header`
     position: relative;
-    height: 3.5em;
+    height: 4em;
     background-color: #333;
     
     .container {

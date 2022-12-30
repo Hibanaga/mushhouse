@@ -1,17 +1,22 @@
 import React, { FunctionComponent, useState } from 'react';
 import { Collapse } from 'react-bootstrap';
 import { CgMenu } from 'react-icons/cg';
-import { IoIosArrowDown } from 'react-icons/io';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import classNames from 'classnames';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const AccordionCollapse:FunctionComponent<Props> = ({ value, options, onChange }) => {
+const AccordionCollapse:FunctionComponent<Props> = ({ value, options, onChange, size, style }) => {
     const [isExpand, setIsExpand] = useState(false);
 
     return (
-        <StyledComponent className="layout-accordion-collapse">
+        <StyledComponent className={classNames([
+            'layout-accordion-collapse',
+            `${size}-size`,
+            `${style}-style`,
+        ])}
+        >
             <div
                 className="hero"
                 onClick={() => setIsExpand(!isExpand)}
@@ -23,7 +28,7 @@ const AccordionCollapse:FunctionComponent<Props> = ({ value, options, onChange }
                     all departments
                 </span>
                 <div className="wrapper-icon">
-                    <IoIosArrowDown />
+                    {isExpand ? <IoIosArrowUp /> : <IoIosArrowDown />}
                 </div>
             </div>
 

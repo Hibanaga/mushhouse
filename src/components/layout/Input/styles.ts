@@ -57,6 +57,13 @@ export default styled.div`
         .wrapper-input {
             .input {
                 border-bottom: 1px solid #ebebeb;
+                font-weight: 300;
+                color: #b2b2b2;
+                
+                &::placeholder {
+                    color: #b2b2b2;
+                    font-weight: 300;
+                }
             }
         }
     }

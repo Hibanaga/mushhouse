@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import Header from 'components/layout/Header';
+import FeaturedProductSection from 'components/pages/Home/sections/FeaturedProduct';
 import HeroSection from 'components/pages/Home/sections/Hero';
 import PageContainer from 'components/wrappers/PageContainer';
 
@@ -13,6 +14,7 @@ const HomePage: FunctionComponent<Props> = () => {
             <Header />
             <PageContainer>
                 <HeroSection />
+                <FeaturedProductSection />
             </PageContainer>
         </StyledComponent>
     );

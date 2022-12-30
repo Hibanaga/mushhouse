@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 
-export default styled.header`
+export default styled.div`
     position: relative;
 
     display: grid;
     grid-template-columns: calc(10.5 / 12 * 100%) calc(1.5 / 12 * 100%);
     box-sizing: border-box;
 
-    .row {
+    .row-user-inputs {
         display: grid;
         grid-template-columns: calc(2.5 / 12 * 100%) calc(9.5 / 12 * 100%);
         border: 1px solid #ebebeb;
@@ -23,7 +23,7 @@ export default styled.header`
             
             .separator {
                 height: 50%;
-                width: .01em;
+                width: .1em;
                 background-color: #ebebeb;
             }
         }
