@@ -5,6 +5,7 @@ export default styled.div`
     display: flex;
     justify-content: space-between;
     gap: 1em;
+    margin-top: 2em;
     
     .wrapper {
         &.wrapper-departments {

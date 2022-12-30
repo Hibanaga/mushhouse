@@ -1,5 +1,11 @@
 import { ChangeEvent } from 'react';
 
+export enum InputTypes {
+    Email = 'email',
+    Password = 'password',
+    Text = 'text',
+}
+
 export enum InputSizes {
     Small = 'small',
     Medium = 'medium',
@@ -24,6 +30,7 @@ export interface Props {
     error?: string;
     value?: string;
     onChange?: (value: ChangeEvent<HTMLInputElement>) => void;
+    type?: InputTypes;
     size?: InputSizes;
     style?: InputStyles;
     variant?: InputVariants;

@@ -7,13 +7,13 @@ export default styled.div`
         outline: none;
         
         font-weight: 600;
+        width: 100%;
     }
     
     // SIZES //
     &.small-size {
         .button {
-            min-width: 4.5em;
-            min-height: 2.35em;
+            height: 100%;
 
             .description {
                 font-size: .95em;
@@ -23,8 +23,7 @@ export default styled.div`
     
     &.medium-size {
         .button {
-            min-width: 6.75em;
-            min-height: 3.25em;
+            height: 100%;
             
             .description {
                 font-size: 1.2em;
@@ -34,8 +33,7 @@ export default styled.div`
 
     &.large-size {
         .button {
-            min-width: 8em;
-            min-height: 3.5em;
+            height: 100%;
             
             .description {
                 font-size: 1.5em;
@@ -44,7 +42,6 @@ export default styled.div`
     }
     
     // STYLES //
-    
     &.primary-style {
         .button {
             background-color: transparent;

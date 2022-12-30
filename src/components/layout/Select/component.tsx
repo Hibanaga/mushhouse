@@ -1,19 +1,28 @@
 import React, { Fragment, FunctionComponent, useState } from 'react';
+import { IoIosArrowDown } from 'react-icons/io';
 import { Transition } from '@headlessui/react';
+import classNames from 'classnames';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const LayoutSelect: FunctionComponent<Props> = ({ value, options, onChange }) => {
+const LayoutSelect: FunctionComponent<Props> = ({ value, options, onChange, size }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <StyledComponent className="layout-select">
+        <StyledComponent className={classNames([
+            'layout-select',
+            `${size}-size`,
+        ])}
+        >
             <div
                 className="wrapper-header"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span className="header">{value.label}</span>
+                <div className="wrapper-icon">
+                    <IoIosArrowDown />
+                </div>
             </div>
             <Transition
                 as={Fragment}
@@ -27,8 +36,9 @@ const LayoutSelect: FunctionComponent<Props> = ({ value, options, onChange }) =>
                         <li
                             className="item"
                             key={option.value}
+                            onClick={() => onChange(option)}
                         >
-                            <span>{option.label}</span>
+                            <span className="label">{option.label}</span>
                         </li>
                     ))}
 
