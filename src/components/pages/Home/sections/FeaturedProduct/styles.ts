@@ -7,5 +7,7 @@ export default styled.div`
     .row-elements {
         display: grid;
         grid-template-columns: auto auto auto auto;
+        grid-gap: 1.5em;
+        row-gap: 3em;
     }
 `;

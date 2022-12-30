@@ -25,9 +25,9 @@ const FeaturedProductSection: FunctionComponent<Props> = () => {
             //TODO: Replace with request after api works
             elements: Array.from({ length: 10 }, (_, index) => (new Product({
                 id: index.toString(),
-                name: 'apple',
+                name: 'Crab Pool Security',
                 category: 'fresh-meat',
-                price: index * 12.33,
+                price: (index + 1) * 12.33,
                 imageUrl: 'https://media.istockphoto.com/id/1148854779/pl/wektor/jab%C5%82ko.jpg?s=612x612&w=is&k=20&c=8ueQOfgiB-o2botZD7pVdqNeKNLuYegKLSmxrqJrTl8=',
             }))),
         };
