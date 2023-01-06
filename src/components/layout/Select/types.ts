@@ -8,7 +8,7 @@ export enum SelectSizes {
 }
 
 export interface Props {
-    value: Option;
+    selectedOption: Option;
     options: Option[];
     onChange: (nextValue: Option) => void;
     size?: SelectSizes;

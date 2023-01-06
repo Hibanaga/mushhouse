@@ -17,7 +17,7 @@ const ModuleSearchBar: FunctionComponent<Props> = ({ selectedOption, onChangeVar
             <div className="row-user-inputs">
                 <div className="container-select">
                     <LayoutSelect
-                        value={selectedOption}
+                        selectedOption={selectedOption}
                         options={[{ label:'hello', value:'hello' }, { label:'world', value:'world' }, { label:'goodbye', value:'goodbye' }]}
                         onChange={onChangeVariant}
                         size={SelectSizes.Medium}

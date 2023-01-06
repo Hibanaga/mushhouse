@@ -34,12 +34,23 @@ export default styled.div`
         width: 100%;
         left: 0;
         top: 105%;
-        border: 1px solid #333;
+        background-color: #FFF;
+        border: 1px solid #ebebeb;
 
         .item {
+            
             .label {
                 display: block;
-                text-align: center;
+                font-weight: 300;
+                padding-left: .35em;
+            }
+            
+            &:hover {
+                background-color: rgba(224, 224, 224, 0.2);
+            }
+            
+            &.active {
+                color: #7fad39;
             }
         }
     }
@@ -65,11 +76,11 @@ export default styled.div`
         }
 
         .list {
-            padding: .2em 0;
+            padding: .5em 0;
 
             .item {
                 cursor: pointer;
-                padding: .35em .45em;
+                padding: .5em .75em;
 
                 .label {
                     font-size: 1.25em;
