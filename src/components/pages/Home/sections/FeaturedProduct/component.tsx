@@ -5,7 +5,7 @@ import { Option } from 'types/options';
 import Product from 'models/Product';
 
 import Headline from 'components/layout/Headline';
-import MenuFeatured from 'components/modules/MenuFeatured';
+import MenuFeatured from 'components/modules/HomeFeaturedProducts/List';
 
 import StyledComponent from './styles';
 import { Props } from './types';

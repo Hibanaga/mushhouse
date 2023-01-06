@@ -1,11 +1,18 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { MdFavorite } from 'react-icons/md';
 import { RiShoppingCart2Fill } from 'react-icons/ri';
+import { Spin as Hamburger } from 'hamburger-react';
+
+import Drawer from 'components/layout/Drawer';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
 const Header: FunctionComponent<Props> = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const onToggle = () => setIsOpen(!isOpen);
+
     const menu = [
         {
             href: 'shop',
@@ -55,6 +62,23 @@ const Header: FunctionComponent<Props> = () => {
                         <RiShoppingCart2Fill className="icon" />
                     </div>
                 </div>
+            </div>
+
+
+            <div className="inner-drawer">
+                <Hamburger
+                    toggled={isOpen}
+                    onToggle={onToggle}
+                    size={20}
+                />
+                <Drawer
+                    isOpen={isOpen}
+                    onClose={onToggle}
+                >
+                    <div>
+                        <span>drawer body</span>
+                    </div>
+                </Drawer>
             </div>
         </StyledComponent>
     );

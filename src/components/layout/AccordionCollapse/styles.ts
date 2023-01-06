@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import variables from 'styles/vars';
 
 export default styled.div`
     position: relative;
@@ -118,6 +118,69 @@ export default styled.div`
                 }
 
                 .collapse-description {
+                }
+            }
+        }
+    }
+
+    @media all and (max-width: ${variables.desktopXS}) {
+        
+        &.medium-size {
+            .hero {
+                min-height: 3.35em;
+
+                .headline {
+                    font-size: 1em;
+                }
+
+                .wrapper-icon {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+
+
+    @media all and (max-width: ${variables.tabletL}) {
+        .hero {
+            padding: 0 .65em;
+        }
+
+        &.medium-size {
+            .hero {
+                min-height: 3.35em;
+
+                .headline {
+                    font-size: .925em;
+                }
+
+                .wrapper-icon {
+                    font-size: .925em;
+                }
+            }
+        }
+    }
+
+    @media all and (max-width: ${variables.tabletS}) {
+        .hero {
+            padding: 0 2em;
+            
+            .headline {
+                padding-left: 1em;
+                margin-right: auto;
+            }
+        }
+
+        &.medium-size {
+            .hero {
+                min-height: 3.35em;
+
+                .headline {
+                    font-size: 1em;
+                }
+
+                .wrapper-icon {
+                    font-size: 1em;
                 }
             }
         }

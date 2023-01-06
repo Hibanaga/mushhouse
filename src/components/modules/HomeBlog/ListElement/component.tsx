@@ -17,30 +17,32 @@ const ListElement: FunctionComponent<Props> = ({ blog }) => {
                 />
             </div>
 
-            <div className="row-activity">
-                <div className="wrapper-activity">
-                    <BsCalendar4 className="icon" />
+            <div className="wrapper-content">
+                <div className="row-activity">
+                    <div className="wrapper-activity">
+                        <BsCalendar4 className="icon" />
 
-                    <span className="description">
-                        {blog.createdAtDisplay}
-                    </span>
+                        <span className="description">
+                            {blog.createdAtDisplay}
+                        </span>
+                    </div>
+
+                    <div className="wrapper-activity">
+                        <GoComment className="icon" />
+
+                        <span className="description">
+                            {blog.countComments}
+                        </span>
+                    </div>
                 </div>
 
-                <div className="wrapper-activity">
-                    <GoComment className="icon" />
-
-                    <span className="description">
-                        {blog.countComments}
-                    </span>
-                </div>
+                <h2 className="headline">
+                    {blog.headline}
+                </h2>
+                <span className="description">
+                    {blog.description}
+                </span>
             </div>
-
-            <h2 className="headline">
-                {blog.headline}
-            </h2>
-            <span className="description">
-                {blog.description}
-            </span>
         </StyledComponent>
     );
 };

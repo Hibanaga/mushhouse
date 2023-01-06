@@ -1,5 +1,6 @@
 import bannerHero from 'static/images/global/hero-home.jpg';
 import styled from 'styled-components';
+import variables from 'styles/vars';
 
 
 export default styled.div`
@@ -59,6 +60,21 @@ export default styled.div`
                         max-width: 10em;
                     }
                 }
+            }
+        }
+    }
+
+    @media all and (max-width: ${variables.tabletS}) {
+        flex-direction: column;
+
+        .wrapper {
+            &.wrapper-departments {
+                width: 100%;
+            }
+
+            &.wrapper-hero {
+                width: 100%;
+                max-width: 100%;
             }
         }
     }

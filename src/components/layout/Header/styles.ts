@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import variables from 'styles/vars';
 
 export default styled.header`
     position: relative;
@@ -39,7 +39,7 @@ export default styled.header`
                     display: flex;
                     align-items: center;
                     color: #000;
-                    font-size: 1.25em;
+                    font-size: 1.1em;
                     padding: 0 .5em;
                     font-weight: 600;
                     text-transform: uppercase;
@@ -75,6 +75,30 @@ export default styled.header`
                     margin-right: 0;
                 }
             }
+        }
+    }
+    
+    .inner-drawer {
+        display: none;
+    }
+
+    @media all and (max-width: ${variables.desktopXS}) {
+        
+    }
+
+    @media all and (max-width: ${variables.tabletS}) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 2em;
+        
+        
+        .container {
+            display: none;
+        }
+
+        .inner-drawer {
+            display: block;
         }
     }
 `;

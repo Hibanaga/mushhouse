@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export default styled.div`
     position: relative;
     margin-top: 3em;
@@ -9,6 +8,7 @@ export default styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 1.25em;
         
         .item {
             margin: 0 .65em;

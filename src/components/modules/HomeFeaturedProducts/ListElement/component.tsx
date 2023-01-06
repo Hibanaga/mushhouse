@@ -6,14 +6,14 @@ import { MdFavorite } from 'react-icons/md';
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const FeaturedProductSection: FunctionComponent<Props> = ({ product }) => {
+const ModuleFeaturedProductsItem: FunctionComponent<Props> = ({ product }) => {
     const formatter = new Intl.NumberFormat('pl-PL', {
         style: 'currency',
         currency: 'PLN',
     });
 
     return (
-        <StyledComponent className="module-featured-item">
+        <StyledComponent className="module-featured-products-list-element">
             <div className="wrapper-image">
                 <img
                     src={product.imageUrl}
@@ -41,4 +41,4 @@ const FeaturedProductSection: FunctionComponent<Props> = ({ product }) => {
     );
 };
 
-export default FeaturedProductSection;
+export default ModuleFeaturedProductsItem;

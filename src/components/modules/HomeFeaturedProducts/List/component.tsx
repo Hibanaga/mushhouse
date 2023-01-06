@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
 
-import FeaturedItem from '../FeaturedItem';
+import FeaturedItem from '../ListElement';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const ModuleMenuFeatured: FunctionComponent<Props> = ({ elements, selectedCategory, onChangeCategory }) => {
+const ModuleFeaturedProductList: FunctionComponent<Props> = ({ elements, selectedCategory, onChangeCategory }) => {
     const menu = [
         { value: 'all', label: 'All' },
         { value: 'oranges', label: 'Oranges' },
@@ -16,7 +16,7 @@ const ModuleMenuFeatured: FunctionComponent<Props> = ({ elements, selectedCatego
     ];
 
     return (
-        <StyledComponent className="module-menu-featured">
+        <StyledComponent className="module-menu-featured-products-list">
             <ul className="navigation-menu">
                 {menu.map((option) => (
                     <li
@@ -51,4 +51,4 @@ const ModuleMenuFeatured: FunctionComponent<Props> = ({ elements, selectedCatego
     );
 };
 
-export default ModuleMenuFeatured;
+export default ModuleFeaturedProductList;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import variables from 'styles/vars';
 
 export default styled.footer`
     position: relative;
@@ -69,5 +70,34 @@ export default styled.footer`
                 }
             }
         }
+    }
+
+    @media all and (max-width: ${variables.tabletS}) {
+
+        .wrapper-page-container {
+            display: flex;
+            flex-direction: column;
+            padding: 2em 0;
+            
+            .wrapper {
+                margin: 1em 0;
+                
+                &.wrapper-newsletter {
+                    order: 1;
+                    
+                }
+
+                &.wrapper-links {
+                    order: 0;
+                }
+
+                &.wrapper-address {
+                    order: 2;
+                    display: none;
+                }
+            }
+        }
+        
+        
     }
 `;
