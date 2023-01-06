@@ -49,10 +49,10 @@ const Header: FunctionComponent<Props> = () => {
                 </ul>
                 <div className="wrapper">
                     <div className="wrapper-icon">
-                        <MdFavorite />
+                        <MdFavorite className="icon" />
                     </div>
                     <div className="wrapper-icon">
-                        <RiShoppingCart2Fill />
+                        <RiShoppingCart2Fill className="icon" />
                     </div>
                 </div>
             </div>

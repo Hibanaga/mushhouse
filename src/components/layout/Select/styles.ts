@@ -38,7 +38,6 @@ export default styled.div`
         border: 1px solid #ebebeb;
 
         .item {
-            
             .label {
                 display: block;
                 font-weight: 300;
