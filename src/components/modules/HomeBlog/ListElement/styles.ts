@@ -4,13 +4,11 @@ import variables from 'styles/vars';
 export default styled.div`
     position: relative;
     overflow: hidden;
-    box-sizing: border-box;
     
     .wrapper-image {
         position: relative;
         width: 100%;
         overflow: hidden;
-        height: 100%;
         
         .image {
             width: 100%;
