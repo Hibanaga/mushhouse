@@ -1,4 +1,4 @@
-import bannerHero from 'images/global/hero-home.jpg';
+import bannerHero from 'static/images/global/hero-home.jpg';
 import styled from 'styled-components';
 
 
