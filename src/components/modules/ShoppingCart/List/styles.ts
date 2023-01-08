@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import variables from 'styles/vars';
 
 export default styled.div`
     position: relative;
@@ -20,6 +20,27 @@ export default styled.div`
                 display: flex;
                 justify-content: flex-end;
                 margin-right: .35em;
+            }
+        }
+    }
+    
+    @media all and (max-width: ${variables.tabletL}) {
+        .inner-table-header {
+            padding-bottom: 1.5em;
+
+            .th {
+                font-size: 1.1em;
+                margin-right: 0;
+            }
+        }
+    }
+    
+    @media all and (max-width: ${variables.tabletS}) {
+        .inner-table-header {
+            .th {
+                &:not(:first-of-type) {
+                    margin-right: 0;
+                }
             }
         }
     }

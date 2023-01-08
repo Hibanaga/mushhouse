@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import variables from 'styles/vars';
 
 export default styled.div`
     position: relative;
@@ -52,6 +52,37 @@ export default styled.div`
             
             &:hover {
                 color: #dd2222;
+            }
+        }
+    }
+
+    @media all and (max-width: ${variables.tabletL}) {
+        padding: 1em 0;
+        
+        .inner {
+
+            &:not(:first-of-type) {
+                margin-right: .65em;
+            }
+            
+            .inner-image {
+                max-width: 6em;
+            }
+            
+            .name {
+                font-size: 1em;
+            }
+            
+            .price {
+                font-size: 1em;
+            }
+        }
+    }
+    
+    @media all and (max-width: ${variables.tabletS}) {
+        .inner {
+            &:not(:first-of-type) {
+                margin-right: 0;
             }
         }
     }
