@@ -32,4 +32,5 @@ export interface Props {
     isLoading?: boolean;
     children?: ReactNode;
     onClick?: () => void;
+    className?: string;
 }

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const LayoutButton: FunctionComponent<Props> = ({ children, isLoading, onClick, size, variant, style, type }) => {
+const LayoutButton: FunctionComponent<Props> = ({ children, isLoading, onClick, size, variant, style, type, className }) => {
     const element = isLoading ? <div className="row-loading"><Spinner size="sm" /></div> : <span className="description">{children}</span>;
 
     return (
@@ -15,6 +15,7 @@ const LayoutButton: FunctionComponent<Props> = ({ children, isLoading, onClick, 
             `${style}-style`,
             `${variant}-variant`,
             `${type}-type`,
+            className,
         ])}
         >
             <button
