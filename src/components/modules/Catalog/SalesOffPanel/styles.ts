@@ -25,7 +25,7 @@ export default styled.section`
             margin-left: -1em;
 
             .embla-slide {
-                flex: 0 0 25%;
+                flex: 0 0 33.3%;
                 min-width: 0;
                 padding-left: 1em;
             }
