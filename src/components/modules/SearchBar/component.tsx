@@ -1,12 +1,11 @@
 import React, { FunctionComponent } from 'react';
 
 import Button from 'components/layout/Button';
+import { ButtonSizes } from 'components/layout/Button/types';
 import Input from 'components/layout/Input';
 import { InputSizes, InputVariants } from 'components/layout/Input/types';
 import LayoutSelect from 'components/layout/Select';
-
-import { ButtonSizes } from '../../layout/Button/types';
-import { SelectSizes } from '../../layout/Select/types';
+import { SelectSizes } from 'components/layout/Select/types';
 
 import StyledComponent from './styles';
 import { Props } from './types';

@@ -36,7 +36,7 @@ const Header: FunctionComponent<Props> = () => {
     return (
         <StyledComponent className="layout-header">
             <div className="container">
-                <div className="wrapper">
+                <div className="wrapper wrapper-logo">
                     <h1 className="headline-logo">MushHouse</h1>
                 </div>
                 <ul className="wrapper">
@@ -54,7 +54,7 @@ const Header: FunctionComponent<Props> = () => {
                         </li>
                     ))}
                 </ul>
-                <div className="wrapper">
+                <div className="wrapper wrapper-activity">
                     <div className="wrapper-icon">
                         <MdFavorite className="icon" />
                     </div>

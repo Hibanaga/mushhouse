@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import { BiComment } from 'react-icons/bi';
 import { BsCalendar4 } from 'react-icons/bs';
 import { GoComment } from 'react-icons/go';
 

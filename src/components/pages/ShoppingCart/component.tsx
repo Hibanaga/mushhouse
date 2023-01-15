@@ -2,9 +2,8 @@ import React, { FunctionComponent } from 'react';
 
 import Footer from 'components/layout/Footer';
 import Header from 'components/layout/Header';
-import Blog from 'components/pages/Home/sections/Blog';
-import FeaturedProductSection from 'components/pages/Home/sections/FeaturedProduct';
-import HeroSection from 'components/pages/Home/sections/Hero';
+import Cart from 'components/pages/ShoppingCart/sections/Cart';
+import TotalPrice from 'components/pages/ShoppingCart/sections/TotalPrice';
 import PageContainer from 'components/wrappers/PageContainer';
 
 import StyledComponent from './styles';
@@ -12,12 +11,15 @@ import { Props } from './types';
 
 const HomePage: FunctionComponent<Props> = () => {
     return (
-        <StyledComponent className="page-home">
+        <StyledComponent className="page-shopping-cart">
             <Header />
             <PageContainer>
-                <HeroSection />
-                <FeaturedProductSection />
-                <Blog />
+                <Cart />
+
+                <div className="row-total">
+                    <div className="discount" />
+                    <TotalPrice />
+                </div>
             </PageContainer>
             <Footer />
         </StyledComponent>

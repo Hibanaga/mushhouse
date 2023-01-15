@@ -25,6 +25,18 @@ export default styled.header`
             align-items: center;
             height: 100%;
             
+            &.wrapper-logo {
+                max-width: 20%;
+                width: 100%;
+            }
+            
+            &.wrapper-activity {
+                max-width: 20%;
+                width: 100%;
+                justify-content: flex-end;
+            }
+            
+            
             .headline-logo {
                 font-size: 2em;
             }
