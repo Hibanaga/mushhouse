@@ -76,5 +76,26 @@ export default styled.section`
         margin-top: 4em;
         padding-top: 4em;
         border-top: 1px solid #ebebeb;
+        
+        .inner-detail {
+            display: flex;
+            justify-content: space-between;
+            color: #1c1c1c;
+            margin-bottom: 1.25em;
+            max-width: 15em;
+            
+            .option-description {
+                display: block;
+                font-weight: 600;
+                font-size: 1.15em;
+            }
+            
+            .value {
+                display: block;
+                font-weight: 300;
+                font-size: 1.15em;
+                width: 4em;
+            }
+        }
     }
 `;

@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
+import DescriptionPanel from 'components/modules/Product/DescriptionPanel';
 import DetailsProduct from 'components/modules/Product/DetailsProduct';
 import ImageProductPanel from 'components/modules/Product/ImageProductPanel';
 
@@ -18,6 +19,8 @@ const SectionDetailsPanel: FunctionComponent<Props> = ({ product }) => {
                 )}
                 {product?.id && <DetailsProduct product={product} />}
             </div>
+
+            {product?.id && <DescriptionPanel product={product} />}
 
         </StyledComponent>
     );
