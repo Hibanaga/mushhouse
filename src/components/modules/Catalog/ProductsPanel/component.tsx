@@ -2,23 +2,23 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 
 import Product from 'models/Product';
 
-import Headline from 'components/layout/Headline';
+import Pagination from 'components/layout/Pagination';
 import ListElement from 'components/modules/HomeFeaturedProducts/ListElement';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const DescriptionPanel: FunctionComponent<Props> = ({ product }) => {
-    const [relatedProducts, setRelatedProducts] = useState<Product[] | null>(null);
+const ProductsPanel: FunctionComponent<Props> = () => {
+    const [products, setProducts] = useState<Product[] | null>(null);
 
     useEffect(() => {
-        fetchRelated();
+        fetchProducts();
     }, []);
 
-    const fetchRelated = async () => {
+    const fetchProducts = async () => {
         const response = {
             //TODO: Replace with request after api works
-            elements: Array.from({ length: 4 }, (_, index) => (new Product({
+            elements: Array.from({ length: 6 }, (_, index) => (new Product({
                 id: index.toString(),
                 name: 'Crab Pool Security',
                 category: 'fresh-meat',
@@ -40,39 +40,47 @@ const DescriptionPanel: FunctionComponent<Props> = ({ product }) => {
             }))),
         };
 
-        setRelatedProducts(response.elements);
+        setProducts(response.elements);
     };
 
 
     return (
-        <StyledComponent className="module-product-description-panel">
-            <div className="description-wrapper">
-                <h3 className="headline">Products Infomation</h3>
-                {product.fullDescriptionDisplay && (
-                    <span
-                        className="content"
-                        dangerouslySetInnerHTML={{ __html: product.fullDescriptionDisplay }}
-                    />
-                )}
-            </div>
+        <StyledComponent className="module-catalog-products-panel">
+            <div className="container-products">
 
-            <Headline
-                headline="Related Product"
-                className="related-headline"
-            />
+                <div className="inner-filters">
+                    <div className="inner-sort-by">
 
-            { relatedProducts && (
+                    </div>
+
+                    <div className="inner-products">
+
+                    </div>
+
+                    <div className="catalog-view">
+
+                    </div>
+                </div>
+
                 <div className="row-elements">
-                    {relatedProducts.map((product) => (
+                    {products && products.map((product) => (
                         <ListElement
                             key={product.id}
                             product={product}
                         />
                     ))}
                 </div>
-            )}
+
+                <Pagination
+                    page={1}
+                    perPage={12}
+                    itemsTotalLength={24}
+                    onPageChange={() => console.log('aaaa')}
+                    className="pagination-custom"
+                />
+            </div>
         </StyledComponent>
     );
 };
 
-export default DescriptionPanel;
+export default ProductsPanel;

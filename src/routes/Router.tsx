@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import CatalogPage from 'components/pages/Catalog';
 import Home from 'components/pages/Home';
 import Product from 'components/pages/Product';
 import ShoppingCart from 'components/pages/ShoppingCart';
@@ -19,5 +20,9 @@ export default createBrowserRouter([
     {
         path: routes.Product,
         element: <Product />,
+    },
+    {
+        path: routes.Catalog,
+        element: <CatalogPage />,
     },
 ]);

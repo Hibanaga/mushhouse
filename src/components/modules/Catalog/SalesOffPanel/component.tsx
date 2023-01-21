@@ -1,4 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
+import Autoplay from 'embla-carousel-autoplay';
+import useEmblaCarousel from 'embla-carousel-react';
 
 import Product from 'models/Product';
 
@@ -8,17 +10,22 @@ import ListElement from 'components/modules/HomeFeaturedProducts/ListElement';
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const DescriptionPanel: FunctionComponent<Props> = ({ product }) => {
-    const [relatedProducts, setRelatedProducts] = useState<Product[] | null>(null);
+const SalesOffPanel: FunctionComponent<Props> = () => {
+    const [emblaRef] = useEmblaCarousel({
+        loop: true,
+        slidesToScroll: 'auto',
+        containScroll: 'trimSnaps',
+    }, [Autoplay()]);
+    const [salesOffProducts, setSalesOffProducts] = useState<Product[] | null>(null);
 
     useEffect(() => {
-        fetchRelated();
+        fetchSalesOff();
     }, []);
 
-    const fetchRelated = async () => {
+    const fetchSalesOff = async () => {
         const response = {
             //TODO: Replace with request after api works
-            elements: Array.from({ length: 4 }, (_, index) => (new Product({
+            elements: Array.from({ length: 6 }, (_, index) => (new Product({
                 id: index.toString(),
                 name: 'Crab Pool Security',
                 category: 'fresh-meat',
@@ -40,39 +47,40 @@ const DescriptionPanel: FunctionComponent<Props> = ({ product }) => {
             }))),
         };
 
-        setRelatedProducts(response.elements);
+        setSalesOffProducts(response.elements);
     };
 
 
     return (
-        <StyledComponent className="module-product-description-panel">
-            <div className="description-wrapper">
-                <h3 className="headline">Products Infomation</h3>
-                {product.fullDescriptionDisplay && (
-                    <span
-                        className="content"
-                        dangerouslySetInnerHTML={{ __html: product.fullDescriptionDisplay }}
-                    />
-                )}
-            </div>
-
+        <StyledComponent className="pages-catalog-section-sales-off-panel">
             <Headline
-                headline="Related Product"
-                className="related-headline"
+                headline="Sale Off"
+                className="headline-sales-off"
             />
 
-            { relatedProducts && (
-                <div className="row-elements">
-                    {relatedProducts.map((product) => (
-                        <ListElement
-                            key={product.id}
-                            product={product}
-                        />
-                    ))}
+            {salesOffProducts && (
+                <div
+                    className="embla"
+                    ref={emblaRef}
+                >
+                    <div className="embla-container">
+                        {
+                            salesOffProducts.map((product) => (
+                                <div
+                                    key={product.id}
+                                    className="embla-slide"
+                                >
+                                    <ListElement
+                                        product={product}
+                                    />
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
             )}
         </StyledComponent>
     );
 };
 
-export default DescriptionPanel;
+export default SalesOffPanel;
