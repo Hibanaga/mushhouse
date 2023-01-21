@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import variables from 'styles/vars';
 
 export default styled.section`
     position: relative;
@@ -29,6 +29,24 @@ export default styled.section`
                 min-width: 0;
                 padding-left: 1em;
             }
+        }
+    }
+    
+    @media all and (max-width: ${variables.tabletL}) {
+        .embla {
+            overflow: hidden;
+            .embla-container {
+                .embla-slide {
+                    flex: 0 0 50%;
+                }
+            }
+        }
+    }
+    
+    
+    @media all and (max-width: ${variables.tabletS}) {
+        .headline-sales-off {
+           margin-top: 5em;
         }
     }
 `;

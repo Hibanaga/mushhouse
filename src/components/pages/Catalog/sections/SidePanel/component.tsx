@@ -76,14 +76,12 @@ const HomePage: FunctionComponent<Props> = () => {
     };
     const array = latestProducts && chunkArray(latestProducts, 3);
 
-    console.log('array: ', array);
-
     return (
         <StyledComponent className="page-catalog-sections-side-panel">
 
             <FilterElement
                 headline="Department"
-                className="inner-departments"
+                className=" inner-departments"
             >
                 <ul className="list-departments">
                     {departments.map(({ label, value }) => (

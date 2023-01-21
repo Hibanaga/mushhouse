@@ -2,7 +2,8 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 
 import Product from 'models/Product';
 
-import ListElement from '../../HomeFeaturedProducts/ListElement';
+import Pagination from 'components/layout/Pagination';
+import ListElement from 'components/modules/HomeFeaturedProducts/ListElement';
 
 import StyledComponent from './styles';
 import { Props } from './types';
@@ -69,6 +70,14 @@ const ProductsPanel: FunctionComponent<Props> = () => {
                         />
                     ))}
                 </div>
+
+                <Pagination
+                    page={1}
+                    perPage={12}
+                    itemsTotalLength={24}
+                    onPageChange={() => console.log('aaaa')}
+                    className="pagination-custom"
+                />
             </div>
         </StyledComponent>
     );

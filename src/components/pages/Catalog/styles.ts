@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import variables from 'styles/vars';
 
 
 export default styled.main`
@@ -14,5 +15,18 @@ export default styled.main`
         grid-column-gap: calc(.15 / 12 * 100%);
         
         margin: 6em 0;
+    }
+    
+    @media all and (max-width: ${variables.tabletL}) {
+        .container-catalog {
+            grid-template-columns: calc(3.85 / 12 * 100%) calc(8 / 12 * 100%);
+        }
+    }
+    
+    @media all and (max-width: ${variables.tabletS}) {
+        .container-catalog {
+            display: flex;
+            flex-direction: column;
+        }
     }
 `;
