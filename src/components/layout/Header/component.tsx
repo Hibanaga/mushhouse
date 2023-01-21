@@ -75,8 +75,23 @@ const Header: FunctionComponent<Props> = () => {
                     isOpen={isOpen}
                     onClose={onToggle}
                 >
-                    <div>
-                        <span>drawer body</span>
+                    <div className="drawer-body">
+                        <ul className="list">
+                            {menu.map(({ label, href }) => (
+                                <li
+                                    key={href}
+                                    className="list-item"
+                                >
+                                    <a
+                                        href={href}
+                                        className="link"
+                                    >
+                                        {label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+
                     </div>
                 </Drawer>
             </div>

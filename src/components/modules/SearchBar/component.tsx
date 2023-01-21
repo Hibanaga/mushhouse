@@ -29,7 +29,10 @@ const ModuleSearchBar: FunctionComponent<Props> = ({ selectedOption, onChangeVar
                     placeholder="random placeholder"
                 />
             </div>
-            <Button size={ButtonSizes.Medium}>
+            <Button
+                size={ButtonSizes.Medium}
+                className="button-search"
+            >
                 search
             </Button>
         </StyledComponent>
