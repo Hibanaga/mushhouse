@@ -5,8 +5,6 @@ import Blog from 'models/Blog';
 import SearchBar from 'components/modules/Blog/SearchBar';
 import FilterElement from 'components/modules/Catalog/FilterElement';
 
-import SideNewsElement from '../../../../modules/Blog/SideNewsElement';
-
 import StyledComponent from './styles';
 import { Props } from './types';
 
@@ -61,13 +59,29 @@ const SidePanel: FunctionComponent<Props> = () => {
             </FilterElement>
 
 
-            <FilterElement className="menu-recents">
+            <FilterElement
+                headline="Recent News"
+                className="menu-recents"
+            >
                 <div className="inner-news">
-                    {news && news.map((element) => (
-                        <SideNewsElement
-                            key={element.id}
-                            post={element}
-                        />
+                    {news && news.map((post) => (
+                        <div
+                            key={post.id}
+                            className="inner"
+                        >
+                            <div className="inner-image">
+                                <img
+                                    src={post.imageUrl}
+                                    alt="alt image"
+                                    className="image"
+                                />
+                            </div>
+
+                            <div className="inner-content">
+                                <h2 className="title">{post.headline}</h2>
+                                <span className="created-at">{post.createdAtDisplay}</span>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </FilterElement>
