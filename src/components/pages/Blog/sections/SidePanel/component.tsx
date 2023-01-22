@@ -36,8 +36,6 @@ const SidePanel: FunctionComponent<Props> = () => {
         setNews(response.elements);
     };
 
-    console.log('news: ', news);
-
     return (
         <StyledComponent className="blog-sections-side-panel">
             <SearchBar />
