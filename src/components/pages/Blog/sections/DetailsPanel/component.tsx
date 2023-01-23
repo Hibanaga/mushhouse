@@ -2,6 +2,8 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 
 import Blog from 'models/Blog';
 
+import BlogList from 'components/modules/Blog/List';
+
 import StyledComponent from './styles';
 import { Props } from './types';
 
@@ -30,6 +32,7 @@ const DetailsPanel: FunctionComponent<Props> = () => {
 
     return (
         <StyledComponent className="blog-sections-details-panel">
+            {posts && <BlogList posts={posts} />}
         </StyledComponent>
     );
 };
