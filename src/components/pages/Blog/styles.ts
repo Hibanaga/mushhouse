@@ -11,8 +11,8 @@ export default styled.main`
     
     .row-panel {
         display: grid;
-        grid-template-columns: calc(2.85 / 12 * 100%) calc(9 / 12 * 100%);
-        grid-column-gap: calc(.15 / 12 * 100%);
+        grid-template-columns: calc(2.85 / 12 * 100%) calc(8.9 / 12 * 100%);
+        grid-column-gap: calc(.25 / 12 * 100%);
         margin-top: 4em;
     }
 `;

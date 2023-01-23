@@ -2,8 +2,7 @@ import React, { FunctionComponent } from 'react';
 
 import Footer from 'components/layout/Footer';
 import Header from 'components/layout/Header';
-import CatalogPanel from 'components/pages/Catalog/sections/CatalogPanel';
-import SidePanel from 'components/pages/Catalog/sections/SidePanel';
+import DetailsPanel from 'components/pages/BlogItem/sections/DetailsPanel';
 import PageContainer from 'components/wrappers/PageContainer';
 
 import StyledComponent from './styles';
@@ -14,7 +13,7 @@ const BlogItemPage: FunctionComponent<Props> = () => {
         <StyledComponent className="page-catalog">
             <Header />
             <PageContainer>
-
+                <DetailsPanel />
             </PageContainer>
             <Footer />
         </StyledComponent>

@@ -23,6 +23,7 @@ const DetailsPanel: FunctionComponent<Props> = () => {
                 imageUrl: 'https://cdn.pixabay.com/photo/2015/05/11/14/44/pencils-762555_960_720.jpg',
                 description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
                 createdAt: new Date(),
+                countComments: index + 10,
             }))),
         };
 

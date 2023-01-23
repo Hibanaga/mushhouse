@@ -23,6 +23,7 @@ const BlogList: FunctionComponent<Props> = ({ posts }) => {
                 perPage={12}
                 itemsTotalLength={25}
                 onPageChange={() => console.log('aaa')}
+                className="container-pagination"
             />
 
         </StyledComponent>

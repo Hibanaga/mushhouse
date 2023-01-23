@@ -7,7 +7,11 @@ export default styled.div`
     .row-posts {
         display: grid;
         grid-template-columns: auto auto;
-        grid-gap: 1em;
-        row-gap: 2em;
+        grid-gap: 1.5em;
+        row-gap: 3em;
+    }
+    
+    .container-pagination {
+        margin: 4em 0;
     }
 `;
