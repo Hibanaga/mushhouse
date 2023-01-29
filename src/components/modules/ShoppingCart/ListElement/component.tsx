@@ -1,10 +1,13 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { MdOutlineCancel } from 'react-icons/md';
+
+import Counter from '../../../layout/Counter';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
 const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) => {
+    const [counter, setCounter] = useState(1);
     const formatter = new Intl.NumberFormat('pl-PL', {
         style: 'currency',
         currency: 'PLN',
@@ -34,8 +37,10 @@ const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) =>
             </div>
 
             <div className="inner">
-                {/*quatity*/}
-                1
+                <Counter
+                    value={counter}
+                    onChange={(value) => setCounter(value)}
+                />
             </div>
 
             <div className="inner">
@@ -45,7 +50,7 @@ const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) =>
             </div>
 
             <div className="inner">
-                <MdOutlineCancel className="icon" />
+                <MdOutlineCancel className="icon icon-delete" />
             </div>
 
         </StyledComponent>

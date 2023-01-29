@@ -6,6 +6,7 @@ import Cart from 'components/pages/ShoppingCart/sections/Cart';
 import TotalPrice from 'components/pages/ShoppingCart/sections/TotalPrice';
 import PageContainer from 'components/wrappers/PageContainer';
 
+import Discount from './sections/Discount';
 import StyledComponent from './styles';
 import { Props } from './types';
 
@@ -14,11 +15,13 @@ const HomePage: FunctionComponent<Props> = () => {
         <StyledComponent className="page-shopping-cart">
             <Header />
             <PageContainer>
-                <Cart />
+                <div className="container-shopping-cart">
+                    <Cart />
 
-                <div className="row-total">
-                    <div className="discount" />
-                    <TotalPrice />
+                    <div className="row-total">
+                        <TotalPrice />
+                        <Discount />
+                    </div>
                 </div>
             </PageContainer>
             <Footer />

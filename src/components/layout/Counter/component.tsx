@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FunctionComponent, useState } from 'react';
+import React, { ChangeEvent, FunctionComponent } from 'react';
 import { HiMinus, HiPlus } from 'react-icons/hi';
 import classNames from 'classnames';
 

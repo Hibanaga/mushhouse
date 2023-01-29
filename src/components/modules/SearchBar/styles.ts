@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import variables from 'styles/vars';
 
 export default styled.div`
     position: relative;
@@ -34,6 +34,14 @@ export default styled.div`
                     border: none;
                 }
             }
+        }
+    }
+    
+    @media all and (max-width: ${variables.tabletL}) {
+        grid-template-columns: calc(10 / 12 * 100%) calc(2 / 12 * 100%);
+
+        .row-user-inputs {
+            grid-template-columns: calc(3 / 12 * 100%) calc(9 / 12 * 100%);
         }
     }
 `;

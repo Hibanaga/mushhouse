@@ -1,12 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import Blog from 'components/pages/Blog';
+import BlogItem from 'components/pages/BlogItem';
 import CatalogPage from 'components/pages/Catalog';
+import Checkout from 'components/pages/Checkout';
 import Home from 'components/pages/Home';
 import Product from 'components/pages/Product';
 import ShoppingCart from 'components/pages/ShoppingCart';
 
 import routes from './routes';
-
 
 export default createBrowserRouter([
     {
@@ -24,5 +26,17 @@ export default createBrowserRouter([
     {
         path: routes.Catalog,
         element: <CatalogPage />,
+    },
+    {
+        path: routes.Blog,
+        element: <Blog />,
+    },
+    {
+        path: routes.BlogItem,
+        element: <BlogItem />,
+    },
+    {
+        path: routes.PaymentCheckout,
+        element: <Checkout />,
     },
 ]);

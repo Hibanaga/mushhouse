@@ -66,6 +66,12 @@ export default styled.header`
                 &:hover {
                     background-color: rgba(224, 224, 224, 0.2);
                 }
+                
+                &.active {
+                    .link {
+                        color: #7fad39;
+                    }
+                }
             }
             
             .wrapper-icon {
@@ -111,6 +117,32 @@ export default styled.header`
 
         .inner-drawer {
             display: block;
+            
+            .drawer-body {
+                .list {
+                    margin: 0.75em 0;
+                    
+                    .list-item {
+                        padding: .55em 0.35em;
+                        .link {
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            color: #000;
+                            font-size: 1.1em;
+                            padding: 0 .5em;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                            letter-spacing: .05em;
+                            transition: 150ms;
+
+                            &:hover {
+                                color: #7fad39;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 `;

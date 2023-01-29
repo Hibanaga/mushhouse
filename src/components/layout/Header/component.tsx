@@ -1,7 +1,10 @@
 import React, { FunctionComponent, useState } from 'react';
 import { MdFavorite } from 'react-icons/md';
 import { RiShoppingCart2Fill } from 'react-icons/ri';
+import { useLocation } from 'react-router-dom';
+import classNames from 'classnames';
 import { Spin as Hamburger } from 'hamburger-react';
+import routes from 'routes/routes';
 
 import Drawer from 'components/layout/Drawer';
 
@@ -9,26 +12,23 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 const Header: FunctionComponent<Props> = () => {
+    const { pathname } = useLocation();
     const [isOpen, setIsOpen] = useState(false);
 
     const onToggle = () => setIsOpen(!isOpen);
 
     const menu = [
         {
-            href: 'shop',
-            label: 'Shop',
+            href: routes.Home,
+            label: 'Home',
         },
         {
-            href: 'locations',
-            label: 'Locations',
+            href: routes.Catalog,
+            label: 'Catalog',
         },
         {
-            href: 'random',
-            label: 'Random',
-        },
-        {
-            href: 'another',
-            label: 'Another',
+            href: routes.Blog,
+            label: 'Blog',
         },
     ];
 
@@ -43,7 +43,10 @@ const Header: FunctionComponent<Props> = () => {
                     {menu.map(({ href, label }) => (
                         <li
                             key={href}
-                            className="navigation-item"
+                            className={classNames([
+                                'navigation-item',
+                                href === pathname && 'active',
+                            ])}
                         >
                             <a
                                 href={href}
@@ -75,8 +78,23 @@ const Header: FunctionComponent<Props> = () => {
                     isOpen={isOpen}
                     onClose={onToggle}
                 >
-                    <div>
-                        <span>drawer body</span>
+                    <div className="drawer-body">
+                        <ul className="list">
+                            {menu.map(({ label, href }) => (
+                                <li
+                                    key={href}
+                                    className="list-item"
+                                >
+                                    <a
+                                        href={href}
+                                        className="link"
+                                    >
+                                        {label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+
                     </div>
                 </Drawer>
             </div>

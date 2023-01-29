@@ -29,6 +29,8 @@ export interface Props {
     label?: string;
     error?: string;
     value?: string;
+    isRequired?: boolean;
+    className?: string;
     onChange?: (value: ChangeEvent<HTMLInputElement>) => void;
     type?: InputTypes;
     size?: InputSizes;

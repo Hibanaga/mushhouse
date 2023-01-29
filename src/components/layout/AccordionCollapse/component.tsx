@@ -7,8 +7,8 @@ import classNames from 'classnames';
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const AccordionCollapse:FunctionComponent<Props> = ({ value, options, onChange, size, style }) => {
-    const [isExpand, setIsExpand] = useState(false);
+const AccordionCollapse:FunctionComponent<Props> = ({ value, options, onChange, size, style, defaultOpen }) => {
+    const [isExpand, setIsExpand] = useState(defaultOpen);
 
     return (
         <StyledComponent className={classNames([

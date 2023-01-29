@@ -6,6 +6,7 @@ export default {
     desktopXS: '1200px',
 
     tabletL: '1024px',
+    tabletM: '926px',
     tabletS: '768px',
 
     mobileL: '640px',
