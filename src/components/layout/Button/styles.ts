@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import vars from '../../../styles/vars';
+
 export default styled.div`
     
     .button {
@@ -64,6 +66,14 @@ export default styled.div`
                 &:hover {
                     opacity: .75;
                 }
+            }
+        }
+    }
+    
+    @media all and (max-width: ${vars.tabletS}) {
+        .button {
+            .description {
+                font-weight: 400;
             }
         }
     }

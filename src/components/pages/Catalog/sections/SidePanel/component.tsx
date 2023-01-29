@@ -1,4 +1,5 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent, useCallback, useEffect, useState } from 'react';
+import { GrNext, GrPrevious } from 'react-icons/gr';
 import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel from 'embla-carousel-react';
 
@@ -11,7 +12,6 @@ import { chunkArray } from 'utils/array';
 import Button from 'components/layout/Button';
 import { ButtonStyles } from 'components/layout/Button/types';
 import FilterElement from 'components/modules/Catalog/FilterElement';
-import ListElement from 'components/modules/HomeFeaturedProducts/ListElement';
 
 import StyledComponent from './styles';
 import { Props } from './types';
@@ -21,7 +21,7 @@ const HomePage: FunctionComponent<Props> = () => {
         style: 'currency',
         currency: 'PLN',
     });
-    const [emblaRef] = useEmblaCarousel({
+    const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: true,
         slidesToScroll: 'auto',
         containScroll: 'trimSnaps',
@@ -46,6 +46,16 @@ const HomePage: FunctionComponent<Props> = () => {
     useEffect(() => {
         fetchLatestProducts();
     }, []);
+
+    const onScrollPrev = useCallback(
+        () => emblaApi && emblaApi.scrollPrev(),
+        [emblaApi],
+    );
+
+    const onScrollNext = useCallback(
+        () => emblaApi && emblaApi.scrollNext(),
+        [emblaApi],
+    );
 
     const fetchLatestProducts = async () => {
         const response = {
@@ -119,6 +129,21 @@ const HomePage: FunctionComponent<Props> = () => {
                     headline="Latest Products"
                     className="inner-latest"
                 >
+                    <div className="inner-actions">
+                        <button
+                            className="button button-prev"
+                            onClick={onScrollPrev}
+                        >
+                            <GrPrevious className="icon" />
+                        </button>
+                        <button
+                            className="button button-next"
+                            onClick={onScrollNext}
+                        >
+                            <GrNext className="icon" />
+                        </button>
+                    </div>
+
                     <div
                         className="embla"
                         ref={emblaRef}

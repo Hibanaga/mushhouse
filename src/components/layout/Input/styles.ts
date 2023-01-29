@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default styled.div`
     .wrapper-input {
         width: 100%;
-        
+
         .input {
             width: 100%;
             outline: none;
@@ -19,7 +19,7 @@ export default styled.div`
             }
         }
     }
-    
+
     &.size-medium {
         .wrapper-input {
             .input {
@@ -27,7 +27,7 @@ export default styled.div`
             }
         }
     }
-    
+
     &.size-large {
         .wrapper-input {
             .input {
@@ -36,7 +36,7 @@ export default styled.div`
             }
         }
     }
-    
+
     &.style-primary {
         .wrapper-input {
             .input {
@@ -44,7 +44,7 @@ export default styled.div`
             }
         }
     }
-    
+
     &.variant-contained {
         .wrapper-input {
             .input {
@@ -59,9 +59,10 @@ export default styled.div`
                 border-bottom: 1px solid #ebebeb;
                 font-weight: 300;
                 color: #b2b2b2;
-                
+
                 &::placeholder {
-                    color: #b2b2b2;
+                    color: rgba(235, 235, 235, 0.4);
+                    font-weight: 300;
                     font-weight: 300;
                 }
             }

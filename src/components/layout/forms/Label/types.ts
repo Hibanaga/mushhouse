@@ -1,3 +1,4 @@
 export interface Props {
-    label: string
+    label: string,
+    isRequired?: boolean;
 }

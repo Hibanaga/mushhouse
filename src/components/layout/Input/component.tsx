@@ -7,16 +7,22 @@ import LayoutFormLabel from 'components/layout/forms/Label';
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const LayoutInput: FunctionComponent<Props> = ({ label, error, value, placeholder, onChange, style, size, variant }) => {
+const LayoutInput: FunctionComponent<Props> = ({ label, error, value, placeholder, onChange, style, size, variant, isRequired, className }) => {
     return (
         <StyledComponent className={classNames([
             'layout-input',
             `size-${size}`,
             `style-${style}`,
             `variant-${variant}`,
+            className,
         ])}
         >
-            {label && <LayoutFormLabel label={label} />}
+            {label && (
+                <LayoutFormLabel
+                    isRequired={isRequired}
+                    label={label}
+                />
+            )}
             <div className="wrapper-input">
                 <input
                     className="input"

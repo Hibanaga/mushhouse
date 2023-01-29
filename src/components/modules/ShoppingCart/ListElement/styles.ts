@@ -5,7 +5,7 @@ export default styled.div`
     position: relative;
 
     display: grid;
-    grid-template-columns: calc(5 / 12 * 100%) calc(2 / 12 * 100%) calc(2 / 12 * 100%) calc(2 / 12 * 100%) calc(1 / 12 * 100%);
+    grid-template-columns: calc(5 / 12 * 100%) calc(1.5 / 12 * 100%) calc(3 / 12 * 100%) calc(1.5 / 12 * 100%) calc(1 / 12 * 100%);
     border-bottom: 1px solid #ddd;
     padding: 1.5em 0;
     
@@ -19,7 +19,7 @@ export default styled.div`
         }
         
         .inner-image {
-            max-width: 8em;
+            width: 6em;
             
             .image {
                 width: 100%;
@@ -46,12 +46,29 @@ export default styled.div`
         }
         
         .icon {
-            font-size: 1.45em;
+            font-size: 1.65em;
             cursor: pointer;
             transition: 150ms;
             
-            &:hover {
-                color: #dd2222;
+            
+            &.icon-delete {
+                &:hover {
+                    color: #dd2222;
+                }
+            }
+        }
+        
+        .layout-counter {
+            .button {
+                padding: .9em .7em;
+                
+                .icon {
+                    font-size: 1em;
+                }
+            }
+            
+            .input {
+                padding: .445em;
             }
         }
     }

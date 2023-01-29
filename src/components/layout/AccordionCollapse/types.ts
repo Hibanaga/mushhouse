@@ -15,6 +15,7 @@ export enum AccordionStyles {
 export interface Props {
     value: Option;
     options: Option[];
+    defaultOpen?: boolean;
     onChange: (nextValue: Option) => void;
     size?: AccordionSizes;
     style?: AccordionStyles;

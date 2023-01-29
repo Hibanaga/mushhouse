@@ -2,26 +2,26 @@ import React, { FunctionComponent } from 'react';
 
 import Footer from 'components/layout/Footer';
 import Header from 'components/layout/Header';
-import Cart from 'components/pages/ShoppingCart/sections/Cart';
-import TotalPrice from 'components/pages/ShoppingCart/sections/TotalPrice';
+import OrderDetails from 'components/pages/Checkout/sections/OrderDetails';
+import PaymentForm from 'components/pages/Checkout/sections/PaymentForm';
 import PageContainer from 'components/wrappers/PageContainer';
 
-import Discount from './sections/Discount';
 import StyledComponent from './styles';
 import { Props } from './types';
 
 const HomePage: FunctionComponent<Props> = () => {
     return (
-        <StyledComponent className="page-shopping-cart">
+        <StyledComponent className="page-checkout">
             <Header />
             <PageContainer>
-                <div className="container-shopping-cart">
-                    <Cart />
+                <h1 className="headline">
+                    Billing Details
+                    <div className="bottom-underline" />
+                </h1>
 
-                    <div className="row-total">
-                        <TotalPrice />
-                        <Discount />
-                    </div>
+                <div className="row-checkout">
+                    <PaymentForm />
+                    <OrderDetails />
                 </div>
             </PageContainer>
             <Footer />

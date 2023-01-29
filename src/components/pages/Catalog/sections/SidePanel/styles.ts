@@ -44,7 +44,36 @@ export default styled.aside`
 
 
         &.inner-latest {
+            position: relative;
             margin-top: 4em;
+            
+            .inner-actions {
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                right: 5%;
+                
+                .button {
+                    width: 2em;
+                    height: 2em;
+                    background: #F3F6FA;
+                    border: 0.01em solid #e6e6e6;
+                    outline: none;
+                    color: #636363;
+                    
+                    &.button-prev {
+                        margin-right: .75em;
+                    }
+                    
+                    &.button-next {
+                        
+                    }
+                    
+                    .icon {
+                        color: #636363;
+                    }
+                }
+            }
 
             .embla {
                 overflow: hidden;

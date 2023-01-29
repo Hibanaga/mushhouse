@@ -6,7 +6,7 @@ export default styled.div`
     
     .inner-table-header {
         display: grid;
-        grid-template-columns: calc(5 / 12 * 100%) calc(2 / 12 * 100%) calc(2 / 12 * 100%) calc(2 / 12 * 100%) calc(1 / 12 * 100%);
+        grid-template-columns: calc(5 / 12 * 100%) calc(1.5 / 12 * 100%) calc(3 / 12 * 100%) calc(1.5 / 12 * 100%) calc(1 / 12 * 100%);
         border-bottom: 1px solid #ddd;
         padding-bottom: 2em;
         

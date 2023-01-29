@@ -66,6 +66,12 @@ export default styled.header`
                 &:hover {
                     background-color: rgba(224, 224, 224, 0.2);
                 }
+                
+                &.active {
+                    .link {
+                        color: #7fad39;
+                    }
+                }
             }
             
             .wrapper-icon {

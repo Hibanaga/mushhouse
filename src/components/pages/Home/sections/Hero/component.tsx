@@ -21,6 +21,7 @@ const HeroSection: FunctionComponent<Props> = ({ }) => {
             <div className="wrapper wrapper-departments">
                 <AccordionCollapse
                     value={selectedOption}
+                    defaultOpen={true}
                     options={[{ label:'hello', value:'hello' }, { label:'world', value:'world' }, { label:'goodbye', value:'goodbye' }]}
                     onChange={handleChangeOption}
                 />

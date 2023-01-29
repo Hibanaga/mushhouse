@@ -15,12 +15,14 @@ const ModuleShoppingCartList: FunctionComponent<Props> = ({ products }) => {
                 <span className="th">Total</span>
             </div>
 
-            {products && products.map((product) => (
-                <ListElement
-                    key={product.id}
-                    product={product}
-                />
-            ))}
+            <div className="inner-list">
+                {products && products.map((product) => (
+                    <ListElement
+                        key={product.id}
+                        product={product}
+                    />
+                ))}
+            </div>
         </StyledComponent>
     );
 };

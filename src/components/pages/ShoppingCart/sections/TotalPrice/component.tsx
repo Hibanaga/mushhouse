@@ -19,7 +19,10 @@ const SectionTotalPrice: FunctionComponent<Props> = () => {
                 <span className="value">$454.98</span>
             </div>
 
-            <Button size={ButtonSizes.Medium}>PROCEED TO CHECKOUT</Button>
+            <Button
+                size={ButtonSizes.Medium}
+                className="button-proceed"
+            >PROCEED TO CHECKOUT</Button>
         </StyledComponent>
     );
 };
