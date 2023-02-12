@@ -14,7 +14,7 @@ export default styled.header`
         width: 95%;
         height: 100%;
         margin: 0 auto;
-        max-width: 1440px;
+        max-width: 1160px;
 
         display: flex;
         align-items: center;
@@ -98,6 +98,12 @@ export default styled.header`
     
     .inner-drawer {
         display: none;
+    }
+    
+    @media all and (max-width: ${variables.desktopS}) {
+        .container {
+            max-width: 1024px;
+        }
     }
 
     @media all and (max-width: ${variables.desktopXS}) {

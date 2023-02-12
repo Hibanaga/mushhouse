@@ -2,12 +2,34 @@ import styled from 'styled-components';
 
 export default styled.div`
     position: relative;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 8px;
+    padding: 1em 1.5em;
     
+    .test-warapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        margin-top: 1em;
+        
+        .layout-button {
+            margin-top: .5em;
+            border-radius: 8px;
+            overflow: hidden;
+            
+            .button {
+               width: auto;
+                padding: .65em 1.25em;
+            }
+        }
+    }
     
     .wrapper-image {
         position: relative;
         width: 100%;
         overflow: hidden;
+        border-radius: 8px;
 
         &:hover {
             .wrapper-icons {

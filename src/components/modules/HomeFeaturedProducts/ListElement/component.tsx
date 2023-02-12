@@ -3,6 +3,8 @@ import { CgArrowsExchangeAlt } from 'react-icons/cg';
 import { FiShoppingCart } from 'react-icons/fi';
 import { MdFavorite } from 'react-icons/md';
 
+import Button from '../../../layout/Button';
+
 import StyledComponent from './styles';
 import { Props } from './types';
 
@@ -36,6 +38,16 @@ const ModuleFeaturedProductsItem: FunctionComponent<Props> = ({ product }) => {
             <div className="wrapper-content">
                 <h3 className="name">{product.name}</h3>
                 <span className="price">{formatter.format(product.price as number)}</span>
+            </div>
+
+            <div className="test-warapper">
+                <Button>
+                    dodaj do koszyka
+                </Button>
+
+                {/*<Button>*/}
+                {/*    another action lol long text*/}
+                {/*</Button>*/}
             </div>
         </StyledComponent>
     );

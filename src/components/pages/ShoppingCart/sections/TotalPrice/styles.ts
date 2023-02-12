@@ -7,7 +7,7 @@ export default styled.div`
     
     background-color: #f5f5f5;
     color: #1c1c1c;
-    padding: 1.65em 1em;
+    padding: 1.65em 1.85em;
     font-weight: 700;
 
     .headline {

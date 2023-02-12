@@ -10,8 +10,8 @@ export default styled.main`
     
     .container-shopping-cart {
         display: grid;
-        grid-template-columns: calc(8.85 / 12 * 100%) calc(3 / 12 * 100%);
-        column-gap: calc(0.15 / 12 * 100%);
+        grid-template-columns: calc(8.3 / 12 * 100%) calc(3.25 / 12 * 100%);
+        column-gap: calc(0.35 / 12 * 100%);
         margin: 4em 0;
         
         .row-total {

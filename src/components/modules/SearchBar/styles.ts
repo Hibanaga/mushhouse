@@ -5,12 +5,23 @@ export default styled.div`
     position: relative;
 
     display: grid;
-    grid-template-columns: calc(10.5 / 12 * 100%) calc(1.5 / 12 * 100%);
+    grid-template-columns: calc(10 / 12 * 100%) calc(2 / 12 * 100%);
     box-sizing: border-box;
 
+    .layout-input {
+        .wrapper-input {
+            .input {
+                border: 1px solid #ebebeb;
+                border-top-left-radius: 6px;
+                border-bottom-left-radius: 6px;
+            }
+        }
+    }
+
     .row-user-inputs {
-        display: grid;
-        grid-template-columns: calc(2.5 / 12 * 100%) calc(9.5 / 12 * 100%);
+        //display: grid;
+        border-top-left-radius: 8px;
+        //grid-template-columns: calc(2.5 / 12 * 100%) calc(9.5 / 12 * 100%);
         border: 1px solid #ebebeb;
         border-right: 0;
         
@@ -34,6 +45,13 @@ export default styled.div`
                     border: none;
                 }
             }
+        }
+    }
+    
+    .button-search {
+        .button {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
         }
     }
     

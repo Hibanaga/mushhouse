@@ -23,7 +23,7 @@ const FeaturedProductSection: FunctionComponent<Props> = () => {
     const fetchFeaturedProducts = async () => {
         const response = {
             //TODO: Replace with request after api works
-            elements: Array.from({ length: 10 }, (_, index) => (new Product({
+            elements: Array.from({ length: 8 }, (_, index) => (new Product({
                 id: index.toString(),
                 name: 'Crab Pool Security',
                 category: 'fresh-meat',
