@@ -1,5 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 
+import Button from 'components/layout/Button';
+
 import StyledComponent from './styles';
 import { Props } from './types';
 
@@ -51,6 +53,12 @@ const OrderDetails: FunctionComponent<Props> = () => {
                 <span className="price">
                     {formatter.format(totalPrice)}
                 </span>
+            </div>
+
+            <div className="inner-action">
+                <Button>
+                    PLACE ORDER
+                </Button>
             </div>
         </StyledComponent>
     );
