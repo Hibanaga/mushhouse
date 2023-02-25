@@ -23,11 +23,20 @@ export default styled.section`
             flex-direction: row;
             height: auto;
             margin-left: -1em;
+            margin-top: .45em;
+            margin-bottom: .45em;
 
             .embla-slide {
                 flex: 0 0 33.3%;
                 min-width: 0;
                 padding-left: 1em;
+                
+                .module-featured-products-list-element {
+                    height: 100%;
+                    
+                    .wrapper-image {}
+                    .wrapper-content {}
+                }
             }
         }
     }

@@ -17,24 +17,22 @@ const DetailsProduct: FunctionComponent<Props> = ({ product }) => {
 
     return (
         <StyledComponent className="module-product-details-product">
-            <h2 className="name">
-                {product?.name}
-            </h2>
+            <h2 className="name">{product?.name}</h2>
 
             <div className="inner-rating">
                 <div className="inner-stars">
                 </div>
                 <span className="count-reviews">
-                    ({product?.countReviews} reviews)
+                    ({product?.countReviews ?? 0} reviews)
                 </span>
             </div>
 
             <span className="price">
-                {product?.price && formatter.format(product.price)}
+                {product?.price ? formatter.format(product.price) : '0 złt'}
             </span>
 
             <span className="description">
-                {product?.description}
+                {product?.description ?? ''}
             </span>
 
 
@@ -67,7 +65,7 @@ const DetailsProduct: FunctionComponent<Props> = ({ product }) => {
 
                 <div className="inner-detail">
                     <span className="option-description">Weight</span>
-                    <span className="value">{product?.weight} kg</span>
+                    <span className="value">{product?.weight ?? 0} kg</span>
                 </div>
             </div>
         </StyledComponent>

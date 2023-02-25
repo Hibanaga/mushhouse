@@ -2,13 +2,16 @@ import React, { FunctionComponent } from 'react';
 import { CgArrowsExchangeAlt } from 'react-icons/cg';
 import { FiShoppingCart } from 'react-icons/fi';
 import { MdFavorite } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
+import routes from 'routes/routes';
 
-import Button from '../../../layout/Button';
+import { getWords } from 'utils/string';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
 const ModuleFeaturedProductsItem: FunctionComponent<Props> = ({ product }) => {
+    const navigate = useNavigate();
     const formatter = new Intl.NumberFormat('pl-PL', {
         style: 'currency',
         currency: 'PLN',
@@ -35,19 +38,12 @@ const ModuleFeaturedProductsItem: FunctionComponent<Props> = ({ product }) => {
                     </div>
                 </div>
             </div>
-            <div className="wrapper-content">
-                <h3 className="name">{product.name}</h3>
+            <div
+                className="wrapper-content"
+                onClick={() => product.id && navigate(routes.Product.replace(':id', product.id))}
+            >
+                <h3 className="name">{product.name && getWords(product.name, 4)}</h3>
                 <span className="price">{formatter.format(product.price as number)}</span>
-            </div>
-
-            <div className="test-warapper">
-                <Button>
-                    dodaj do koszyka
-                </Button>
-
-                {/*<Button>*/}
-                {/*    another action lol long text*/}
-                {/*</Button>*/}
             </div>
         </StyledComponent>
     );

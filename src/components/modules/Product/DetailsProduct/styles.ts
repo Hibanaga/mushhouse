@@ -5,7 +5,6 @@ import variables from 'styles/vars';
 export default styled.section`
     position: relative;
     
-    
     .name {
         color: #252525;
         font-weight: 900;
