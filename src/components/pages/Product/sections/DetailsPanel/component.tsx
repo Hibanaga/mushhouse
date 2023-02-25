@@ -1,27 +1,56 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
+import { BsHeart } from 'react-icons/bs';
+import Autoplay from 'embla-carousel-autoplay';
+import useEmblaCarousel from 'embla-carousel-react';
 
 import DescriptionPanel from 'components/modules/Product/DescriptionPanel';
 import DetailsProduct from 'components/modules/Product/DetailsProduct';
-import ImageProductPanel from 'components/modules/Product/ImageProductPanel';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
 const SectionDetailsPanel: FunctionComponent<Props> = ({ product }) => {
+    const [emblaRef] = useEmblaCarousel({
+        loop: true,
+        slidesToScroll: 'auto',
+        containScroll: 'trimSnaps',
+    }, [Autoplay()]);
+
     return (
         <StyledComponent className="section-details-panel">
 
             <div className="columns">
-                {product?.images && product?.images.length &&  (
-                    <ImageProductPanel
-                        images={product.images}
-                    />
-                )}
-                {product?.id && <DetailsProduct product={product} />}
+                <div className="column-gallery">
+                    <div className="inner-image">
+                        <img
+                            src={product.images && product.images[0]}
+                            alt="alt image product"
+                            className="image"
+                        />
+                    </div>
+
+                    <div
+                        className="embla"
+                        ref={emblaRef}
+                    >
+                        <div className="embla-container">
+                            {
+                                product.images && product.images.map((imageUrl) => (
+                                    <img
+                                        key={imageUrl}
+                                        src={imageUrl}
+                                        alt="embla carousel"
+                                        className="embla-slide image"
+                                        // onClick={() => setSelectedPhoto(imageUrl)}
+                                    />
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+                <DetailsProduct product={product} />
             </div>
-
-            {product?.id && <DescriptionPanel product={product} />}
-
+            <DescriptionPanel product={product} />
         </StyledComponent>
     );
 };

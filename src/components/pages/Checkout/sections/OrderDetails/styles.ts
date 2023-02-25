@@ -7,6 +7,7 @@ export default styled.aside`
     margin-top: 1.25em;
     background-color: #f5f5f5;
     padding: 3em 2em;
+    max-height: 30em;
     
     .th {
         font-size: 1.25em;
@@ -70,10 +71,27 @@ export default styled.aside`
         &.inner-price-subtotal {
             border-top: 0.01em solid #e1e1e1;
             border-bottom: 0.01em solid #e1e1e1;
+            
+            .price {
+                padding-top: .05em;
+                font-weight: 600;
+                font-size: 1.2em;
+            }
         }
         
         &.inner-price-total {
             border-bottom: 0.01em solid #e1e1e1;
+            
+            .price {
+                padding-top: .05em;
+                font-weight: 600;
+                font-size: 1.2em;
+                color: #dd2222;
+            }
         }
+    }
+    
+    .inner-action {
+        margin-top: 3em;
     }
 `;

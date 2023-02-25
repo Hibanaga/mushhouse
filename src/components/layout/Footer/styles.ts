@@ -8,7 +8,7 @@ export default styled.footer`
 
     .wrapper-page-container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: calc(4 / 12 * 100%) calc(3 / 12 * 100%) calc(5 / 12 * 100%);
         grid-column-gap: 1em;
         padding: 4em 0;
 

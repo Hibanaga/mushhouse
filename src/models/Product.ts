@@ -16,13 +16,13 @@ export default class Product {
 
     constructor(data: ApiProduct) {
         this.id = data.id;
-        this.name = data.name;
-        this.description = data.description;
-        this.imageUrl = data.imageUrl;
-        this.price = data.price;
-        this.category = data.category;
-        this.weight = data.weight;
-        this.images = data.images;
+        this.name = data.name && data.name;
+        this.description = data.description && data.description;
+        this.imageUrl = data.imageUrl && data.imageUrl;
+        this.price = data.price && data.price;
+        this.category =  data.category && data.category;
+        this.weight = data.weight && data.weight;
+        this.images = data.images && data.images;
 
         this.accesibility = data.accesibility;
         this.countReviews = data.countReviews;

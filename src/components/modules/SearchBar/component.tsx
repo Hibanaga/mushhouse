@@ -13,22 +13,11 @@ import { Props } from './types';
 const ModuleSearchBar: FunctionComponent<Props> = ({ selectedOption, onChangeVariant }) => {
     return (
         <StyledComponent className="module-search-bar">
-            <div className="row-user-inputs">
-                <div className="container-select">
-                    <LayoutSelect
-                        selectedOption={selectedOption}
-                        options={[{ label:'hello', value:'hello' }, { label:'world', value:'world' }, { label:'goodbye', value:'goodbye' }]}
-                        onChange={onChangeVariant}
-                        size={SelectSizes.Medium}
-                    />
-                    <div className="separator" />
-                </div>
-                <Input
-                    size={InputSizes.Medium}
-                    variant={InputVariants.Primary}
-                    placeholder="random placeholder"
-                />
-            </div>
+            <Input
+                size={InputSizes.Medium}
+                variant={InputVariants.Primary}
+                placeholder="random placeholder"
+            />
             <Button
                 size={ButtonSizes.Medium}
                 className="button-search"

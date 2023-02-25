@@ -7,7 +7,11 @@ export default styled.section`
     height: 100%;
     margin: 0 auto;
     position: relative;
-    max-width: 1440px;
+    max-width: 1160px;
     color: black;
     flex: 1 1 auto;
+    
+    @media all and (max-width: ${variables.desktopS}) {
+        max-width: 1024px;
+    }
 `;

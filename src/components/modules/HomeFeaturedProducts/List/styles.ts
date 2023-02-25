@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import vars from 'styles/vars';
 
 export default styled.div`
     position: relative;
@@ -29,6 +30,32 @@ export default styled.div`
                     }
                 }
             }
+        }
+    }
+    
+    .row-elements {
+        margin-top: 2em;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.75% 2em;
+    }
+
+    @media all and (max-width: ${vars.desktopXS}) {
+        .row-elements {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media all and (max-width: ${vars.mobileL}) {
+        .row-elements {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media all and (max-width: ${vars.mobileM}) {
+        .row-elements {
+            gap: .3% 2em;
+            grid-template-columns: 1fr;
         }
     }
 `;

@@ -6,3 +6,7 @@ export function shorten(string: string, length: number, addDots = false): string
 
     return newString;
 }
+
+export function getWords (string: string, count: number): string {
+    return string.split(' ').slice(0, count).join(' ');
+}

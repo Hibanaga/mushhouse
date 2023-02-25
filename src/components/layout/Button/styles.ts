@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-import vars from '../../../styles/vars';
+import vars from 'styles/vars';
 
 export default styled.div`
     

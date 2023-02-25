@@ -4,6 +4,8 @@ import { Option } from 'types/options';
 
 import Product from 'models/Product';
 
+import { listProducts } from 'services/products';
+
 import Headline from 'components/layout/Headline';
 import MenuFeatured from 'components/modules/HomeFeaturedProducts/List';
 
@@ -11,6 +13,7 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 const FeaturedProductSection: FunctionComponent<Props> = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState<Option>({ value: 'all', label: 'All' });
     const [featuredProducts, setFeaturedProducts] = useState<Product[] | null>(null);
 
@@ -21,18 +24,15 @@ const FeaturedProductSection: FunctionComponent<Props> = () => {
     }, []);
 
     const fetchFeaturedProducts = async () => {
-        const response = {
-            //TODO: Replace with request after api works
-            elements: Array.from({ length: 10 }, (_, index) => (new Product({
-                id: index.toString(),
-                name: 'Crab Pool Security',
-                category: 'fresh-meat',
-                price: (index + 1) * 12.33,
-                imageUrl: 'https://media.istockphoto.com/id/1148854779/pl/wektor/jab%C5%82ko.jpg?s=612x612&w=is&k=20&c=8ueQOfgiB-o2botZD7pVdqNeKNLuYegKLSmxrqJrTl8=',
-            }))),
-        };
-
-        setFeaturedProducts(response.elements);
+        try {
+            setIsLoading(true);
+            const data = await listProducts();
+            setFeaturedProducts(data);
+        } catch (error) {
+            console.log('error: ', error);
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
