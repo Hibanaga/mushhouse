@@ -3,7 +3,7 @@ import axios from 'axios';
 import Product from 'models/Product';
 
 export const listProducts = async (params?: Record<string, string>): Promise<Product[]> => {
-    const { data } = await axios({ url: 'http://api.szamanita-pantherina.com/api/product', method: 'GET', params }).then((data) => {
+    const { data } = await axios({ url: 'https://api.szamanita-pantherina.com/api/product', method: 'GET', params }).then((data) => {
         return data;
     });
 
@@ -15,7 +15,7 @@ export const listProducts = async (params?: Record<string, string>): Promise<Pro
     }));
 };
 export const singleProduct = async (id: string, params?: Record<string, string>): Promise<Product> => {
-    const { data } = await axios({ url: `http://api.szamanita-pantherina.com/api/product/${id}`, method: 'GET', params }).then((data) => {
+    const { data } = await axios({ url: `https://api.szamanita-pantherina.com/api/product/${id}`, method: 'GET', params }).then((data) => {
         return data;
     });
 

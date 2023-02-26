@@ -7,13 +7,13 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) => {
-    const [counter, setCounter] = useState(1);
+    const [counter, setCounter] = useState(product?.quantity ?? 1);
     const formatter = new Intl.NumberFormat('pl-PL', {
         style: 'currency',
         currency: 'PLN',
     });
 
-    const calculatedPrice = product.price && product.price * 2;
+    const calculatedPrice = product.price && product.price * counter;
 
     return (
         <StyledComponent className="module-shopping-cart-list-element">

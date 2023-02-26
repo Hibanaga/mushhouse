@@ -88,6 +88,7 @@ export default styled.div`
     }
     
     .wrapper-content {
+        cursor: pointer;
         margin-top: 4em;
         padding: 0 1em .5em 1em;
         max-height: 7em;

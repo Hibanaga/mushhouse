@@ -1,5 +1,6 @@
-import Product from 'models/Product';
+
+import ShoppingCartProduct from 'models/ShoppingCartProduct';
 
 export interface Props {
-    product: Product
+    product: ShoppingCartProduct
 }
