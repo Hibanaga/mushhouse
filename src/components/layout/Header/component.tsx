@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import { MdFavorite } from 'react-icons/md';
 import { RiShoppingCart2Fill } from 'react-icons/ri';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 import { Spin as Hamburger } from 'hamburger-react';
 import routes from 'routes/routes';
@@ -13,6 +13,8 @@ import { Props } from './types';
 
 const Header: FunctionComponent<Props> = () => {
     const { pathname } = useLocation();
+    const navigate = useNavigate();
+
     const [isOpen, setIsOpen] = useState(false);
 
     const onToggle = () => setIsOpen(!isOpen);
@@ -61,7 +63,10 @@ const Header: FunctionComponent<Props> = () => {
                     <div className="wrapper-icon">
                         <MdFavorite className="icon" />
                     </div>
-                    <div className="wrapper-icon">
+                    <div
+                        className="wrapper-icon"
+                        onClick={() => navigate(routes.ShoppingCart)}
+                    >
                         <RiShoppingCart2Fill className="icon" />
                     </div>
                 </div>

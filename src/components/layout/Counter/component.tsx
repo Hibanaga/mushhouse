@@ -12,7 +12,7 @@ const LayoutCounter: FunctionComponent<Props> = ({ size, value, onChange }) => {
     };
 
     const handlePlusAction = () => value && onChange(value + 1);
-    const handleMinusAction = () => value && value > 0 && onChange(value - 1);
+    const handleMinusAction = () => value && value > 1 && onChange(value - 1);
 
     return (
         <StyledComponent className={classNames(['layout-counter', `${size}-size`])}>

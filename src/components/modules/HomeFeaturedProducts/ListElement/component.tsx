@@ -5,6 +5,7 @@ import { MdFavorite } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import routes from 'routes/routes';
 
+import { getItem, setItem } from 'utils/localStorage';
 import { getWords } from 'utils/string';
 
 import StyledComponent from './styles';
@@ -17,6 +18,24 @@ const ModuleFeaturedProductsItem: FunctionComponent<Props> = ({ product }) => {
         currency: 'PLN',
     });
 
+    const handleAddToCart = () => {
+        const storageCart = getItem('shoppingCart');
+
+        let shoppingCart = null;
+        if (!storageCart) {
+            shoppingCart = [{ id: product.id, quantity: 1 }];
+        } else {
+            const parseStorageCart = JSON.parse(storageCart);
+
+            if (parseStorageCart.some(({ id }: {id: string}) => id === product.id )) {
+                shoppingCart = parseStorageCart.map((element: {id: string, quantity: number}) => element.id === product.id ? { id: element.id, quantity: element.quantity + 1 } : element);
+            } else {
+                shoppingCart = [ ...parseStorageCart, { id: product.id, quantity: 1 } ];
+            }
+        }
+        setItem('shoppingCart', JSON.stringify(shoppingCart));
+    };
+
     return (
         <StyledComponent className="module-featured-products-list-element">
             <div className="wrapper-image">
@@ -27,13 +46,16 @@ const ModuleFeaturedProductsItem: FunctionComponent<Props> = ({ product }) => {
                 />
 
                 <div className="wrapper-icons">
-                    <div className="wrapper-icon">
-                        <CgArrowsExchangeAlt />
-                    </div>
+                    {/*<div className="wrapper-icon">*/}
+                    {/*    <CgArrowsExchangeAlt />*/}
+                    {/*</div>*/}
                     <div className="wrapper-icon">
                         <MdFavorite />
                     </div>
-                    <div className="wrapper-icon">
+                    <div
+                        className="wrapper-icon"
+                        onClick={() => handleAddToCart()}
+                    >
                         <FiShoppingCart />
                     </div>
                 </div>
