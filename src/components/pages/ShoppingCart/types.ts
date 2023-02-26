@@ -1,4 +1,4 @@
-export interface ShoppingCartProducts {
+export interface ShoppingCart {
     id: string,
     quantity: number
 }

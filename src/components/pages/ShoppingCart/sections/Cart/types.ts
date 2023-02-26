@@ -1,5 +1,6 @@
-import Product from 'models/Product';
+import ShoppingCartProduct from 'models/ShoppingCartProduct';
 
 export interface Props {
-    products: Product[]
+    shoppingCart: ShoppingCartProduct[];
+    onRemove: (id: string) => void;
 }

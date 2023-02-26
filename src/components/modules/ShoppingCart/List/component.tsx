@@ -5,7 +5,7 @@ import ListElement from 'components/modules/ShoppingCart/ListElement';
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const ModuleShoppingCartList: FunctionComponent<Props> = ({ products }) => {
+const ModuleShoppingCartList: FunctionComponent<Props> = ({ shoppingCart, onRemove }) => {
     return (
         <StyledComponent className="module-shopping-cart-list">
             <div className="inner-table-header">
@@ -16,10 +16,11 @@ const ModuleShoppingCartList: FunctionComponent<Props> = ({ products }) => {
             </div>
 
             <div className="inner-list">
-                {products && products.map((product) => (
+                {shoppingCart && shoppingCart.map((product) => (
                     <ListElement
                         key={product.id}
                         product={product}
+                        onRemove={onRemove}
                     />
                 ))}
             </div>
