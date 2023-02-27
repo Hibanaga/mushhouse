@@ -5,6 +5,8 @@ import ListElement from 'components/modules/ShoppingCart/ListElement';
 import StyledComponent from './styles';
 import { Props } from './types';
 
+
+// LIst Shopping List
 const ModuleShoppingCartList: FunctionComponent<Props> = ({ shoppingCart, onRemove }) => {
     return (
         <StyledComponent className="module-shopping-cart-list">
