@@ -21,9 +21,8 @@ const ProductsPanel: FunctionComponent<Props> = () => {
     const fetchProducts = async () => {
         try {
             setIsLoading(true);
-            const data = await listProducts();
-            console.log('data:', data);
-            setProducts(data);
+            const { meta, elements } = await listProducts();
+            setProducts(elements);
         } catch (error) {
             console.log('error: ', error);
         } finally {

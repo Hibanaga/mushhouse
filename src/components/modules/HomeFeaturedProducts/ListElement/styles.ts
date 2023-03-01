@@ -79,7 +79,6 @@ export default styled.div`
                 transition: 300ms ease-in-out;
 
                 &:hover {
-                    transform: rotate(360deg);
                     background-color: #7fad39;
                     color: #FFF;
                 }

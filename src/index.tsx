@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 
+import CookiesPanel from './components/modules/CookiesPanel';
 import router from './routes/Router';
 import reportWebVitals from './tests/reportWebVitals';
 
@@ -13,7 +14,10 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-    <RouterProvider router={router} />,
+    <>
+        <CookiesPanel />
+        <RouterProvider router={router} />,
+    </>,
 );
 
 // If you want to start measuring performance in your app, pass a function
