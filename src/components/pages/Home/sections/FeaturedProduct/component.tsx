@@ -26,8 +26,9 @@ const FeaturedProductSection: FunctionComponent<Props> = () => {
     const fetchFeaturedProducts = async () => {
         try {
             setIsLoading(true);
-            const data = await listProducts();
-            setFeaturedProducts(data);
+            const { meta, elements } = await listProducts();
+
+            setFeaturedProducts(elements);
         } catch (error) {
             console.log('error: ', error);
         } finally {

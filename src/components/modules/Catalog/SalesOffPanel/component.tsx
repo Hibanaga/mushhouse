@@ -28,8 +28,8 @@ const SalesOffPanel: FunctionComponent<Props> = () => {
     const fetchSalesOff = async () => {
         try {
             setIsLoading(true);
-            const data = await listProducts();
-            setSalesOffProducts(data);
+            const { meta, elements } = await listProducts();
+            setSalesOffProducts(elements);
         } catch (error) {
             console.log('error: ', error);
         } finally {
