@@ -19,6 +19,10 @@ export default styled.main`
         }
     }
     
+    .container-empty-cart {
+        height: 100%;
+    }
+    
     @media all and (max-width: ${variables.tabletM}) {
         .container-shopping-cart {
             display: flex;

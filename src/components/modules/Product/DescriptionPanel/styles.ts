@@ -30,16 +30,15 @@ export default styled.section`
 
     .row-elements {
         display: grid;
-        grid-template-columns: auto auto auto auto;
-        grid-gap: 1.5em;
-        row-gap: 3em;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5em 3em;
         
         margin-bottom: 6em;
     }
 
     @media all and (max-width: ${variables.tabletS}) {
         .row-elements {
-            grid-template-columns: auto auto auto;
+            grid-template-columns: repeat(3, 1fr);
             grid-gap: 1.25em;
             row-gap: 2em;
         }
@@ -47,7 +46,7 @@ export default styled.section`
 
     @media all and (max-width: ${variables.mobileM}) {
         .row-elements {
-            grid-template-columns: auto auto;
+            grid-template-columns: repeat(2, 1fr);
             grid-gap: 1.25em;
             row-gap: 2em;
         }

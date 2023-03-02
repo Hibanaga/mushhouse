@@ -11,6 +11,8 @@ import Cart from 'components/pages/ShoppingCart/sections/Cart';
 import TotalPrice from 'components/pages/ShoppingCart/sections/TotalPrice';
 import PageContainer from 'components/wrappers/PageContainer';
 
+import NoResult from '../../layout/NoResult';
+
 import Discount from './sections/Discount';
 import StyledComponent from './styles';
 import { Props, ShoppingCart } from './types';
@@ -21,6 +23,7 @@ const HomePage: FunctionComponent<Props> = () => {
 
     useEffect(() => {
         const shoppingCart = getItem('shoppingCart');
+        document.title = 'Shopping Cart';
         if (shoppingCart) setStorageItems(JSON.parse(shoppingCart));
     }, []);
 
@@ -61,7 +64,7 @@ const HomePage: FunctionComponent<Props> = () => {
                     </div>
                 ) : (
                     <div className="container-empty-cart">
-
+                        <NoResult />
                     </div>
                 )}
 
