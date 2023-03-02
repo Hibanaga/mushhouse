@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 
 import Footer from 'components/layout/Footer';
 import Header from 'components/layout/Header';
@@ -11,6 +11,10 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 const HomePage: FunctionComponent<Props> = () => {
+    useEffect(() => {
+        document.title = 'Home';
+    }, []);
+
     return (
         <StyledComponent className="page-home">
             <Header />
