@@ -38,7 +38,7 @@ const LayoutToast: FunctionComponent<Props> = ({ variant, message, closeToast })
             <div className="inner-actions">
                 <Image
                     onClick={closeToast}
-                    src="/images/icon-x.svg"
+                    src="/images/close-icon.svg"
                     className="image-button"
                     width={28}
                     height={28}
