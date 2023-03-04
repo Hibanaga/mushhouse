@@ -7,6 +7,7 @@ export default interface Product {
     price?: number;
     category?: string;
     weight?: number;
+    main_attribute?: Record<string, string>
 
     accesibility?: boolean;
     countReviews?: number;

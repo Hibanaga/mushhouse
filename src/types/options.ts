@@ -11,5 +11,6 @@ export interface OptionName<Value> {
 
 export interface PaginationParams {
     page: number;
-    perPage: number
+    perPage?: number;
+    totalCount?: number;
 }
