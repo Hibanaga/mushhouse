@@ -2,8 +2,7 @@ import { FunctionComponent } from 'react';
 import { useRouter } from 'next/router';
 import classnames from 'classnames';
 
-import Spinner from 'components/layout/Spinner';
-
+// import Spinner from 'components/layout/Spinner';
 import StyledComponent from './styles';
 import { ButtonElements, ButtonIconTypes, Props } from './types';
 
@@ -71,9 +70,10 @@ const LayoutButton: FunctionComponent<Props> = ({
 
     const getContent = () => {
         return (loading ? (
-            <Spinner
-                css="spinner"
-            />
+            <div></div>
+            // <Spinner
+            //     css="spinner"
+            // />
         ) : (
             <>
                 <span className="button-content">{children}</span>
@@ -138,7 +138,7 @@ const LayoutButton: FunctionComponent<Props> = ({
                 `layout-${layout}`,
                 {
                     disabled,
-                }
+                },
             )}
             style={styles}
         >
