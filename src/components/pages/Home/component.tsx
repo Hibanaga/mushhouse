@@ -7,9 +7,9 @@ import { Props } from './types';
 const PageHome: FunctionComponent<Props> = ({  }) => {
     return (
         <StyledComponent className="page-home">
-            <h1>
-                hello world
-            </h1>
+            <h2>
+                changed title with automation deploy
+            </h2>
         </StyledComponent>
     );
 };
