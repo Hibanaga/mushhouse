@@ -1,4 +1,4 @@
-import PageHome from '../src/components/pages/Home';
+import PageHome from 'components/pages/Home';
 
 
 export default function Home() {

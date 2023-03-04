@@ -9,7 +9,6 @@ import { Props } from './types';
 
 
 const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
-    console.log('product: ', product);
     const formatter = new Intl.NumberFormat('pl-PL', {
         style: 'currency',
         currency: 'PLN',

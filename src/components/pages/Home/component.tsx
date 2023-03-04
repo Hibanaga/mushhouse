@@ -1,4 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
+import { useAppContext } from 'context/AppContext';
+
+import { list } from 'requests/categories';
 
 import Container from 'components/layout/Container';
 import Header from 'components/layout/Header';
@@ -10,6 +13,13 @@ import { Props } from './types';
 
 
 const PageHome: FunctionComponent<Props> = ({  }) => {
+    const { fetchCategories } = useAppContext();
+
+    useEffect(() => {
+        fetchCategories && fetchCategories();
+    }, []);
+
+
     return (
         <StyledComponent className="page-home">
             <Header />
