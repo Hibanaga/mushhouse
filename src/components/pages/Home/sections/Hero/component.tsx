@@ -8,11 +8,11 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 
-const SectionHero: FunctionComponent<Props> = ({  }) => {
+const HomeSectionHero: FunctionComponent<Props> = ({  }) => {
     const { categories } = useAppContext();
 
     return (
-        <StyledComponent className="section-hero">
+        <StyledComponent className="home-section-hero">
             <div className="column-image">
                 <Image
                     src="https://static.dw.com/image/59453258_905.jpg"
@@ -28,7 +28,9 @@ const SectionHero: FunctionComponent<Props> = ({  }) => {
                         <li
                             key={element.id}
                             className="list-item"
-                        >{element.name && getWords(element.name, 2)}</li>
+                        >
+                            {element.name && getWords(element.name, 2)}
+                        </li>
                     ))}
                 </ul>
             </div>
@@ -36,4 +38,4 @@ const SectionHero: FunctionComponent<Props> = ({  }) => {
     );
 };
 
-export default SectionHero;
+export default HomeSectionHero;
