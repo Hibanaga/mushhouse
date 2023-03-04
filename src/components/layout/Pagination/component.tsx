@@ -1,35 +1,36 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import ReactPaginate from 'react-paginate';
-import classNames from 'classnames';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const Pagination: FunctionComponent<Props> = ({ className, page, onPageChange, perPage, itemsTotalLength }) => {
-    const [pagesTotalLength, setPagesTotalLength] = useState(Math.ceil(itemsTotalLength / perPage));
+const Pagination: FunctionComponent<Props> = ({ page, perPage, itemsTotalLength, onPageChange }) => {
+    const [pagesTotalLength, setPagesTotalLength] = useState<number>(Math.ceil(itemsTotalLength / perPage));
+
+    useEffect(() => {
+        setPagesTotalLength(Math.ceil(itemsTotalLength / perPage));
+    }, [JSON.stringify({ perPage, itemsTotalLength })]);
 
     const handlePageClick = (selectedPage: { selected: number }) => {
         const currentPage = selectedPage.selected + 1;
+
         if (currentPage > 0 && currentPage < pagesTotalLength + 1) {
             onPageChange(currentPage);
         }
     };
 
-    useEffect(() => {
-        setPagesTotalLength(Math.ceil(itemsTotalLength / perPage));
-    }, [page, itemsTotalLength]);
-
     return (
-        <StyledComponent className={classNames(['layout-pagination', className])}>
+        <StyledComponent className="layout-pagination">
             <ReactPaginate
+                disableInitialCallback
                 breakLabel="..."
-                nextLabel={(<AiOutlineRight stroke={page === pagesTotalLength ? '#AAA' : '#4FC0BA'} />)}
+                // nextLabel={(<IconChevronRight stroke={page === pagesTotalLength ? '#AAA' : '#4FC0BA'} />)}
                 onPageChange={(e) => handlePageClick(e)}
                 pageRangeDisplayed={4}
                 marginPagesDisplayed={2}
+                forcePage={page - 1}
                 pageCount={pagesTotalLength}
-                previousLabel={(<AiOutlineLeft stroke={page === 1 ? '#AAA' : '#4FC0BA'} />)}
+                // previousLabel={(<IconChevronLeft stroke={page === 1 ? '#AAA' : '#4FC0BA'} />)}
                 containerClassName="container"
                 pageClassName="page"
                 pageLinkClassName="pagination-center"

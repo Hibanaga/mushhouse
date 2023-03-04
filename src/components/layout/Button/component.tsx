@@ -1,30 +1,148 @@
-import React, { FunctionComponent } from 'react';
-import { Spinner } from 'react-bootstrap';
-import classNames from 'classnames';
+import { FunctionComponent } from 'react';
+import { useRouter } from 'next/router';
+import classnames from 'classnames';
 
+// import Spinner from 'components/layout/Spinner';
 import StyledComponent from './styles';
-import { Props } from './types';
+import { ButtonElements, ButtonIconTypes, Props } from './types';
 
-const LayoutButton: FunctionComponent<Props> = ({ children, isLoading, onClick, size, variant, style, type, className }) => {
-    const element = isLoading ? <div className="row-loading"><Spinner size="sm" /></div> : <span className="description">{children}</span>;
+const LayoutButton: FunctionComponent<Props> = ({
+    children,
+    href,
+    onClick,
+    type,
+    element,
+    className,
+    icon,
+    disabled,
+    size,
+    style,
+    styles,
+    variant,
+    layout,
+    loading,
+    confirm,
+    focus,
+    buttonProps,
+}) => {
+    const router = useRouter();
 
-    return (
-        <StyledComponent className={classNames([
-            'layout-button',
-            `${size}-size`,
-            `${style}-style`,
-            `${variant}-variant`,
-            `${type}-type`,
-            className,
-        ])}
-        >
+    const defaultConfirmProps = {
+        message: 'Potwierdź swój wybór',
+    };
+
+    const onCheckClick = () => {
+        if (disabled) {
+            return;
+        }
+
+        if (confirm?.enabled) {
+            const confirmConfig = { ...defaultConfirmProps, ...confirm };
+
+            if (window.confirm(confirmConfig.message)) {
+                return onClick && onClick();
+            } else {
+                return null;
+            }
+        }
+
+        return onClick && onClick();
+    };
+
+    const getIcon = () => {
+        if (!icon) return null;
+
+        if (icon.type === ButtonIconTypes.Element) {
+            return icon.value || null;
+        }
+
+        if (icon.type === ButtonIconTypes.Image) {
+            return (
+                <img
+                    className="button-icon-image"
+                    src={icon.value}
+                />
+            );
+        }
+
+        return null;
+    };
+
+    const getContent = () => {
+        return (loading ? (
+            <div></div>
+            // <Spinner
+            //     css="spinner"
+            // />
+        ) : (
+            <>
+                <span className="button-content">{children}</span>
+                {icon && icon.value && <div className="button-icon">{getIcon()}</div>}
+            </>
+        ));
+    };
+
+    const getElement = () => {
+        const button = (
             <button
                 type={type}
-                className="button"
-                onClick={onClick}
+                onClick={onCheckClick}
+                disabled={disabled}
+                className={classnames([
+                    'button',
+                    focus && 'focused-button',
+                ])}
+                {...buttonProps}
             >
-                {element}
+                {getContent()}
             </button>
+        );
+
+        switch (element) {
+            case ButtonElements.Anchor:
+                if (href?.includes('#')) {
+                    return (
+                        <a
+                            onClick={() => {
+                                router.push(href);
+                            }}
+                            {...buttonProps}
+                        >
+                            {button}
+                        </a>
+                    );
+                }
+
+                return (
+                    <a
+                        href={href}
+                        {...buttonProps}
+                    >
+                        {button}
+                    </a>
+                );
+            default:
+                return button;
+        }
+    };
+
+    return (
+        <StyledComponent
+            className={classnames(
+                'layout-button',
+                className,
+                `element-${element}`,
+                `size-${size}`,
+                `style-${style}`,
+                `variant-${variant}`,
+                `layout-${layout}`,
+                {
+                    disabled,
+                },
+            )}
+            style={styles}
+        >
+            {getElement()}
         </StyledComponent>
     );
 };

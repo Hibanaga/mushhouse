@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export default styled.div`
     .container {
@@ -7,13 +7,12 @@ export default styled.div`
         margin: 1em 0;
 
         .pagination-center {
-            width: 2.5em;
-            height: 2.5em;
+            width: 3.5em;
+            height: 3.5em;
+            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #333;
-            border-radius: 50%;
         }
 
         .border-controls {
