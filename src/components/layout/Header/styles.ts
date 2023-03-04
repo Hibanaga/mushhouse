@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 
 import variables from 'theme/styles/vars';
 
-export default styled.div`
-    height: 10em;
+export default styled.header`
+    height: 8em;
     width: 100%;
     box-shadow: 0 5px 35px 0 rgb(0 0 0 / 10%);
     position: sticky;

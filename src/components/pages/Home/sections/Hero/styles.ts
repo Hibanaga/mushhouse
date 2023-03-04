@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import variables from 'theme/styles/vars';
 
-export default styled.header`
+export default styled.section`
     margin-top: 1em;
     width: 100%;
     
