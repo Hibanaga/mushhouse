@@ -1,5 +1,10 @@
 import React, { FunctionComponent } from 'react';
 
+import Container from 'components/layout/Container';
+import Header from 'components/layout/Header';
+import SectionDetails from 'components/pages/Home/sections/Details';
+import SectionHero from 'components/pages/Home/sections/Hero';
+
 import StyledComponent from './styles';
 import { Props } from './types';
 
@@ -7,9 +12,12 @@ import { Props } from './types';
 const PageHome: FunctionComponent<Props> = ({  }) => {
     return (
         <StyledComponent className="page-home">
-            <h2>
-                changed title with automation deploy
-            </h2>
+            <Header />
+
+            <Container>
+                <SectionHero />
+                <SectionDetails />
+            </Container>
         </StyledComponent>
     );
 };

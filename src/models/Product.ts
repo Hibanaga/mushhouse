@@ -11,6 +11,7 @@ export default class Product {
     weight?: number;
 
     countReviews?: number;
+    fullDisplayName?: string;
     fullDescriptionDisplay?: string;
     accesibility?: boolean;
 
@@ -26,6 +27,12 @@ export default class Product {
 
         this.accesibility = data.accesibility;
         this.countReviews = data.countReviews;
+        this.fullDisplayName = data.name && data.main_attribute && this.getDisplayedName(data.name, data.main_attribute);
         this.fullDescriptionDisplay = data.fullDescriptionDisplay;
+    }
+
+
+    getDisplayedName(nameProduct: string, categoryInfo: Record<string, string> ) {
+        return `${nameProduct}/${Object.values(categoryInfo).join(' ')}`;
     }
 }

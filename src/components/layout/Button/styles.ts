@@ -112,7 +112,7 @@ export default styled.div`
     &.style-primary {
         &.variant-primary {
             .button {
-                background-color: #4FC0BA;
+                background-color: #d32d46;
                 color: #FFF;
             }
 
@@ -139,13 +139,13 @@ export default styled.div`
         &.variant-outline {
             .button {
                 background-color: transparent;
-                color: #4FC0BA;
-                border: .01em solid #4FC0BA;
+                color: #36363b;
+                border: .01em solid #36363b;
             }
 
             &:hover {
                 .button {
-                    background-color: #4FC0BA;
+                    background-color: #36363b;
                     color: #FFF;
                 }
             }
