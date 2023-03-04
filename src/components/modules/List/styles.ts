@@ -6,8 +6,14 @@ export default styled.section`
     
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2em 2%;
+    gap: 4em 2%;
    
+    
+    .module-list-element {
+        &:last-of-type {
+            margin-bottom: 5em;
+        }
+    }
     
     @media all and (max-width: ${variables.tabletS}) {
     }

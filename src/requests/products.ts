@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-import Product from 'models/Product';
+import { PaginationParams } from 'types/options';
 
-import { PaginationParams } from '../types/options';
+import Product from 'models/Product';
 
 export const list = async (params?: Record<string, string>): Promise<{ meta: PaginationParams, elements: Product[] }> => {
     const { data } = await axios({ url: 'https://api.szamanita-pantherina.com/api/product', method: 'GET', params }).then((data) => {

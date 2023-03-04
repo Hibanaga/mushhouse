@@ -1,15 +1,18 @@
 import React, { FunctionComponent } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
-import Button from '../../layout/Button';
-import { ButtonVariants } from '../../layout/Button/types';
+import Routes from 'types/routes';
+
+import Button from 'components/layout/Button';
+import { ButtonVariants } from 'components/layout/Button/types';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
 
 const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
-    console.log('product: ', product);
+    const router = useRouter();
     const formatter = new Intl.NumberFormat('pl-PL', {
         style: 'currency',
         currency: 'PLN',
@@ -44,6 +47,10 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                     <Button
                         className="button-details"
                         variant={ButtonVariants.Outline}
+                        onClick={() => router.push({
+                            pathname: Routes.Product,
+                            query: { id: product.id },
+                        })}
                     >
                         Подробнее
                     </Button>

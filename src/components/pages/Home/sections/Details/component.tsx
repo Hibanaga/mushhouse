@@ -7,9 +7,9 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 
-const SectionDetails: FunctionComponent<Props> = ({  }) => {
+const HomeSectionDetails: FunctionComponent<Props> = ({  }) => {
     return (
-        <StyledComponent className="section-details">
+        <StyledComponent className="home-section-details">
             <div className="inner-filter">
                 <h2 className="headline">Наша продукция</h2>
             </div>
@@ -19,4 +19,4 @@ const SectionDetails: FunctionComponent<Props> = ({  }) => {
     );
 };
 
-export default SectionDetails;
+export default HomeSectionDetails;

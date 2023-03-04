@@ -1,18 +1,19 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Global } from '@emotion/core';
+import { AppContextProvider } from 'context/AppContext';
 
 import stylesBreakpoints from 'theme/styles/breakpoints';
 import stylesGlobal from 'theme/styles/global';
 
+import CookiesPanel from '../src/components/layout/CookiesPanel';
 import AppWrapper from '../src/components/wrapper/AppWrapper';
 
 import 'theme/styles/globals.css';
 
-
 export default function App({ Component, pageProps }: AppProps) {
     return (
-        <>
+        <AppContextProvider>
             <>
                 <Global
                     styles={[
@@ -67,8 +68,9 @@ export default function App({ Component, pageProps }: AppProps) {
                 </Head>
                 <AppWrapper>
                     <Component {...pageProps} />
+                    <CookiesPanel />
                 </AppWrapper>
             </>
-        </>
+        </AppContextProvider>
     );
 }

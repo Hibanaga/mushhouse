@@ -61,6 +61,19 @@ export default styled.header`
             display: flex;
             align-items: center;
             height: 35%;
+            
+            
+            .list-item {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                margin-right: 1em;
+                
+                &:hover {
+                    opacity: .85;
+                }
+            }
         }
     }
     

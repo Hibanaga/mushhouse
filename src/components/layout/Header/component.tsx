@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 
-import Container from '../Container';
+import Container from 'components/layout/Container';
 
 import StyledComponent from './styles';
 import { Props } from './types';

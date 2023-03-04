@@ -1,13 +1,18 @@
 import React, { FunctionComponent } from 'react';
 import Image from 'next/image';
+import { useAppContext } from 'context/AppContext';
+
+import { getWords } from 'utils/string';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
 
-const SectionHero: FunctionComponent<Props> = ({  }) => {
+const HomeSectionHero: FunctionComponent<Props> = ({  }) => {
+    const { categories } = useAppContext();
+
     return (
-        <StyledComponent className="section-hero">
+        <StyledComponent className="home-section-hero">
             <div className="column-image">
                 <Image
                     src="https://static.dw.com/image/59453258_905.jpg"
@@ -19,15 +24,18 @@ const SectionHero: FunctionComponent<Props> = ({  }) => {
             <div className="column-details">
                 <h2 className="short-description">Мухомор красный, молотый в веганских капсулах</h2>
                 <ul className="list">
-                    <li className="list-item">Адаптоген</li>
-                    <li className="list-item">Иммуномодулятор</li>
-                    <li className="list-item">Энтеоген</li>
-                    <li className="list-item">Афродизиак</li>
-                    <li className="list-item">Антидепрессант</li>
+                    {categories && categories.map((element) => (
+                        <li
+                            key={element.id}
+                            className="list-item"
+                        >
+                            {element.name && getWords(element.name, 2)}
+                        </li>
+                    ))}
                 </ul>
             </div>
         </StyledComponent>
     );
 };
 
-export default SectionHero;
+export default HomeSectionHero;
