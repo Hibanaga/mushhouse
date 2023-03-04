@@ -1,11 +1,19 @@
 import Component from './component';
-import { ButtonSizes, ButtonStyles, ButtonTypes, ButtonVariants } from './types';
+import { ButtonElements, ButtonLayouts, ButtonSizes, ButtonStyles, ButtonTypes, ButtonVariants } from './types';
+
 
 Component.defaultProps = {
-    type: ButtonTypes.Button,
+    element: ButtonElements.Button,
+    style: ButtonStyles.Primary,
+    styles: {},
     variant: ButtonVariants.Primary,
     size: ButtonSizes.Medium,
-    style: ButtonStyles.Primary,
+    layout: ButtonLayouts.Default,
+    className: '',
+    type: ButtonTypes.Button,
+    disabled: false,
+    loading: false,
+    buttonProps: {},
 };
 
 export default Component;

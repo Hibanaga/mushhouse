@@ -1,9 +1,12 @@
-import { ReactNode } from 'react';
-
 export enum ButtonTypes {
     Button = 'button',
     Submit = 'submit',
     Reset = 'reset',
+}
+
+export enum ButtonElements {
+    Button = 'button',
+    Anchor = 'anchor',
 }
 
 export enum ButtonStyles {
@@ -16,6 +19,13 @@ export enum ButtonVariants {
     Primary = 'primary',
     Contained = 'contained',
     Outline = 'outline',
+    Link = 'link',
+}
+
+export enum ButtonLayouts {
+    Default = 'default',
+    Wide = 'wide',
+    Block = 'block',
 }
 
 export enum ButtonSizes {
@@ -24,13 +34,42 @@ export enum ButtonSizes {
     Large = 'large',
 }
 
+export enum ButtonIconTypes {
+    Image = 'image',
+    Element = 'element',
+}
+
+export interface ListProps extends Props {
+    key: string;
+}
+
+
 export interface Props {
+    children: any;
     type?: ButtonTypes;
-    style?: ButtonStyles;
-    variant?: ButtonVariants;
-    size?: ButtonSizes;
-    isLoading?: boolean;
-    children?: ReactNode;
-    onClick?: () => void;
+    element?: ButtonElements;
     className?: string;
+    onClick?: Function;
+    href?: string;
+    icon?: {
+        type: ButtonIconTypes;
+        value: any;
+    };
+    disabled?: boolean;
+    size?: ButtonSizes;
+    style?: ButtonStyles;
+    styles?: object;
+    variant?: ButtonVariants;
+    layout?: ButtonLayouts;
+    loading?: boolean;
+    confirm?: {
+        enabled: boolean;
+        message?: string;
+    };
+    focus?: boolean;
+    copy?: {
+        enabled: boolean;
+        content: string;
+    }
+    buttonProps?: any;
 }

@@ -1,9 +1,11 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
+import variables from 'theme/styles/vars';
 
-export default styled.main`
+export default styled.div`
+    width: 100%;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+    @media all and (max-width: ${variables.tabletS}) {
+    }
 `;
