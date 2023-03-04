@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import Category from '../models/Category';
+import Category from 'models/Category';
 
 
 export const list = async (params?: Record<string, string>): Promise<any> => {

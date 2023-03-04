@@ -5,6 +5,8 @@ import { list } from 'requests/categories';
 
 import Container from 'components/layout/Container';
 import Header from 'components/layout/Header';
+import SectionAddress from 'components/pages/Home/sections/Address';
+import SectionContact from 'components/pages/Home/sections/Contact';
 import SectionDetails from 'components/pages/Home/sections/Details';
 import SectionHero from 'components/pages/Home/sections/Hero';
 
@@ -19,7 +21,6 @@ const PageHome: FunctionComponent<Props> = ({  }) => {
         fetchCategories && fetchCategories();
     }, []);
 
-
     return (
         <StyledComponent className="page-home">
             <Header />
@@ -28,6 +29,9 @@ const PageHome: FunctionComponent<Props> = ({  }) => {
                 <SectionHero />
                 <SectionDetails />
             </Container>
+
+            <SectionContact />
+            <SectionAddress />
         </StyledComponent>
     );
 };
