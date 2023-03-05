@@ -14,10 +14,19 @@ const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
                     <Image
                         src={product.imageUrl}
                         alt="alt image product"
-                        width={18}
-                        height={18}
+                        width={432}
+                        height={432}
+                        className="image"
+                        quality={100}
                     />
                 )}
+            </div>
+
+            <div className="column-details">
+                <h3 className="data-headline">{product.fullDisplayName}</h3>
+                <span className="data-price">{product.price}</span>
+                <ul className="inner-atttibutes">
+                </ul>
             </div>
         </StyledComponent>
     );

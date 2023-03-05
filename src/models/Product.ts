@@ -1,4 +1,5 @@
-import ApiProduct from 'types/api/Product';
+import ApiProduct, { ProductExtendedAttribute } from 'types/api/Product';
+import { OptionName } from 'types/options';
 
 export default class Product {
     id: string;
@@ -11,6 +12,7 @@ export default class Product {
     weight?: number;
 
     fullDisplayName?: string;
+    categories?: OptionName<string>[];
     accesibility?: boolean;
 
     constructor(data: ApiProduct) {
@@ -24,9 +26,17 @@ export default class Product {
 
         this.accesibility = data?.active ?? false;
         this.fullDisplayName = data.name && data.main_attribute && this.getDisplayedName(data.name, data.main_attribute);
+        this.categories = data?.description?.attributes && this.getCategories(data?.description?.attributes);
     }
 
     getDisplayedName(nameProduct: string, categoryInfo: Record<string, string> ) {
         return `${nameProduct}/${Object.values(categoryInfo).join(' ')}`;
+    }
+
+    getCategories(arrayAttributes: ProductExtendedAttribute[]): OptionName<string>[] {
+        return arrayAttributes && arrayAttributes.map((element: ProductExtendedAttribute) => ({
+            name: element?.attribute?.name ?? '',
+            value: element.value && element.unit ? `${element.value} ${element.unit}` : element.value ? element.value : '',
+        }));
     }
 }

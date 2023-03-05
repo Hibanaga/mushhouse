@@ -10,6 +10,7 @@ export type ProductMediaType = {
 
 export interface ProductExtendedAttribute extends ProductAttribute{
     id: string;
+    attribute: { id?: string, name?: string, slug?: string }
 }
 
 
