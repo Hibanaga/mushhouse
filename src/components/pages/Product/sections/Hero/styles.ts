@@ -6,8 +6,8 @@ export default styled.div`
     margin-top: 2em;
     
     display: grid;
-    grid-template-columns: calc(4.5 / 12 * 100%) calc(6.5 / 12 * 100%);
-    column-gap: calc(1 / 12 * 100%);
+    grid-template-columns: calc(5.5 / 12 * 100%) calc(6 / 12 * 100%);
+    column-gap: calc(.5 / 12 * 100%);
     
     .column-images {
         .image {
@@ -17,24 +17,25 @@ export default styled.div`
     }
     
     .column-details {
-        .data-headline {}
-        .data-price {}
+        .data-headline {
+            display: block;
+            font-size: 2em;
+            margin-bottom: 1.25em;
+            font-weight: 500;
+        }
+        .data-price {
+            display: block;
+            font-size: 1.25em;
+            margin-bottom: 2em;
+        }
         
-        .list {
-            .list-item {
-                display: grid;
-                grid-template-columns: calc(4.5 / 12 * 100%) calc(7.5 / 12 * 100%);
-                padding: .5em 0;
-                
-                .data-name {
-                    font-weight: 700;
-                    color: #1c1c1c;
-                }
-                .data-value {
-                    color: #1c1c1c;
-                    font-weight: 300;
-                }
-            }
+        .button-add-to-cart {
+            display: inline-block;
+            margin-bottom: 2em;
+        }
+
+        .data-description {
+            display: block;
         }
     }
    

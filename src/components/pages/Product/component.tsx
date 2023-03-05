@@ -6,6 +6,7 @@ import Product from 'models/Product';
 import Container from 'components/layout/Container';
 import Header from 'components/layout/Header';
 
+import SectionDetails from './sections/Details';
 import SectionHero from './sections/Hero';
 import { getStaticStaticProps } from './index';
 import StyledComponent from './styles';
@@ -16,6 +17,7 @@ const PageProduct: FunctionComponent<InferGetServerSidePropsType<typeof getStati
             <Header />
             <Container>
                 <SectionHero product={new Product(product)} />
+                <SectionDetails product={new Product(product)} />
             </Container>
         </StyledComponent>
     );
