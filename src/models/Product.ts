@@ -1,7 +1,7 @@
 import ApiProduct from 'types/api/Product';
 
 export default class Product {
-    id?: string;
+    id: string;
     name?: string;
     description?: string;
     imageUrl?: string;
@@ -30,7 +30,6 @@ export default class Product {
         this.fullDisplayName = data.name && data.main_attribute && this.getDisplayedName(data.name, data.main_attribute);
         this.fullDescriptionDisplay = data.fullDescriptionDisplay;
     }
-
 
     getDisplayedName(nameProduct: string, categoryInfo: Record<string, string> ) {
         return `${nameProduct}/${Object.values(categoryInfo).join(' ')}`;

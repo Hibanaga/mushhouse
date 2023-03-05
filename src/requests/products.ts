@@ -25,14 +25,5 @@ export const single = async (id: string, params?: Record<string, string>): Promi
         return data;
     });
 
-    return new Product({
-        ...data,
-        accesibility: data.active,
-        category: data.category.name,
-        imageUrl: data.description.media[0].file,
-        description: data.description.description_long,
-        fullDescriptionDisplay: data.description.description_short,
-        countReviews: 2,
-        images: data.description.media.map((({ file }: any) => file)),
-    });
+    return data;
 };

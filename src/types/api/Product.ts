@@ -1,5 +1,5 @@
 export default interface Product {
-    id?: string;
+    id: string;
     name?: string;
     description?: string;
     imageUrl?: string;
