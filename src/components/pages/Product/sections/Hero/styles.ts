@@ -26,7 +26,8 @@ export default styled.div`
         .data-price {
             display: block;
             font-size: 1.25em;
-            margin-bottom: 2em;
+            padding-bottom: 1em;
+            margin-bottom: 1em;
         }
         
         .button-add-to-cart {

@@ -10,7 +10,7 @@ const ProductSectionDetails: FunctionComponent<Props> = ({ product }) => {
         <StyledComponent className="product-section-details">
             <h2 className="headline">Категории</h2>
             <ul className="list">
-                {product.categories?.map((element) => (
+                {product?.categories?.map((element) => (
                     <li
                         key={element.name}
                         className="list-item"

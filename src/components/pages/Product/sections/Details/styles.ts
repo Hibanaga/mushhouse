@@ -13,7 +13,7 @@ export default styled.div`
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2%;
-        margin-bottom: 6em;
+        margin-bottom: 2em;
 
         .list-item {
             display: grid;
