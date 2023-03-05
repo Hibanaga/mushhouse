@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import Image from 'next/image';
-import { useAppContext } from 'context/AppContext';
 
 import { getWords } from 'utils/string';
 
@@ -8,9 +7,7 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 
-const HomeSectionHero: FunctionComponent<Props> = ({  }) => {
-    const { categories } = useAppContext();
-
+const HomeSectionHero: FunctionComponent<Props> = ({ categories }) => {
     return (
         <StyledComponent className="home-section-hero">
             <div className="column-image">

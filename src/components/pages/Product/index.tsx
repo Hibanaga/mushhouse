@@ -4,8 +4,6 @@ import axios from 'axios';
 
 import { single } from 'requests/products';
 
-import Product from '../../../models/Product';
-
 import Component from './component';
 
 Component.defaultProps = {

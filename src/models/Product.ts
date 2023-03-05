@@ -12,6 +12,7 @@ export default class Product {
     weight?: number;
 
     fullDisplayName?: string;
+    priceDisplay?: 0 | undefined | string;
     categories?: OptionName<string>[];
     accesibility?: boolean;
 
@@ -27,6 +28,7 @@ export default class Product {
         this.accesibility = data?.active ?? false;
         this.fullDisplayName = data.name && data.main_attribute && this.getDisplayedName(data.name, data.main_attribute);
         this.categories = data?.description?.attributes && this.getCategories(data?.description?.attributes);
+        this.priceDisplay = data.price && this.getFormattedPrice(data.price ?? 0);
     }
 
     getDisplayedName(nameProduct: string, categoryInfo: Record<string, string> ) {
@@ -38,5 +40,11 @@ export default class Product {
             name: element?.attribute?.name ?? '',
             value: element.value && element.unit ? `${element.value} ${element.unit}` : element.value ? element.value : '',
         }));
+    }
+
+    getFormattedPrice (price: number): string {
+        const formatter = new Intl.NumberFormat('pl-PL', { style: 'currency', currency: 'PLN' });
+
+        return formatter.format(price);
     }
 }

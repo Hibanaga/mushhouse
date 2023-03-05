@@ -15,6 +15,28 @@ export default styled.div`
             width: 100%;
         }
     }
+    
+    .column-details {
+        .data-headline {}
+        .data-price {}
+        
+        .list {
+            .list-item {
+                display: grid;
+                grid-template-columns: calc(4.5 / 12 * 100%) calc(7.5 / 12 * 100%);
+                padding: .5em 0;
+                
+                .data-name {
+                    font-weight: 700;
+                    color: #1c1c1c;
+                }
+                .data-value {
+                    color: #1c1c1c;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
    
     @media all and (max-width: ${variables.tabletS}) {
     }
