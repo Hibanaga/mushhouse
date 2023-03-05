@@ -10,3 +10,4 @@ export function shorten(string: string, length: number, addDots = false): string
 export function getWords (string: string, count: number): string {
     return string.split(' ').slice(0, count).join(' ');
 }
+

@@ -48,6 +48,11 @@ export default styled.header`
                     position: relative;
                     width: 3em;
                     height: 3em;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        opacity: .85;
+                    }
                     
                     &:first-of-type {
                         margin-right: 1em;

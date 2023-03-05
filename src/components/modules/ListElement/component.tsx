@@ -13,10 +13,6 @@ import { Props } from './types';
 
 const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
     const router = useRouter();
-    const formatter = new Intl.NumberFormat('pl-PL', {
-        style: 'currency',
-        currency: 'PLN',
-    });
 
     return (
         <StyledComponent className="module-list-element">
@@ -25,6 +21,7 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                     <Image
                         src={product.imageUrl}
                         alt="alt image product"
+                        sizes=""
                         layout="fill"
                     />
                 </div>
@@ -35,7 +32,7 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                     <h3 className="data-name">{product?.fullDisplayName ?? product?.name}</h3>
                     <div>
                         <span className="data-category">{product?.category ?? ''}</span>
-                        <span className="data-price">{product?.price && formatter.format(product?.price)}</span>
+                        <span className="data-price">{product?.priceDisplay}</span>
                     </div>
 
                 </div>
