@@ -4,7 +4,7 @@ import Category from 'models/Category';
 import Product from 'models/Product';
 
 import { list as listCategories } from 'requests/categories';
-import { list as listProducts } from 'requests/products';
+import { list as listProducts, single as singleProduct } from 'requests/products';
 
 import { AppContextDefaults } from './AppContextDefault';
 import { AppContextProps } from './AppContextProps';
@@ -22,9 +22,12 @@ const AppState = (): AppContextProps => {
     };
 
     const fetchShoppingCart = async (params: any) => {
-        const { elements } = await listProducts(params);
+        const arrayIds = params?.shoppingIds.map(({ id }: any) => id);
 
-        setShoppingCart(elements);
+        arrayIds && await Promise.all(arrayIds.map((element: string) => singleProduct(element))).then((array) => {
+            const shoppingCartProduct = array.map((element) => new Product({ ...element, quantity: params?.shoppingIds?.find((item: { id: string, quantity: number }) => element?.id === item.id)?.quantity }));
+            setShoppingCart(shoppingCartProduct);
+        });
     };
 
 
