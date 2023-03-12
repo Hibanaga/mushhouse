@@ -23,6 +23,7 @@ export default interface Product {
     price?: number;
     slug?: string;
     active?: boolean;
+    quantity?: number;
     description?: {
         id?: string;
         active?: boolean;

@@ -1,8 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useAppContext } from 'context/AppContext';
 
 import Routes from 'types/routes';
+
+import Product from 'models/Product';
 
 import Button from 'components/layout/Button';
 import { ButtonVariants } from 'components/layout/Button/types';
@@ -13,6 +16,15 @@ import { Props } from './types';
 
 const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
     const router = useRouter();
+    const { onAddElement, fetchShoppingCart } = useAppContext();
+
+    const handleAddShoppingCart =  (product: Product) => {
+        const arrayIds = onAddElement && onAddElement(product);
+
+        if (arrayIds && fetchShoppingCart) {
+            fetchShoppingCart({ shoppingIds: arrayIds });
+        }
+    };
 
     return (
         <StyledComponent className="module-list-element">
@@ -38,7 +50,10 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                 </div>
 
                 <div className="inner-action">
-                    <Button className="button-add-cart">
+                    <Button
+                        className="button-add-cart"
+                        onClick={() => handleAddShoppingCart(product)}
+                    >
                         В корзину
                     </Button>
                     <Button

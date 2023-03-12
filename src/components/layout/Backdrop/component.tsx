@@ -10,7 +10,7 @@ const LayoutBackdrop: FunctionComponent<Props> = ({ isOpen, onDrop }) => {
             className={classNames(
                 'layout-backdrop',
                 'filters-mask',
-                { visible: isOpen }
+                { visible: isOpen },
             )}
             onClick={onDrop}
         />

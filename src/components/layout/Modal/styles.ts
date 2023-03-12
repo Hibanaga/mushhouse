@@ -16,8 +16,20 @@ export default styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgb(1 67 93 / 50%);
+        background-color: rgba(0,0,0,.8);
         z-index: 98;
+    }
+    
+    .button-close {
+        position: absolute;
+        top: 3%;
+        right: 2%;
+        z-index: 99999;
+        
+        .image-button {
+            cursor: pointer;
+            filter: invert(100%) sepia(80%) saturate(2%) hue-rotate(54deg) brightness(111%) contrast(101%);
+        }
     }
 
     .modal-container {
@@ -26,20 +38,17 @@ export default styled.div`
         left: 50%;
         width: 100%;
         max-width: 65em;
+        max-height: 85vh;
         background-color: #FFF;
         box-shadow: 0 6px 20px rgba(31, 33, 34, 0.1);
         z-index: 99;
         transform: translate(-50%, -50%);
         padding: .5em;
         border-radius: .5em;
-
+        overflow-y: scroll;
+        
         .modal-body {
-            .image-button {
-                position: absolute;
-                top: 3%;
-                right: 2%;
-                cursor: pointer;
-            }
+            overflow: auto;
         }
     }
 

@@ -15,6 +15,7 @@ export default class Product {
     priceDisplay?: 0 | undefined | string;
     categories?: OptionName<string>[];
     accesibility?: boolean;
+    quantity?: number;
 
     constructor(data: ApiProduct) {
         this.id = data.id;
@@ -29,6 +30,7 @@ export default class Product {
         this.fullDisplayName = data.name && data.main_attribute && this.getDisplayedName(data.name, data.main_attribute);
         this.categories = data?.description?.attributes && this.getCategories(data?.description?.attributes);
         this.priceDisplay = data.price && this.getFormattedPrice(data.price ?? 0);
+        this.quantity = data?.quantity;
     }
 
     getDisplayedName(nameProduct: string, categoryInfo: Record<string, string> ) {
