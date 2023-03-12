@@ -16,7 +16,7 @@ const LayoutModal: FunctionComponent<Props> = ({ children, hasCancelButton, onCl
                     {hasCancelButton && (
                         <Image
                             onClick={() => onClose && onClose()}
-                            src="/images/icon-x.svg"
+                            src="/images/close-icon.svg"
                             className="image-button"
                             width={36}
                             height={36}

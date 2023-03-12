@@ -1,12 +1,13 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { InferGetServerSidePropsType } from 'next';
-import Image from 'next/image';
 import { useAppContext } from 'context/AppContext';
 
 import { getItem } from 'utils/localStorage';
 
+import ButtonShoppingCart from 'components/layout/ButtonShoppingCart';
 import Container from 'components/layout/Container';
 import Header from 'components/layout/Header';
+import ShoppingCartModal from 'components/modules/ShoppingCartModal';
 import SectionAddress from 'components/pages/Home/sections/Address';
 import SectionContact from 'components/pages/Home/sections/Contact';
 import SectionDetails from 'components/pages/Home/sections/Details';
@@ -16,7 +17,16 @@ import { getStaticStaticProps } from './index';
 import StyledComponent from './styles';
 
 const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticStaticProps>> = ({ categories }) => {
+    const [isOpenModal, setIsOpenModal] = useState(false);
     const { shoppingCart, fetchShoppingCart } = useAppContext();
+
+    useEffect(() => {
+        if (isOpenModal) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'initial';
+        }
+    }, [isOpenModal]);
 
     useEffect(() => {
         getShoppingCart();
@@ -28,27 +38,25 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
         storageCart && fetchShoppingCart && await fetchShoppingCart({ shoppingIds: JSON.parse(storageCart) });
     };
 
-    console.log('shoppingCart:', shoppingCart);
-
     return (
         <StyledComponent className="page-home">
-            <Header />
 
-            {shoppingCart && shoppingCart.length && (
-                <div className="button-shopping-cart">
-                    <Image
-                        width={56}
-                        height={56}
-                        src="/images/shopping-cart.svg"
-                        alt="alt image"
-                    />
-
-                    <div className="button-elements">
-                        <span className="content">{shoppingCart.length}</span>
-                    </div>
-                </div>
+            {isOpenModal && shoppingCart && (
+                <ShoppingCartModal
+                    shoppingCart={shoppingCart}
+                    onClose={() => setIsOpenModal(false)}
+                />
             )}
 
+            {shoppingCart && shoppingCart.length && (
+                <ButtonShoppingCart
+                    isOpenShoppingCart={isOpenModal}
+                    onToggle={() => setIsOpenModal(!isOpenModal)}
+                    shoppingCart={shoppingCart}
+                />
+            )}
+
+            <Header />
             <Container>
                 <SectionHero categories={categories} />
                 <SectionDetails />

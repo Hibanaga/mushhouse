@@ -26,6 +26,7 @@ export default styled.div`
         left: 50%;
         width: 100%;
         max-width: 65em;
+        max-height: 80vh;
         background-color: #FFF;
         box-shadow: 0 6px 20px rgba(31, 33, 34, 0.1);
         z-index: 99;
@@ -34,6 +35,8 @@ export default styled.div`
         border-radius: .5em;
 
         .modal-body {
+            overflow: auto;
+            
             .image-button {
                 position: absolute;
                 top: 3%;

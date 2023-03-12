@@ -8,7 +8,7 @@ export default styled.header`
     box-shadow: 0 5px 35px 0 rgb(0 0 0 / 10%);
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 10;
     transition: height 0.3s ease-in-out;
     background-color: #FFF;
     
