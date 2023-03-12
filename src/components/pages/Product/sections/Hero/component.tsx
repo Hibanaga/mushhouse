@@ -1,18 +1,16 @@
 import React, { FunctionComponent } from 'react';
 import Image from 'next/image';
 
-import { getWords } from 'utils/string';
+import Button from 'components/layout/Button';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
 const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
-    console.log('product: ', product);
-
     return (
         <StyledComponent className="product-section-hero">
             <div className="column-images">
-                {product.imageUrl && (
+                {product?.imageUrl && (
                     <Image
                         src={product.imageUrl}
                         alt="alt image product"
@@ -25,19 +23,16 @@ const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
             </div>
 
             <div className="column-details">
-                <h3 className="data-headline">{product.fullDisplayName}</h3>
-                <span className="data-price">{product.price}</span>
-                <ul className="list">
-                    {product.categories?.map((element) => (
-                        <li
-                            key={element.name}
-                            className="list-item"
-                        >
-                            <span className="data-name">{getWords(element.name, 3)}</span>
-                            <span className="data-value">{element.value}</span>
-                        </li>
-                    ))}
-                </ul>
+                <h3 className="data-headline">{product?.fullDisplayName}</h3>
+                <span className="data-price">{product?.priceDisplay}</span>
+
+                <Button className="button-add-to-cart">
+                    Купить
+                </Button>
+
+                <span className="data-description">
+                    {product?.description}
+                </span>
             </div>
         </StyledComponent>
     );
