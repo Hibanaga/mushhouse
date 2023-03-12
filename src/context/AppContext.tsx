@@ -4,7 +4,10 @@ import Category from 'models/Category';
 import Product from 'models/Product';
 
 import { list as listCategories } from 'requests/categories';
-import { list as listProducts, single as singleProduct } from 'requests/products';
+import { list as listProducts } from 'requests/products';
+
+import { ShoppingCartProps } from '../types/options';
+import { getItem, setItem } from '../utils/localStorage';
 
 import { AppContextDefaults } from './AppContextDefault';
 import { AppContextProps } from './AppContextProps';
@@ -22,12 +25,34 @@ const AppState = (): AppContextProps => {
     };
 
     const fetchShoppingCart = async (params: any) => {
-        const arrayIds = params?.shoppingIds.map(({ id }: any) => id);
+        const arrayIds = params?.shoppingIds.map(({ id }: ShoppingCartProps) => id);
+        const { elements } = await listProducts({ products: arrayIds.join(',') });
 
-        arrayIds && await Promise.all(arrayIds.map((element: string) => singleProduct(element))).then((array) => {
-            const shoppingCartProduct = array.map((element) => new Product({ ...element, quantity: params?.shoppingIds?.find((item: { id: string, quantity: number }) => element?.id === item.id)?.quantity }));
-            setShoppingCart(shoppingCartProduct);
-        });
+        setShoppingCart(elements);
+    };
+
+    const handleRemoveShoppingCartElement = (productId: string) => {
+        setShoppingCart(shoppingCart.filter(({ id }) => id !== productId));
+    };
+
+    const handleAddShoppingCartElement = (product: Product) => {
+        const storageCart = getItem('shoppingCart');
+
+        let shoppingCart = null;
+        if (!storageCart) {
+            shoppingCart = [{ id: product.id, quantity: 1 }];
+        } else {
+            const parseStorageCart = JSON.parse(storageCart);
+
+            if (parseStorageCart.some(({ id }: {id: string}) => id === product.id )) {
+                shoppingCart = parseStorageCart.map((element: ShoppingCartProps) => element.id === product.id ? { id: element.id, quantity: element.quantity + 1 } : element);
+            } else {
+                shoppingCart = [ ...parseStorageCart, { id: product.id, quantity: 1 } ];
+            }
+        }
+        setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+        return shoppingCart;
     };
 
 
@@ -36,6 +61,8 @@ const AppState = (): AppContextProps => {
         shoppingCart,
         fetchCategories,
         fetchShoppingCart,
+        onRemoveElement: handleRemoveShoppingCartElement,
+        onAddElement: handleAddShoppingCartElement,
     };
 };
 

@@ -15,6 +15,11 @@ export default styled.section`
         height: 100%;
         width: 100%;
         padding: 0;
+        cursor: pointer;
+        
+        &:hover {
+            opacity: .5;
+        }
         
         .icon {
             color: #6f6f6f;

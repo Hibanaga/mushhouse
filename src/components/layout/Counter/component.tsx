@@ -28,7 +28,6 @@ const LayoutCounter: FunctionComponent<Props> = ({ size, value, onChange }) => {
                 />
             </button>
             <input
-                // type="number"
                 className="input"
                 value={value}
                 min={1}

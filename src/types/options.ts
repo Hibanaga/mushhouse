@@ -15,3 +15,8 @@ export interface PaginationParams {
     totalCount?: number;
 }
 
+export interface ShoppingCartProps {
+    id: string;
+    quantity: number
+}
+

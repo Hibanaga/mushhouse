@@ -11,18 +11,21 @@ const LayoutModal: FunctionComponent<Props> = ({ children, hasCancelButton, onCl
                 className="modal-backdrop"
                 onClick={onClose}
             />
+            {hasCancelButton && (
+                <div className="button-close">
+                    <Image
+                        onClick={() => onClose && onClose()}
+                        src="/images/close-icon.svg"
+                        className="image-button"
+                        width={36}
+                        height={36}
+                        alt="alt layout toast image"
+                    />
+                </div>
+            )}
+
             <div className="modal-container">
                 <div className="modal-body">
-                    {hasCancelButton && (
-                        <Image
-                            onClick={() => onClose && onClose()}
-                            src="/images/close-icon.svg"
-                            className="image-button"
-                            width={36}
-                            height={36}
-                            alt="alt layout toast image"
-                        />
-                    )}
                     {children}
                 </div>
             </div>

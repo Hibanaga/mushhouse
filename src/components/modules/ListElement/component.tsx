@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useAppContext } from 'context/AppContext';
 
 import Routes from 'types/routes';
 
-import { getItem, setItem } from 'utils/localStorage';
+import Product from 'models/Product';
 
 import Button from 'components/layout/Button';
 import { ButtonVariants } from 'components/layout/Button/types';
@@ -15,24 +16,14 @@ import { Props } from './types';
 
 const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
     const router = useRouter();
+    const { onAddElement, fetchShoppingCart } = useAppContext();
 
-    const handleAddShoppingCart = () => {
-        const storageCart = getItem('shoppingCart');
+    const handleAddShoppingCart =  (product: Product) => {
+        const arrayIds = onAddElement && onAddElement(product);
 
-        let shoppingCart = null;
-        if (!storageCart) {
-            shoppingCart = [{ id: product.id, quantity: 1 }];
-        } else {
-            const parseStorageCart = JSON.parse(storageCart);
-
-            if (parseStorageCart.some(({ id }: {id: string}) => id === product.id )) {
-                shoppingCart = parseStorageCart.map((element: {id: string, quantity: number}) => element.id === product.id ? { id: element.id, quantity: element.quantity + 1 } : element);
-            } else {
-                shoppingCart = [ ...parseStorageCart, { id: product.id, quantity: 1 } ];
-            }
+        if (arrayIds && fetchShoppingCart) {
+            fetchShoppingCart({ shoppingIds: arrayIds });
         }
-
-        setItem('shoppingCart', JSON.stringify(shoppingCart));
     };
 
     return (
@@ -61,7 +52,7 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                 <div className="inner-action">
                     <Button
                         className="button-add-cart"
-                        onClick={() => handleAddShoppingCart()}
+                        onClick={() => handleAddShoppingCart(product)}
                     >
                         В корзину
                     </Button>

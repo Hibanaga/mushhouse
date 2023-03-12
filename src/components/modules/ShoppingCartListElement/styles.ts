@@ -19,6 +19,13 @@ export default styled.div`
             background-size: cover;
         }
     }
+    
+    .inner-counter {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
    
     @media all and (max-width: ${variables.tabletS}) {
     }

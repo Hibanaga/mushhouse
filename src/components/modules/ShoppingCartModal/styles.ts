@@ -7,7 +7,6 @@ export default styled.div`
     .layout-modal {
         .modal-container {
             max-width: 40em;
-            overflow-y: auto;
         }
     }
 
