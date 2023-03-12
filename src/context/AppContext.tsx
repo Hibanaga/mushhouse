@@ -32,6 +32,9 @@ const AppState = (): AppContextProps => {
     };
 
     const handleRemoveShoppingCartElement = (productId: string) => {
+        const parseStorageCart = JSON.parse(getItem('shoppingCart') as string);
+        const shoppingCartList = parseStorageCart.filter((element: ShoppingCartProps) => element.id !== productId);
+        setItem('shoppingCart', JSON.stringify(shoppingCartList));
         setShoppingCart(shoppingCart.filter(({ id }) => id !== productId));
     };
 
