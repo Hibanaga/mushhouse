@@ -46,7 +46,6 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                         <span className="data-category">{product?.category ?? ''}</span>
                         <span className="data-price">{product?.priceDisplay}</span>
                     </div>
-
                 </div>
 
                 <div className="inner-action">
