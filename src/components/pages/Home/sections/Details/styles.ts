@@ -9,6 +9,7 @@ export default styled.main`
     .inner-filter {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         margin-bottom: 4em;
         
         .headline {

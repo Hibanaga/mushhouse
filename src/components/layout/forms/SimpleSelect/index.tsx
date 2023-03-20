@@ -1,13 +1,9 @@
 import Component from './component';
-import { SelectTypes } from './types';
-
 
 Component.defaultProps = {
-    label: '',
-    error: '',
     multiline: false,
-    type: SelectTypes.Primary,
-    hasSelectAllButton: false,
+    hasClearButton: false,
+    classNamePrefix: 'multi-select-category',
 };
 
 export default Component;

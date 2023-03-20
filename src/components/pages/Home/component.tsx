@@ -59,7 +59,7 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
             <Header />
             <Container>
                 <SectionHero categories={categories} />
-                <SectionDetails />
+                <SectionDetails categories={categories} />
             </Container>
 
             <SectionContact />
