@@ -17,6 +17,21 @@ export default styled.div`
         }
     }
 
+    .multi-select-category__menu {
+        background-color: #FFF;
+
+        .multi-select-category__option {
+            &:hover {
+                background-color: #F3F3F3;
+            }
+
+            &.multi-select-category__option--is-selected {
+                background-color: #d32d46;
+                color: #FFF;
+            }
+        }
+    }
+
     @media all and (max-width: ${variables.tabletS}) {
     }
 `;

@@ -16,9 +16,13 @@ const ModuleList: FunctionComponent<Props> = ({ filters }) => {
     const [meta, setMeta] = useState<PaginationParams | null>(null);
     const [products, setProducts] = useState<Product[] | null>(null);
 
-    async function getProducts() {
+    useEffect(() => {
+        filters && getProducts(filters);
+    }, [JSON.stringify(filters)]);
+
+    async function getProducts(filters: { [key:string]: string }) {
         try {
-            const { meta, elements } = await list();
+            const { meta, elements } = await list(filters);
 
             setProducts(elements);
             setMeta(meta);
@@ -27,9 +31,6 @@ const ModuleList: FunctionComponent<Props> = ({ filters }) => {
         }
     };
 
-    useEffect(() => {
-        getProducts();
-    }, []);
 
     return (
         <StyledComponent className="module-list">
