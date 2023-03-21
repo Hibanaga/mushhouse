@@ -8,5 +8,6 @@ export interface Props {
   options: Option<string>[];
   className?: string;
   classNamePrefix?: string;
+  placeholder?: string;
   onChange?: (newValue: SingleValue<Option<string>> | MultiValue<Option<string>> ) => void;
 }

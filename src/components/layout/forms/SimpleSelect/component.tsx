@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import Select from 'react-select';
-import { useAppContext } from 'context/AppContext';
 
 import StyledComponent from './styles';
 import { Props } from './types';
