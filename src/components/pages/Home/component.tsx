@@ -12,6 +12,7 @@ import SectionAddress from 'components/pages/Home/sections/Address';
 import SectionContact from 'components/pages/Home/sections/Contact';
 import SectionDetails from 'components/pages/Home/sections/Details';
 import SectionHero from 'components/pages/Home/sections/Hero';
+import SectionShipping from 'components/pages/Home/sections/Shipping';
 
 import { getStaticStaticProps } from './index';
 import StyledComponent from './styles';
@@ -62,6 +63,7 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
                 <SectionDetails categories={categories} />
             </Container>
 
+            <SectionShipping />
             <SectionContact />
             <SectionAddress />
         </StyledComponent>
