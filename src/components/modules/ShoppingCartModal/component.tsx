@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Modal from 'components/layout/Modal';
@@ -11,8 +10,6 @@ import { Props } from './types';
 
 
 const ModuleShoppingCartModal: FunctionComponent<Props> = ({ shoppingCart, onClose }) => {
-    const router = useRouter();
-
     return (
         <StyledComponent className="module-shopping-cart-modal">
             <Modal
