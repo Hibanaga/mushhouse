@@ -13,7 +13,7 @@ export default styled.div`
     background-color: rgba(0,0,0,.8);
 
      .button-close {
-         position: absolute;
+         position: fixed;
          top: 3%;
          right: 2%;
          z-index: 99999;

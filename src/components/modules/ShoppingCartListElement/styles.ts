@@ -4,13 +4,13 @@ import variables from 'theme/styles/vars';
 
 export default styled.div`
     display: grid;
-    gap: .75em;
-    grid-template-columns: calc(3 / 12 * 100%) calc(3 / 12 * 100%) calc(3 / 12 * 100%) calc(2.85 / 12 * 100%);
+    gap: 2%;
+    grid-template-columns: calc(3 / 12 * 100%) calc(3 / 12 * 100%) calc(2 / 12 * 100%) calc(1.5 / 12 * 100%) calc(2.5 / 12 * 100%);
     margin-bottom: 1em;
     
     .inner-image {
         width: 100%;
-        height: 7em;
+        height: 6em;
         position: relative;
         
         img {
@@ -20,11 +20,22 @@ export default styled.div`
         }
     }
     
+    .data-name {
+        font-size: .875em;
+    }
+    
+    .inner-total {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
     
     .inner-remove {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
+        padding-left: 2em;
 
         .inner-close-button {
             display: block;

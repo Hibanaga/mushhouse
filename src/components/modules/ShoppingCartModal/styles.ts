@@ -16,8 +16,8 @@ export default styled.div`
         
         .subheadline {
             font-size: 1.375em;
-            padding-bottom: 1.375em;
-            border-bottom: 0.01em solid #333;
+            padding-bottom: 1.1em;
+            border-bottom: 1px solid rgba(0,0,0,.2);
             margin-bottom: 1.375em;
             font-weight: 600;
             color: #000000;
