@@ -14,6 +14,8 @@ import SectionDetails from 'components/pages/Home/sections/Details';
 import SectionHero from 'components/pages/Home/sections/Hero';
 import SectionShipping from 'components/pages/Home/sections/Shipping';
 
+import HintMarket from '../../modules/HintMarket';
+
 import { getStaticStaticProps } from './index';
 import StyledComponent from './styles';
 
@@ -59,6 +61,7 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
 
             <Header />
             <Container>
+                <HintMarket />
                 <SectionHero categories={categories} />
                 <SectionDetails categories={categories} />
             </Container>
