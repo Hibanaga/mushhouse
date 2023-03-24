@@ -51,6 +51,21 @@ export default styled.div`
             gap: 1em;
         }
         
+        .layout-forms-simple-input {
+            &.primary-input {
+                .input {
+                    color: #000000;
+                    border: 1px solid #000000;
+                    padding: 1em 2em;
+                    border-radius: 15em;
+
+                    &::placeholder {
+                        color: #000000;
+                    }
+                }
+            }
+        }
+        
         .input-phone {
             margin-top: 1em;
             

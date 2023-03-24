@@ -51,7 +51,7 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
                 />
             )}
 
-            {shoppingCart && shoppingCart.length && (
+            {shoppingCart && shoppingCart.length && !isOpenModal && (
                 <ButtonShoppingCart
                     isOpenShoppingCart={isOpenModal}
                     onToggle={() => setIsOpenModal(!isOpenModal)}
