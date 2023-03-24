@@ -35,6 +35,7 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                         alt="alt image product"
                         sizes=""
                         layout="fill"
+                        objectFit="cover"
                     />
                 </div>
             )}
@@ -46,7 +47,6 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                         <span className="data-category">{product?.category ?? ''}</span>
                         <span className="data-price">{product?.priceDisplay}</span>
                     </div>
-
                 </div>
 
                 <div className="inner-action">

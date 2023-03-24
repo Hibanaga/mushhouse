@@ -23,6 +23,7 @@
         "emotion-server": "^10.0.27",
         "eslint": "8.27.0",
         "eslint-config-next": "13.0.2",
+        "framer-motion": "^10.8.5",
         "moment": "^2.29.4",
         "moment-timezone": "^0.5.39",
         "next": "^13.2.4",
@@ -30,12 +31,14 @@
         "react": "18.2.0",
         "react-datepicker": "^4.8.0",
         "react-dom": "18.2.0",
+        "react-intersection-observer": "^9.4.3",
         "react-paginate": "^8.1.4",
+        "react-select": "^5.7.1",
         "react-toastify": "^9.1.1",
         "react-tooltip": "^4.5.1",
         "typescript": "4.8.4",
         "vanilla-cookieconsent": "^2.8.9",
-        "yup": "^0.32.11"
+        "yup": "^1.0.2"
     },
     "devDependencies": {
         "@emotion/eslint-plugin": "^11.7.0",

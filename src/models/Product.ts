@@ -16,6 +16,7 @@ export default class Product {
     categories?: OptionName<string>[];
     accesibility?: boolean;
     quantity?: number;
+    totalPrice: number | undefined;
 
     constructor(data: ApiProduct) {
         this.id = data.id;
@@ -31,10 +32,11 @@ export default class Product {
         this.categories = data?.description?.attributes && this.getCategories(data?.description?.attributes);
         this.priceDisplay = data.price && this.getFormattedPrice(data.price ?? 0);
         this.quantity = data?.quantity;
+        this.totalPrice = data?.price && data?.quantity && this.getTotalPrice(data.price, data.quantity);
     }
 
     getDisplayedName(nameProduct: string, categoryInfo: Record<string, string> ) {
-        return `${nameProduct}/${Object.values(categoryInfo).join(' ')}`;
+        return `${nameProduct} ${Object.values(categoryInfo).reverse().join(' ')}`;
     }
 
     getCategories(arrayAttributes: ProductExtendedAttribute[]): OptionName<string>[] {
@@ -42,6 +44,10 @@ export default class Product {
             name: element?.attribute?.name ?? '',
             value: element.value && element.unit ? `${element.value} ${element.unit}` : element.value ? element.value : '',
         }));
+    }
+
+    getTotalPrice (price: number, quantity: number) {
+        return price * quantity;
     }
 
     getFormattedPrice (price: number): string {

@@ -8,6 +8,7 @@ export default styled.div`
         width: 100%;
         border-radius: 6px;
         outline: none;
+        box-sizing: border-box;
     }
 
     &.primary-input {
@@ -19,9 +20,14 @@ export default styled.div`
             line-height: 1.35em;
             border: 1px solid #F3F4F6;
 
-            &::placeholder {
-                color: #AAAAAA;
-            }
+            //color: #000000;
+            //border: 1px solid #000000;
+            //padding: 1em 2em;
+            //
+            //&::placeholder {
+            //    color: #AAAAAA;
+            //    color: #000000;
+            //}
 
             &.error-input {
                 border: 2px solid #DC2626;

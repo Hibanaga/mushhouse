@@ -54,8 +54,9 @@ export default styled.section`
             flex-direction: row;
             margin-top: 2.5em;
             
+            
             .layout-forms-simple-input {
-                width: 13em;
+                width: 35%;
                 margin-right: 3em;
                 
                 div {

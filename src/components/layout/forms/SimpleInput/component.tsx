@@ -7,12 +7,12 @@ import SimpleLabel from 'components/layout/forms/SimpleLabel';
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const SimpleInput: FunctionComponent<Props> = ({ id, label, placeholder, value, onChange, css, type, name, wrapperCss, error, disabled, variant, onFocus, onBlur }) => {
+const SimpleInput: FunctionComponent<Props> = ({ id, label, placeholder, value, onChange, css, type, name, className, error, disabled, variant, onFocus, onBlur }) => {
     return (
         <StyledComponent className={classNames([
             'layout-forms-simple-input',
             `${variant}-input`,
-            wrapperCss,
+            className,
         ])}
         >
             {label && (
@@ -29,7 +29,7 @@ const SimpleInput: FunctionComponent<Props> = ({ id, label, placeholder, value, 
                     id={id}
                     className={classNames('input',
                         css || '',
-                        error ? 'error-input' : ''
+                        error ? 'error-input' : '',
                     )}
                     placeholder={placeholder}
                     onChange={onChange ? e => onChange(e) : undefined}

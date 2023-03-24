@@ -1,4 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
+import classNames from 'classnames';
 
 import Product from 'models/Product';
 
@@ -10,8 +12,11 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 const ProductSectionRelated: FunctionComponent<Props> = ({ product }) => {
+    const [ref, inView] = useInView({
+        threshold: 0,
+        triggerOnce: true,
+    });
     const [relatedProducts, setRelatedProducts] = useState<Product[] | null>(null);
-    console.log('product: ', product);
 
     useEffect(() => {
         getRelatedProducts();
@@ -28,7 +33,13 @@ const ProductSectionRelated: FunctionComponent<Props> = ({ product }) => {
     };
 
     return (
-        <StyledComponent className="product-section-related">
+        <StyledComponent
+            ref={ref}
+            className={classNames([
+                'product-section-related',
+                inView ? 'animate-lazy-load': 'lazy-load',
+            ])}
+        >
             <h2 className="headline">Похожие продукты</h2>
             <div className="inner">
                 {relatedProducts && relatedProducts.map((element) => (

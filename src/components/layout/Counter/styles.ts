@@ -5,17 +5,23 @@ export default styled.section`
     background-color: #f5f5f5;
     display: flex;
     align-items: center;
-    height: 3em;
-    width: 100%;
     
     .button {
         border: none;
         outline: none;
-        background-color: #f5f5f5;
-        height: 100%;
-        width: 100%;
+        height: 2.5em;
+        min-width: 2.5em;
         padding: 0;
         cursor: pointer;
+       
+        
+        .inner-image {
+            position: relative;
+            display: flex;
+            margin: 0 auto;
+            width: 2em;
+            height: 2em;
+        }
         
         &:hover {
             opacity: .5;
@@ -37,10 +43,9 @@ export default styled.section`
         outline: none;
         text-align: center;
         border: none;
-        background-color: #f5f5f5;
-        color: #6f6f6f;
-        height: 100%;
         width: 100%;
+        background-color: transparent;
+        color: #6f6f6f;
         padding: 0;
     }
 `;

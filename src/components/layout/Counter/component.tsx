@@ -20,12 +20,14 @@ const LayoutCounter: FunctionComponent<Props> = ({ size, value, onChange }) => {
                 className="button"
                 onClick={handleMinusAction}
             >
-                <Image
-                    src="/images/remove-icon.svg"
-                    width={26}
-                    height={26}
-                    alt="minus icon"
-                />
+                <div className="inner-image">
+                    <Image
+                        fill
+                        objectFit="contain"
+                        src="/images/remove-icon.svg"
+                        alt="minus icon"
+                    />
+                </div>
             </button>
             <input
                 className="input"

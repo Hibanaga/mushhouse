@@ -7,11 +7,13 @@ import { getItem } from 'utils/localStorage';
 import ButtonShoppingCart from 'components/layout/ButtonShoppingCart';
 import Container from 'components/layout/Container';
 import Header from 'components/layout/Header';
+import HintMarket from 'components/modules/HintMarket';
 import ShoppingCartModal from 'components/modules/ShoppingCartModal';
 import SectionAddress from 'components/pages/Home/sections/Address';
 import SectionContact from 'components/pages/Home/sections/Contact';
 import SectionDetails from 'components/pages/Home/sections/Details';
 import SectionHero from 'components/pages/Home/sections/Hero';
+import SectionShipping from 'components/pages/Home/sections/Shipping';
 
 import { getStaticStaticProps } from './index';
 import StyledComponent from './styles';
@@ -48,7 +50,7 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
                 />
             )}
 
-            {shoppingCart && shoppingCart.length && (
+            {shoppingCart && shoppingCart.length && !isOpenModal && (
                 <ButtonShoppingCart
                     isOpenShoppingCart={isOpenModal}
                     onToggle={() => setIsOpenModal(!isOpenModal)}
@@ -58,10 +60,12 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
 
             <Header />
             <Container>
+                <HintMarket />
                 <SectionHero categories={categories} />
-                <SectionDetails />
+                <SectionDetails categories={categories} />
             </Container>
 
+            <SectionShipping />
             <SectionContact />
             <SectionAddress />
         </StyledComponent>
