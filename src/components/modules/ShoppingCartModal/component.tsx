@@ -6,8 +6,11 @@ import Product from 'models/Product';
 
 import { getItem, setItem } from 'utils/localStorage';
 
+import SimpleInput from 'components/layout/forms/SimpleInput';
 import Modal from 'components/layout/Modal';
 
+import Button from '../../layout/Button';
+import { ButtonTypes } from '../../layout/Button/types';
 import ShoppingCartListElement from '../ShoppingCartListElement';
 
 import StyledComponent from './styles';
@@ -60,9 +63,62 @@ const ModuleShoppingCartModal: FunctionComponent<Props> = ({ shoppingCart, onClo
                         ))}
                     </div>
 
-                    <div className="totalPrice">
-                        {formatter.format(totalShoppingCart)}
+                    <div className="inner-total-price">
+                        <span className="data-name">Сумма:{' '}</span>
+                        <span className="data-value">{formatter.format(totalShoppingCart)}</span>
                     </div>
+
+
+                    <form className="form">
+                        <div className="inner-fullname">
+                            <SimpleInput
+                                name="firstName"
+                                className="input-first-name"
+                                placeholder="Имя"
+                                onChange={() => console.log('aaa')}
+                            />
+                            <SimpleInput
+                                name="lastName"
+                                placeholder="Фамилия"
+                                className="input-last-name"
+                                onChange={() => console.log('aaa')}
+                            />
+                        </div>
+                        <SimpleInput
+                            name="phone"
+                            className="input-phone"
+                            label="Адресс"
+                            placeholder="107031, г. Москва, ул. Большая Лубянка, 2, кв. 1"
+                            onChange={() => console.log('aaa')}
+                        />
+
+                        <SimpleInput
+                            name="promocode"
+                            className="input-promocode"
+                            label="Промокод"
+                            onChange={() => console.log('aaa')}
+                        />
+
+                        <div className="inner-totalsum">
+                            <div className="inner-total-form">
+                                <span className="data-name">Сумма:{' '}</span>
+                                <span className="data-value">{formatter.format(totalShoppingCart)}</span>
+                            </div>
+
+                            <div className="inner-total-form">
+                                <span className="data-name">Итоговая сумма:{' '}</span>
+                                <span className="data-value">{formatter.format(totalShoppingCart)}</span>
+                            </div>
+                        </div>
+
+
+                        <Button
+                            type={ButtonTypes.Submit}
+                            className="button-submit-form"
+                        >
+                            Я оплатил
+                        </Button>
+                    </form>
                 </div>
             </Modal>
         </StyledComponent>

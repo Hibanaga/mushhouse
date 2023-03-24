@@ -17,7 +17,7 @@ export interface Props {
     css?: string;
     name?: string;
     type?: string;
-    wrapperCss?: string;
+    className?: string;
     error?: string;
     disabled?: boolean;
     variant?: InputVariants;
