@@ -54,7 +54,10 @@ const HomeSectionContact: FunctionComponent<Props> = ({  }) => {
     };
 
     return (
-        <StyledComponent className="home-section-contact">
+        <StyledComponent
+            id="id_contact"
+            className="home-section-contact"
+        >
             <div className="inner">
                 <h3 className="headline">Контакты</h3>
                 <span className="subheadline">У вас остались вопросы? Свяжитесь с нами!</span>

@@ -25,6 +25,11 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
         };
     }, []);
 
+    const handleScrollToSection = (id: string, position:ScrollLogicalPosition = 'start') => {
+        const violation = document.getElementById(id.toLowerCase());
+        violation && violation.scrollIntoView({ behavior: 'smooth', block: position });
+    };
+
     const social = [
         { href: '', imageUrl:'/images/telegram.svg' },
         { href: '', imageUrl:'/images/viber.svg' },
@@ -65,14 +70,15 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
                     <ul className="inner-main">
                         {
                             [
-                                { label: 'Продукция', value: 'product' },
-                                { label: 'Доставка', value: 'shipping' },
-                                { label: 'Оплата', value: 'payment' },
-                                { label: 'Контакты', value: 'contact' },
-                            ].map(({ label, value }) => (
+                                { label: 'Продукция', value: 'id_products-list', position: 'start' },
+                                { label: 'Контакты', value: 'id_contact', position: 'center' },
+                                { label: 'Доставка', value: 'id_shipping', position: 'center' },
+                                // { label: 'Оплата', value: 'id_payme' },
+                            ].map(({ label, value, position }) => (
                                 <li
                                     key={value}
                                     className="list-item"
+                                    onClick={() => handleScrollToSection(value, position as ScrollLogicalPosition)}
                                 >
                                     <span className="data-label">{label}</span>
                                 </li>

@@ -13,7 +13,10 @@ const HomeSectionDetails: FunctionComponent<Props> = ({ categories }) => {
     const [filters, setFilters] = useState({ category: '' });
 
     return (
-        <StyledComponent className="home-section-details">
+        <StyledComponent
+            id="id_products-list"
+            className="home-section-details"
+        >
             <div className="inner-filter">
                 <h2 className="headline">Наша продукция</h2>
                 <SimpleSelect
