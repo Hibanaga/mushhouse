@@ -11,12 +11,37 @@ const HomeSectionHero: FunctionComponent<Props> = ({ categories }) => {
     return (
         <StyledComponent className="home-section-hero">
             <div className="column-image">
-                <Image
-                    src="https://static.dw.com/image/59453258_905.jpg"
-                    alt="alt-image szamanita"
-                    layout="fill"
-                />
+                <div className="inner-image">
+                    <Image
+                        src="/images/capsule.png"
+                        alt="alt-image szamanita"
+                        layout="fill"
+                    />
+                </div>
+
+                <div className="inner-image">
+                    <Image
+                        src="/images/capsule.png"
+                        alt="alt-image szamanita"
+                        layout="fill"
+                    />
+                </div>
+
+                <div className="inner-image">
+                    <Image
+                        src="/images/capsule.png"
+                        alt="alt-image szamanita"
+                        layout="fill"
+                    />
+                </div>
             </div>
+            {/*<div className="column-image">*/}
+            {/*    <Image*/}
+            {/*        src="https://static.dw.com/image/59453258_905.jpg"*/}
+            {/*        alt="alt-image szamanita"*/}
+            {/*        layout="fill"*/}
+            {/*    />*/}
+            {/*</div>*/}
 
             <div className="column-details">
                 <h2 className="short-description">Мухомор красный, молотый в веганских капсулах</h2>
