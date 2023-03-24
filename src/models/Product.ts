@@ -34,7 +34,7 @@ export default class Product {
     }
 
     getDisplayedName(nameProduct: string, categoryInfo: Record<string, string> ) {
-        return `${nameProduct}/${Object.values(categoryInfo).join(' ')}`;
+        return `${nameProduct} ${Object.values(categoryInfo).reverse().join(' ')}`;
     }
 
     getCategories(arrayAttributes: ProductExtendedAttribute[]): OptionName<string>[] {

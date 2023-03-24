@@ -35,6 +35,7 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                         alt="alt image product"
                         sizes=""
                         layout="fill"
+                        objectFit="cover"
                     />
                 </div>
             )}

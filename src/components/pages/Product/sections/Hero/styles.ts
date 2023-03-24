@@ -3,14 +3,16 @@ import styled from '@emotion/styled';
 import variables from 'theme/styles/vars';
 
 export default styled.div`
-    margin-top: 2em;
+    margin-top: 7em;
     
     display: grid;
     grid-template-columns: calc(5.5 / 12 * 100%) calc(6 / 12 * 100%);
     column-gap: calc(.5 / 12 * 100%);
     
     .column-images {
-        .image {
+        
+        .inner-image {
+            position: relative;
             height: 24em;
             width: 100%;
         }

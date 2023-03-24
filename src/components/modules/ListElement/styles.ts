@@ -7,7 +7,7 @@ export default styled.div`
     box-shadow: 0 0 25px 0 rgb(0 0 0 / 10%);
     border-radius: .375em;
     overflow: hidden;
-    min-height: 32em;
+    min-height: 40em;
     box-sizing: border-box;
     
     .inner-image {
@@ -26,14 +26,15 @@ export default styled.div`
             .data-name {
                 font-size: 1.4em;
                 font-weight: 400;
+                height: 5em;
             }
 
             .data-category {
                 font-size: .875em;
-                font-weight: 700;
+                font-weight: 300;
                 color: #919197;
                 display: block;
-                padding-bottom: .875em;
+                padding: .875em 0 1.5em 0;
             }
 
             .data-price {
@@ -47,18 +48,13 @@ export default styled.div`
         .inner-action {
             display: flex;
             align-items: center;
-            flex-direction: column;
-            justify-content: flex-start;
             gap: 5%;
             
             .layout-button {
                 width: 100%;
                 
-                &:first-of-type {
-                    margin-bottom: .5em;
-                }
-                
                 .button {
+                    border-radius: 10em;
                     width: 100%;
                 }
             }

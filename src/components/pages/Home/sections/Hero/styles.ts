@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import variables from 'theme/styles/vars';
 
 export default styled.section`
-    margin: 7em 0;
+    margin: 7em 0 10em 0;
     width: 100%;
     
     display: grid;
@@ -13,6 +13,7 @@ export default styled.section`
     .column-image {
         position: relative;
         border-radius: .375em;
+        
         .inner-image {
             position: absolute;
             top: -10%;

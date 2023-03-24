@@ -7,6 +7,8 @@ export default styled.div`
     position: relative;
     z-index: 0;
     
+    
+    
     @media all and (max-width: ${variables.tabletS}) {
     }
 `;

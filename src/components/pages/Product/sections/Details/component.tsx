@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from 'react';
+import { useInView } from 'react-intersection-observer';
+import classNames from 'classnames';
 
 import { getWords } from 'utils/string';
 
@@ -6,8 +8,19 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 const ProductSectionDetails: FunctionComponent<Props> = ({ product }) => {
+    const [ref, inView] = useInView({
+        threshold: 0,
+        triggerOnce: true,
+    });
+
     return (
-        <StyledComponent className="product-section-details">
+        <StyledComponent
+            ref={ref}
+            className={classNames([
+                'product-section-details',
+                inView ? 'animate-lazy-load': 'lazy-load',
+            ])}
+        >
             <h2 className="headline">Категории</h2>
             <ul className="list">
                 {product?.categories?.map((element) => (
