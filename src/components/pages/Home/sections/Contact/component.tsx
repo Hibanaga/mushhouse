@@ -9,6 +9,7 @@ import Button from 'components/layout/Button';
 import SimpleInput from 'components/layout/forms/SimpleInput';
 
 import { ButtonTypes } from '../../../../layout/Button/types';
+import Container from '../../../../layout/Container';
 
 import StyledComponent from './styles';
 import { Props } from './types';
@@ -58,36 +59,38 @@ const HomeSectionContact: FunctionComponent<Props> = ({  }) => {
             id="id_contact"
             className="home-section-contact"
         >
-            <div className="inner">
-                <h3 className="headline">Контакты</h3>
-                <span className="subheadline">У вас остались вопросы? Свяжитесь с нами!</span>
-                <form
-                    className="inner-action"
-                    onSubmit={handleSubmit}
-                >
-                    <SimpleInput
-                        name="fullName"
-                        className="input-name"
-                        placeholder="Ваше имя"
-                        onChange={(e) => setFormState(prevFormState => ({ ...prevFormState, fullName: e.target.value }))}
-                        value={formState.fullName}
-                        error={errors?.fullName}
-                    />
-                    <SimpleInput
-                        name="phoneNumber"
-                        className="input-phone"
-                        placeholder="Номер телефона"
-                        onChange={(e) => setFormState(prevFormState => ({ ...prevFormState, phoneNumber: e.target.value }))}
-                        value={formState.phoneNumber}
-                        error={errors?.phoneNumber}
-                    />
-                    <Button
-                        type={ButtonTypes.Submit}
-                        className="button-send-contact"
-                        loading={isLoading}
-                    >Оставить заявку</Button>
-                </form>
-            </div>
+            <Container className="layout-layout-container">
+                <div className="inner">
+                    <h3 className="headline">Контакты</h3>
+                    <span className="subheadline">У вас остались вопросы? Свяжитесь с нами!</span>
+                    <form
+                        className="inner-action"
+                        onSubmit={handleSubmit}
+                    >
+                        <SimpleInput
+                            name="fullName"
+                            className="input-name"
+                            placeholder="Ваше имя"
+                            onChange={(e) => setFormState(prevFormState => ({ ...prevFormState, fullName: e.target.value }))}
+                            value={formState.fullName}
+                            error={errors?.fullName}
+                        />
+                        <SimpleInput
+                            name="phoneNumber"
+                            className="input-phone"
+                            placeholder="Номер телефона"
+                            onChange={(e) => setFormState(prevFormState => ({ ...prevFormState, phoneNumber: e.target.value }))}
+                            value={formState.phoneNumber}
+                            error={errors?.phoneNumber}
+                        />
+                        <Button
+                            type={ButtonTypes.Submit}
+                            className="button-send-contact"
+                            loading={isLoading}
+                        >Оставить заявку</Button>
+                    </form>
+                </div>
+            </Container>
         </StyledComponent>
     );
 };

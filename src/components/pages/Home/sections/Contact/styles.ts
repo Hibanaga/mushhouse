@@ -24,13 +24,16 @@ export default styled.section`
         filter: blur(10px);
     }
     
+    .layout-layout-container {
+        position: relative;
+    }
     
     .inner {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-        width: 50%;
+        width: 100%;
         height: 55%;
         display: flex;
         flex-direction: column;
@@ -73,6 +76,39 @@ export default styled.section`
     }
     
     
-    @media all and (max-width: ${variables.tabletS}) {
+    @media all and (max-width: ${variables.tabletL}) {
+        .inner {
+            width: 90%;
+        }   
+    }
+    
+    @media all and (max-width: ${variables.tabletM}) {
+        height: 30em;
+        
+        .inner {
+            height: 65%;
+            
+            .inner-action {
+                flex-direction: column;
+
+                .layout-forms-simple-input {
+                    width: 100%;
+                    margin-bottom: 1em;
+
+                    div {
+                        width: 100%;
+                    }
+                }
+
+                .button-send-contact {
+                    width: 100%;
+                    
+                    .button {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
     }
 `;

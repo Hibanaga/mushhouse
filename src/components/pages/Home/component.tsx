@@ -9,7 +9,6 @@ import Container from 'components/layout/Container';
 import Header from 'components/layout/Header';
 import HintMarket from 'components/modules/HintMarket';
 import ShoppingCartModal from 'components/modules/ShoppingCartModal';
-import SectionAddress from 'components/pages/Home/sections/Address';
 import SectionContact from 'components/pages/Home/sections/Contact';
 import SectionDetails from 'components/pages/Home/sections/Details';
 import SectionHero from 'components/pages/Home/sections/Hero';
@@ -67,7 +66,6 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
 
             <SectionShipping />
             <SectionContact />
-            <SectionAddress />
         </StyledComponent>
     );
 };

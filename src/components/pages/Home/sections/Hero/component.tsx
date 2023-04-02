@@ -35,13 +35,6 @@ const HomeSectionHero: FunctionComponent<Props> = ({ categories }) => {
                     />
                 </div>
             </div>
-            {/*<div className="column-image">*/}
-            {/*    <Image*/}
-            {/*        src="https://static.dw.com/image/59453258_905.jpg"*/}
-            {/*        alt="alt-image szamanita"*/}
-            {/*        layout="fill"*/}
-            {/*    />*/}
-            {/*</div>*/}
 
             <div className="column-details">
                 <h2 className="short-description">Мухомор красный, молотый в веганских капсулах</h2>
