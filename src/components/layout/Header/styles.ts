@@ -105,6 +105,9 @@ export default styled.header`
         
     }
     
-    @media all and (max-width: ${variables.tabletS}) {
+    @media all and (max-width: ${variables.tabletL}) {
+        .inner-contact {
+            display: none;
+        }
     }
 `;

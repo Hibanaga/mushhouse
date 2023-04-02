@@ -15,6 +15,7 @@ export default styled.div`
     right: 0;
     width: 20em;
     height: 90vh;
+    box-shadow: 0 5px 35px 0 rgb(0 0 0 / 10%);
     transition: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
 

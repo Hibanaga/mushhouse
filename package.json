@@ -24,6 +24,7 @@
         "eslint": "8.27.0",
         "eslint-config-next": "13.0.2",
         "framer-motion": "^10.8.5",
+        "hamburger-react": "^2.5.0",
         "moment": "^2.29.4",
         "moment-timezone": "^0.5.39",
         "next": "^13.2.4",

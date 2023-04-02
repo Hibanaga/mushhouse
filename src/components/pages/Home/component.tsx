@@ -19,6 +19,7 @@ import StyledComponent from './styles';
 
 const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticStaticProps>> = ({ categories }) => {
     const [isOpenModal, setIsOpenModal] = useState(false);
+    const [isOpenMobileDrawer, setIsOpenMobileDrawer] = useState(false);
     const { shoppingCart, fetchShoppingCart } = useAppContext();
 
     useEffect(() => {
@@ -39,17 +40,20 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
         storageCart && fetchShoppingCart && await fetchShoppingCart({ shoppingIds: JSON.parse(storageCart) });
     };
 
+    const handleCloseMobileDrawer = () => setIsOpenMobileDrawer(false);
+    const handleOpenMobileDrawer = () => setIsOpenMobileDrawer(true);
+
     return (
         <StyledComponent className="page-home">
 
-            {isOpenModal && shoppingCart && (
+            {isOpenModal && !isOpenMobileDrawer && shoppingCart && (
                 <ShoppingCartModal
                     shoppingCart={shoppingCart}
                     onClose={() => setIsOpenModal(false)}
                 />
             )}
 
-            {shoppingCart && shoppingCart.length && !isOpenModal && (
+            {shoppingCart && !isOpenMobileDrawer && shoppingCart.length && !isOpenModal && (
                 <ButtonShoppingCart
                     isOpenShoppingCart={isOpenModal}
                     onToggle={() => setIsOpenModal(!isOpenModal)}
@@ -57,7 +61,11 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
                 />
             )}
 
-            <Header />
+            <Header
+                isOpenMobileDrawer={isOpenMobileDrawer}
+                onOpenDrawer={handleOpenMobileDrawer}
+                onCloseDrawer={handleCloseMobileDrawer}
+            />
             <Container>
                 <HintMarket />
                 <SectionHero categories={categories} />

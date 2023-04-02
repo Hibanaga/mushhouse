@@ -1,0 +1,12 @@
+{
+    "socials": [
+        { "href": "", "imageUrl": "/images/telegram.svg" },
+        { "href": "", "imageUrl": "/images/viber.svg" },
+        { "href": "", "imageUrl": "/images/whatsapp.svg" }
+    ],
+    "elementNavigations": [
+        { "label": "Продукция", "value": "id_products-list", "position": "start" },
+        { "label": "Контакты", "value": "id_contact", "position": "center" },
+        { "label": "Доставка", "value": "id_shipping", "position": "center" }
+    ]
+}
