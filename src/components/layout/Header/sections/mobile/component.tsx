@@ -16,6 +16,11 @@ const LayoutHeaderSectionMobile: FunctionComponent<Props> = ({ isOpenMobileDrawe
             <Drawer isOpen={isOpenMobileDrawer}>
                 <Container>
                     <div className="inner">
+                        <div className="inner-header">
+                            <h3 className="headline"></h3>
+                        </div>
+
+
                         <div className="inner-navigation">
                             {translations.socials.map(({ href, imageUrl }) => (
                                 <div

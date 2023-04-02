@@ -4,6 +4,10 @@ import variables from 'theme/styles/vars';
 
 export default styled.div`
     
+    .inner-header {
+        
+    }
+    
     .inner-navigation {
         position: absolute;
         bottom: 5%;
