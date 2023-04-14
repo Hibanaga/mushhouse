@@ -19,7 +19,7 @@ export default styled.section`
        
         
         .data-content {
-            font-size: 1.75em;
+            font-size: 1.25em;
             display: block;
             padding-bottom: 1em;
             font-weight: 300;

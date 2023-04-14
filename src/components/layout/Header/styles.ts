@@ -33,7 +33,7 @@ export default styled.header`
                 margin: 0 .375em;
                 
                 .data-label {
-                    font-size: 1.275em;
+                    font-size: 1em;
                 }
             }
         }   
