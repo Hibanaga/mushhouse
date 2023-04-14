@@ -28,8 +28,6 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
         }
     };
 
-    console.log('product: ', product);
-
     return (
         <StyledComponent className="module-list-element">
             {product.imageUrl && (
@@ -56,12 +54,6 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
 
                 <div className="inner-action">
                     <Button
-                        className="button-add-cart"
-                        onClick={() => handleAddShoppingCart(product)}
-                    >
-                        В корзину
-                    </Button>
-                    <Button
                         className="button-details"
                         variant={ButtonVariants.Outline}
                         onClick={() => router.push({
@@ -69,7 +61,13 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                             query: { id: product.id },
                         })}
                     >
-                        Подробнее
+                        Zobacz Więcej
+                    </Button>
+                    <Button
+                        className="button-add-cart"
+                        onClick={() => handleAddShoppingCart(product)}
+                    >
+                        Do Koszyka
                     </Button>
                 </div>
             </div>

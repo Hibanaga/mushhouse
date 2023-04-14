@@ -1,12 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import Image from 'next/image';
 
-import { getWords } from 'utils/string';
-
 import Container from 'components/layout/Container';
 
+import { Props } from './index';
 import StyledComponent from './styles';
-import { Props } from './types';
 
 
 const HomeSectionHero: FunctionComponent<Props> = ({  }) => {

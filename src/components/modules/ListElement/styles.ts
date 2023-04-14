@@ -59,8 +59,24 @@ export default styled.div`
                 width: 100%;
                 
                 .button {
-                    border-radius: 10em;
+                    border-radius: .825em;
                     width: 100%;
+                }
+                
+                &.button-details {
+
+                    &:hover {
+                        opacity: .9;
+                    }
+                    
+                    .button {
+                        background-color: #FFF;
+                        border: .01em solid #000000;
+                        
+                        .button-content {
+                            color: #000000;
+                        }
+                    }
                 }
             }
         }
