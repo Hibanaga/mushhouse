@@ -14,7 +14,7 @@ import { AppContextProps } from './AppContextProps';
 const AppContext: Context<AppContextProps> = createContext(AppContextDefaults);
 const AppState = (): AppContextProps => {
     const [storageShoppingCart, setStorageShoppingCart] = useState<ShoppingCartProps[] | []>([]);
-    const [shoppingCart, setShoppingCart] = useState<Product[] | []>([]);
+    const [cart, setCart] = useState<Product[] | []>([]);
 
     const fetchShoppingCart = async (params: { products?: string }) => {
         const shoppingCart = getItem('shoppingCart');
@@ -27,7 +27,7 @@ const AppState = (): AppContextProps => {
             return new Product({ ...element, ...searchElement });
         });
 
-        setShoppingCart(products);
+        setCart(products);
         setStorageShoppingCart(parsedShoppingCart);
     };
 
@@ -35,7 +35,7 @@ const AppState = (): AppContextProps => {
         const parseStorageCart = JSON.parse(getItem('shoppingCart') as string);
         const shoppingCartList = parseStorageCart.filter((element: ShoppingCartProps) => element.id !== productId);
         setItem('shoppingCart', JSON.stringify(shoppingCartList));
-        setShoppingCart(shoppingCart.filter(({ id }) => id !== productId));
+        setCart(cart.filter(({ id }) => id !== productId));
     };
 
     const handleAddShoppingCartElement = (product: Product, quantity?: number) => {
@@ -68,7 +68,7 @@ const AppState = (): AppContextProps => {
 
 
     return {
-        shoppingCart,
+        shoppingCart: cart,
         storageShoppingCart,
         fetchShoppingCart,
         onRemoveElement: handleRemoveShoppingCartElement,

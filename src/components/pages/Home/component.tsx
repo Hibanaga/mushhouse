@@ -1,7 +1,6 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import { InferGetServerSidePropsType } from 'next';
 import { useAppContext } from 'context/AppContext';
-import { element } from 'prop-types';
 
 import { ShoppingCartProps } from 'types/options';
 
@@ -25,21 +24,10 @@ import StyledComponent from './styles';
 const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticStaticProps>> = ({ meta, products }) => {
     const { shoppingCart, fetchShoppingCart } = useAppContext();
 
+
     useEffect(() => {
-        const storageCart = getItem('shoppingCart');
-        const parsedShoppingCart = storageCart && JSON.parse(storageCart);
-
-        if (!shoppingCart?.length && parsedShoppingCart?.length) {
-            getShoppingCart(parsedShoppingCart);
-        }
-    }, []);
-
-    const getShoppingCart = async (storage: ShoppingCartProps[]) => {
-        const arrayIds = storage.map((element)=> element.id);
-        if (fetchShoppingCart) {
-            await fetchShoppingCart({ products: arrayIds.join(',') });
-        }
-    };
+        console.log('shoppingCart: ', shoppingCart);
+    }, [shoppingCart]);
 
     return (
         <StyledComponent className="page-home">
