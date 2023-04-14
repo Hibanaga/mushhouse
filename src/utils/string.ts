@@ -11,3 +11,7 @@ export function getWords (string: string, count: number): string {
     return string.split(' ').slice(0, count).join(' ');
 }
 
+export function getSenteces (string: string, count: number): string {
+    return string.split(/(?<=[.!?])\s+/).slice(0, count).join(' ');
+}
+

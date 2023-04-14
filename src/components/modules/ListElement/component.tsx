@@ -7,6 +7,8 @@ import Routes from 'types/routes';
 
 import Product from 'models/Product';
 
+import { getSenteces, shorten } from 'utils/string';
+
 import Button from 'components/layout/Button';
 import { ButtonVariants } from 'components/layout/Button/types';
 
@@ -26,6 +28,8 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
         }
     };
 
+    console.log('product: ', product);
+
     return (
         <StyledComponent className="module-list-element">
             {product.imageUrl && (
@@ -44,7 +48,8 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                 <div className="inner-content">
                     <h3 className="data-name">{product?.fullDisplayName ?? product?.name}</h3>
                     <div>
-                        <span className="data-category">{product?.category ?? ''}</span>
+                        {product?.description && <span className="data-description">{getSenteces(shorten(product.description, 52), 1)}</span>}
+                        {product?.category && <span className="data-category">{getSenteces(shorten(product.category, 52), 1)}</span>}
                         <span className="data-price">{product?.priceDisplay}</span>
                     </div>
                 </div>
