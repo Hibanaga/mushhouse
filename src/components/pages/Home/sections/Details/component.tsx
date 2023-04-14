@@ -6,7 +6,7 @@ import List from 'components/modules/List';
 import { Props } from './index';
 import StyledComponent from './styles';
 
-const HomeSectionDetails: FunctionComponent<Props> = ({ }) => {
+const HomeSectionDetails: FunctionComponent<Props> = ({ products }) => {
     return (
         <StyledComponent
             id="id_products-list"
@@ -14,7 +14,7 @@ const HomeSectionDetails: FunctionComponent<Props> = ({ }) => {
         >
             <h3 className="section-headline">Nasze produkty</h3>
             <Container>
-                <List />
+                <List products={products} />
             </Container>
         </StyledComponent>
     );

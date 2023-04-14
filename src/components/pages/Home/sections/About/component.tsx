@@ -14,7 +14,10 @@ const HomeSectionAbout: FunctionComponent<Props> = ({  }) => {
     ];
 
     return (
-        <StyledComponent className="home-section-about">
+        <StyledComponent
+            id="id_about"
+            className="home-section-about"
+        >
             <h3 className="section-headline">
               O nas
             </h3>

@@ -1,12 +1,6 @@
-import Product from 'models/Product';
-
 import Component from './component';
 
-export interface Props {
-  products: Product[]
-}
-
 Component.defaultProps = {
+    children: null,
 };
-
 export default Component;

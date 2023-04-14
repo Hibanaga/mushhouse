@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FunctionComponent } from 'react';
 import Slider from 'react-slick';
 import Image from 'next/image';
 
@@ -10,7 +10,10 @@ import StyledComponent from './styles';
 
 const HomeSectionShipping: FunctionComponent<Props> = ({  }) => {
     return (
-        <StyledComponent className="home-section-shipping">
+        <StyledComponent
+            id="id_shipping-payment"
+            className="home-section-shipping"
+        >
             <h3 className="section-headline">
               Dostawa i Płatność
             </h3>
@@ -23,6 +26,8 @@ const HomeSectionShipping: FunctionComponent<Props> = ({  }) => {
                         slidesToShow={1}
                         slidesToScroll={1}
                         centerMode={true}
+                        autoplay={true}
+                        autoplaySpeed={5000}
                         centerPadding="5px"
                     >
                         <div className="slide-item">

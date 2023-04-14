@@ -47,11 +47,12 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
                             { label: 'Продукция', value: 'id_products-list', position: 'start' },
                             { label: 'Доставка и оплата', value: 'id_shipping-payment', position: 'center' },
                             { label: 'Контакты', value: 'id_contact', position: 'center' },
-                            { label: 'Доставка', value: 'id_shipping', position: 'center' },
+                            { label: 'О нас', value: 'id_about', position: 'start' },
                         ].map((element) =>  (
                             <li
                                 key={element.value}
                                 className="list-item"
+                                onClick={() => handleScrollToSection(element.value, element.position as ScrollLogicalPosition)}
                             >
                                 <span className="data-label">{element.label}</span>
                             </li>
