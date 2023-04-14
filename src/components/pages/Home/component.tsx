@@ -23,8 +23,6 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
     const [isOpenModal, setIsOpenModal] = useState(false);
     const { shoppingCart, fetchShoppingCart } = useAppContext();
 
-    console.log('products: ', products);
-
     useEffect(() => {
         if (isOpenModal) {
             document.body.style.overflow = 'hidden';
