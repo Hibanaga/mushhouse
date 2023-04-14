@@ -1,6 +1,8 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import { InferGetServerSidePropsType } from 'next';
 import { useAppContext } from 'context/AppContext';
+
+import { ShoppingCartProps } from 'types/options';
 
 import Product from 'models/Product';
 
@@ -20,24 +22,12 @@ import { getStaticStaticProps } from './index';
 import StyledComponent from './styles';
 
 const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticStaticProps>> = ({ meta, products }) => {
-    const [isOpenModal, setIsOpenModal] = useState(false);
     const { shoppingCart, fetchShoppingCart } = useAppContext();
 
-    useEffect(() => {
-        if (isOpenModal) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'initial';
-        }
-    }, [isOpenModal]);
 
     useEffect(() => {
-        getShoppingCart();
-    }, []);
-
-    const getShoppingCart = async () => {
-        const storageCart = getItem('shoppingCart');
-    };
+        console.log('shoppingCart: ', shoppingCart);
+    }, [shoppingCart]);
 
     return (
         <StyledComponent className="page-home">

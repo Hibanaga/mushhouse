@@ -5,6 +5,11 @@ import variables from 'theme/styles/vars';
 export default styled.header`
     background-color: #D9BBA0;
     height: 4em;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
     
     .layout-layout-container {
         height: 100%;
@@ -33,7 +38,8 @@ export default styled.header`
                 margin: 0 .375em;
                 
                 .data-label {
-                    font-size: 1.275em;
+                    cursor: pointer;
+                    font-size: 1em;
                 }
             }
         }   

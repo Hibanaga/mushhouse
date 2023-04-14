@@ -4,10 +4,8 @@ import { AppContextProps } from './AppContextProps';
 
 
 export const AppContextDefaults: AppContextProps = {
-    categories: [],
     shoppingCart: [],
-    fetchCategories: () => null,
+    storageShoppingCart: [],
     fetchShoppingCart: () => null,
-    onRemoveElement: (productId: string) => null,
     onAddElement: (product: Product) => [],
 };

@@ -19,7 +19,7 @@ export default styled.section`
         padding: 4em 0;
         
         .data-content {
-            font-size: 1.75em;
+            font-size: 1.25em;
             display: block;
             padding-bottom: 1em;
             font-weight: 300;
@@ -34,7 +34,7 @@ export default styled.section`
             .list-item {
                 font-weight: 300;
                 color: #271C15;
-                font-size: 1.75em;
+                font-size: 1.25em;
                 position: relative;
                 padding-left: 1em;
                 line-height: 150%;

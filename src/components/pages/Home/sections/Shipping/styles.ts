@@ -43,7 +43,7 @@ export default styled.section`
                 position: relative;
                 
                 .headline {
-                    font-size: 2em;
+                    font-size: 1.75em;
                     margin-bottom: 1em;
                     display: block;
                     font-weight: 300;
@@ -57,7 +57,7 @@ export default styled.section`
                     padding: 0 .75em .5em .75em;
                     
                     .data-content {
-                        font-size: 1.75em;
+                        font-size: 1.25em;
                         display: block;
                         font-weight: 300;
                         color: #271C15;
@@ -78,7 +78,7 @@ export default styled.section`
                         .list-item {
                             font-weight: 300;
                             color: #271C15;
-                            font-size: 1.75em;
+                            font-size: 1.25em;
                             position: relative;
                             padding-left: 1em;
                             line-height: 150%;
@@ -100,16 +100,15 @@ export default styled.section`
                     .inner-image {
                         position: absolute;
                         right: 2em;
-                        bottom: -5em;
-                        width: 25em;
+                        bottom: -6.5em;
+                        width: 20em;
                         height: 20em;
-                        
                     }
                 }
                 
                 .inner-slide-content-shipping {
                     .data-content {
-                        font-size: 1.75em;
+                        font-size: 1.25em;
                         display: block;
                         padding-bottom: 1em;
                         font-weight: 300;
@@ -122,7 +121,7 @@ export default styled.section`
                     }
                     
                     .data-label {
-                        font-size: 1.75em;
+                        font-size: 1.25em;
                         display: block;
                         font-weight: 500;
                         color: #271C15;

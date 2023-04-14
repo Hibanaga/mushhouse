@@ -1,44 +1,37 @@
 import { Context, createContext, FunctionComponent, ReactElement, useContext, useState } from 'react';
 
-import Category from 'models/Category';
+import { ShoppingCartProps } from 'types/options';
+
 import Product from 'models/Product';
 
-import { list as listCategories } from 'requests/categories';
-import { list as listProducts } from 'requests/products';
+import { getItem, setItem } from 'utils/localStorage';
 
-import { ShoppingCartProps } from '../types/options';
-import { getItem, setItem } from '../utils/localStorage';
+import { list as listProducts } from 'requests/products';
 
 import { AppContextDefaults } from './AppContextDefault';
 import { AppContextProps } from './AppContextProps';
 
-
 const AppContext: Context<AppContextProps> = createContext(AppContextDefaults);
 const AppState = (): AppContextProps => {
-    const [shoppingCart, setShoppingCart] = useState<Product[] | []>([]);
-    const [categories, setCategories] = useState<Category[] | []>([]);
+    const [storageShoppingCart, setStorageShoppingCart] = useState<ShoppingCartProps[] | []>([]);
+    const [cart, setCart] = useState<Product[] | []>([]);
 
-    const fetchCategories = async (params: any) => {
-        const { elements } = await listCategories(params);
+    const fetchShoppingCart = async (params: { products?: string }) => {
+        const shoppingCart = getItem('shoppingCart');
+        const parsedShoppingCart = JSON.parse(shoppingCart as string);
 
-        setCategories(elements);
+        const { elements } = await listProducts(params);
+
+        const products = parsedShoppingCart.map((element: ShoppingCartProps) => {
+            const searchElement = elements.find((product) => product.id === element.id);
+            return new Product({ ...element, ...searchElement });
+        });
+
+        setCart(products);
+        setStorageShoppingCart(parsedShoppingCart);
     };
 
-    const fetchShoppingCart = async (params: any) => {
-        const arrayIds = params?.shoppingIds.map(({ id }: ShoppingCartProps) => id);
-        const { elements } = await listProducts({ products: arrayIds.join(',') });
-
-        setShoppingCart(elements);
-    };
-
-    const handleRemoveShoppingCartElement = (productId: string) => {
-        const parseStorageCart = JSON.parse(getItem('shoppingCart') as string);
-        const shoppingCartList = parseStorageCart.filter((element: ShoppingCartProps) => element.id !== productId);
-        setItem('shoppingCart', JSON.stringify(shoppingCartList));
-        setShoppingCart(shoppingCart.filter(({ id }) => id !== productId));
-    };
-
-    const handleAddShoppingCartElement = (product: Product) => {
+    const handleAddShoppingCartElement = (product: Product, quantity?: number) => {
         const storageCart = getItem('shoppingCart');
 
         let shoppingCart = null;
@@ -47,24 +40,30 @@ const AppState = (): AppContextProps => {
         } else {
             const parseStorageCart = JSON.parse(storageCart);
 
-            if (parseStorageCart.some(({ id }: {id: string}) => id === product.id )) {
-                shoppingCart = parseStorageCart.map((element: ShoppingCartProps) => element.id === product.id ? { id: element.id, quantity: element.quantity + 1 } : element);
+            if (parseStorageCart.some((element: { id: string  }) => element.id === product.id)) {
+                if (quantity) {
+                    shoppingCart = parseStorageCart.map((element: ShoppingCartProps) => element.id === product.id ? { id: element.id, quantity: quantity } : element);
+                } else {
+                    shoppingCart = parseStorageCart.map((element: ShoppingCartProps) => element.id === product.id ? { id: element.id, quantity: element.quantity + 1 } : element);
+                }
             } else {
-                shoppingCart = [ ...parseStorageCart, { id: product.id, quantity: 1 } ];
+                if (quantity) {
+                    shoppingCart = [ ...parseStorageCart, { id: product.id, quantity: quantity } ];
+                } else {
+                    shoppingCart = [ ...parseStorageCart, { id: product.id, quantity: 1 } ];
+                }
             }
         }
-        setItem('shoppingCart', JSON.stringify(shoppingCart));
 
-        return shoppingCart;
+        setItem('shoppingCart', JSON.stringify(shoppingCart));
+        setStorageShoppingCart(shoppingCart);
     };
 
 
     return {
-        categories,
-        shoppingCart,
-        fetchCategories,
+        shoppingCart: cart,
+        storageShoppingCart,
         fetchShoppingCart,
-        onRemoveElement: handleRemoveShoppingCartElement,
         onAddElement: handleAddShoppingCartElement,
     };
 };

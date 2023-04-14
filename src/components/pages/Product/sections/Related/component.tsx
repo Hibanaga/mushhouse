@@ -26,7 +26,7 @@ const ProductSectionRelated: FunctionComponent<Props> = ({ product }) => {
         try {
             const { elements } = await list({ page_size: 3 });
 
-            setRelatedProducts(elements);
+            setRelatedProducts(elements.map((element) => new Product(element)));
         } catch (error) {
             console.error(error);
         }

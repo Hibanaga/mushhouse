@@ -4,6 +4,10 @@ import { list } from 'requests/products';
 
 import Component from './component';
 
+export interface Props {
+}
+
+
 Component.defaultProps = {
 };
 

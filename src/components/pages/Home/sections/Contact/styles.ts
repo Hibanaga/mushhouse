@@ -20,7 +20,7 @@ export default styled.section`
         
         .headline {
             display: block;
-            font-size: 1.75em;
+            font-size: 1.25em;
             padding-bottom: 1em;
             font-weight: 300;
             color: #271C15;
@@ -36,7 +36,7 @@ export default styled.section`
             .list-item {
                 position: relative;
                 margin: 0 .325em;
-                font-size: 1.675em;
+                font-size: 1.175em;
                 
                 &.inner-image {
                     width: 2.375em;
@@ -53,13 +53,13 @@ export default styled.section`
             
             .inner-image {
                 position: relative;
-                width: 4em;
-                height: 4em;
+                width: 3em;
+                height: 3em;
             }
             
             .data-phone {
                 display: block;
-                font-size: 1.75em;
+                font-size: 1.25em;
                 font-weight: 300;
                 color: #271C15;
                 text-align: center;
@@ -71,7 +71,7 @@ export default styled.section`
         
         .data-email {
             display: block;
-            font-size: 1.75em;
+            font-size: 1.25em;
             font-weight: 300;
             color: #271C15;
             text-align: center;

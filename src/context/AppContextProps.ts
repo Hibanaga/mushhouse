@@ -1,13 +1,10 @@
 import { ShoppingCartProps } from 'types/options';
 
-import Category from 'models/Category';
 import Product from 'models/Product';
 
 export interface AppContextProps {
-    categories?: Category[];
     shoppingCart?: Product[];
-    fetchCategories?: (params?: any) => void;
+    storageShoppingCart?: ShoppingCartProps[],
     fetchShoppingCart?: (params?: any) => void;
-    onRemoveElement?: (productId: string) => void;
-    onAddElement?: (product: Product) => ShoppingCartProps[];
+    onAddElement?: (product: Product, quantity?: number) => void;
 }

@@ -18,15 +18,6 @@ export default styled.div`
         visibility: visible;
         transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    
-    
-    .button-close {
-        position: fixed;
-        top: 5%;
-        right: 2.5%;
-        cursor: pointer;
-    }
-    
    
     @media all and (max-width: ${variables.tabletS}) {
     }

@@ -55,7 +55,6 @@ const ModuleShoppingCartModal: FunctionComponent<Props> = ({ shoppingCart, onClo
                             <ShoppingCartListElement
                                 key={product.id}
                                 product={product}
-                                onUpdateShoppingCart={(product: Product, quantity: number) => updateCountShoppingList(product, quantity)}
                             />
                         ))}
                     </div>

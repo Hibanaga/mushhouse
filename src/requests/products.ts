@@ -15,11 +15,11 @@ interface ListRequestParams {
     page?: number;
     page_size?: number;
     price?: number;
-    products?: string[];
+    products?: string;
     weight?: number;
 }
 
-export const list = async (params?: ListRequestParams): Promise<{ meta: PaginationParams, elements: Product[] }> => {
+export const list = async (params?: ListRequestParams): Promise<{ meta: PaginationParams, elements: any[] }> => {
     const storageCart = getItem('shoppingCart');
     const { data } = await axios({ url: 'https://api.szamanita-pantherina.com/api/product', method: 'GET', params })
         .then((data) => data);
