@@ -31,13 +31,6 @@ const AppState = (): AppContextProps => {
         setStorageShoppingCart(parsedShoppingCart);
     };
 
-    const handleRemoveShoppingCartElement = (productId: string) => {
-        const parseStorageCart = JSON.parse(getItem('shoppingCart') as string);
-        const shoppingCartList = parseStorageCart.filter((element: ShoppingCartProps) => element.id !== productId);
-        setItem('shoppingCart', JSON.stringify(shoppingCartList));
-        setCart(cart.filter(({ id }) => id !== productId));
-    };
-
     const handleAddShoppingCartElement = (product: Product, quantity?: number) => {
         const storageCart = getItem('shoppingCart');
 
@@ -71,7 +64,6 @@ const AppState = (): AppContextProps => {
         shoppingCart: cart,
         storageShoppingCart,
         fetchShoppingCart,
-        onRemoveElement: handleRemoveShoppingCartElement,
         onAddElement: handleAddShoppingCartElement,
     };
 };

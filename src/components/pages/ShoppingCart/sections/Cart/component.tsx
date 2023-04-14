@@ -2,10 +2,12 @@ import React, { FunctionComponent } from 'react';
 
 import Container from 'components/layout/Container';
 
+import ShoppingCartListElement from '../../../../modules/ShoppingCartListElement';
+
 import { Props } from './index';
 import StyledComponent from './styles';
 
-const ShoppingCartSectionCart: FunctionComponent<Props> = ({ }) => {
+const ShoppingCartSectionCart: FunctionComponent<Props> = ({ shoppingCart }) => {
     return (
         <StyledComponent className="shopping-cart-section-cart">
             <h2 className="section-headline">Twój koszyk</h2>
@@ -18,7 +20,13 @@ const ShoppingCartSectionCart: FunctionComponent<Props> = ({ }) => {
             </div>
             <Container className="layout-body-container">
 
-                <span className="data-empty">Kosz na razie pusty</span>
+                {Array.isArray(shoppingCart) ? shoppingCart.map((element) => (
+                    <ShoppingCartListElement
+                        key={element.id}
+                        product={element}
+                    />
+                )) : <span className="data-empty">Kosz na razie pusty</span>}
+
 
             </Container>
         </StyledComponent>

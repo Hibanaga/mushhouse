@@ -8,8 +8,7 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 
-const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product, onUpdateShoppingCart }) => {
-    const { onRemoveElement } = useAppContext();
+const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) => {
     const [quantity, setQuantity] = useState(product?.quantity ?? 1);
 
     return (
@@ -30,7 +29,6 @@ const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product, onUp
                     value={quantity}
                     onChange={(value) => {
                         setQuantity(value);
-                        onUpdateShoppingCart(product, value);
                     }}
                 />
             </div>
@@ -40,10 +38,7 @@ const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product, onUp
             </div>
 
             <div className="inner-remove">
-                <button
-                    className="inner-close-button"
-                    onClick={() => onRemoveElement && onRemoveElement(product.id)}
-                >
+                <button className="inner-close-button">
                     <Image
                         src="/images/remove-circle-icon.svg"
                         width={32}
