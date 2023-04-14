@@ -15,7 +15,7 @@ interface ListRequestParams {
     page?: number;
     page_size?: number;
     price?: number;
-    products?: string[];
+    products?: string;
     weight?: number;
 }
 

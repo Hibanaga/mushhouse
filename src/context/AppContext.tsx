@@ -11,18 +11,16 @@ import { list as listProducts } from 'requests/products';
 import { AppContextDefaults } from './AppContextDefault';
 import { AppContextProps } from './AppContextProps';
 
-
 const AppContext: Context<AppContextProps> = createContext(AppContextDefaults);
 const AppState = (): AppContextProps => {
     const [storageShoppingCart, setStorageShoppingCart] = useState<ShoppingCartProps[] | []>([]);
     const [shoppingCart, setShoppingCart] = useState<Product[] | []>([]);
 
-    const fetchShoppingCart = async (params: any) => {
+    const fetchShoppingCart = async (params: { products?: string }) => {
         const shoppingCart = getItem('shoppingCart');
         const parsedShoppingCart = JSON.parse(shoppingCart as string);
 
-        const arrayIds = params?.shoppingIds.map(({ id }: ShoppingCartProps) => id);
-        const { elements } = await listProducts({ products: arrayIds.join(',') });
+        const { elements } = await listProducts(params);
 
         const products = parsedShoppingCart.map((element: ShoppingCartProps) => {
             const searchElement = elements.find((product) => product.id === element.id);
@@ -40,19 +38,27 @@ const AppState = (): AppContextProps => {
         setShoppingCart(shoppingCart.filter(({ id }) => id !== productId));
     };
 
-    const handleAddShoppingCartElement = (product: Product, quantity: number) => {
+    const handleAddShoppingCartElement = (product: Product, quantity?: number) => {
         const storageCart = getItem('shoppingCart');
 
         let shoppingCart = null;
         if (!storageCart) {
-            shoppingCart = [{ id: product.id, quantity: quantity }];
+            shoppingCart = [{ id: product.id, quantity: 1 }];
         } else {
             const parseStorageCart = JSON.parse(storageCart);
 
             if (parseStorageCart.some((element: { id: string  }) => element.id === product.id)) {
-                shoppingCart = parseStorageCart.map((element: ShoppingCartProps) => element.id === product.id ? { id: element.id, quantity: element.quantity + quantity } : element);
+                if (quantity) {
+                    shoppingCart = parseStorageCart.map((element: ShoppingCartProps) => element.id === product.id ? { id: element.id, quantity: quantity } : element);
+                } else {
+                    shoppingCart = parseStorageCart.map((element: ShoppingCartProps) => element.id === product.id ? { id: element.id, quantity: element.quantity + 1 } : element);
+                }
             } else {
-                shoppingCart = [ ...parseStorageCart, { id: product.id, quantity: quantity } ];
+                if (quantity) {
+                    shoppingCart = [ ...parseStorageCart, { id: product.id, quantity: quantity } ];
+                } else {
+                    shoppingCart = [ ...parseStorageCart, { id: product.id, quantity: 1 } ];
+                }
             }
         }
 

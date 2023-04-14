@@ -1,6 +1,9 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { InferGetServerSidePropsType } from 'next';
 import { useAppContext } from 'context/AppContext';
+import { element } from 'prop-types';
+
+import { ShoppingCartProps } from 'types/options';
 
 import Product from 'models/Product';
 
@@ -20,23 +23,22 @@ import { getStaticStaticProps } from './index';
 import StyledComponent from './styles';
 
 const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticStaticProps>> = ({ meta, products }) => {
-    const [isOpenModal, setIsOpenModal] = useState(false);
     const { shoppingCart, fetchShoppingCart } = useAppContext();
 
     useEffect(() => {
-        if (isOpenModal) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'initial';
-        }
-    }, [isOpenModal]);
+        const storageCart = getItem('shoppingCart');
+        const parsedShoppingCart = storageCart && JSON.parse(storageCart);
 
-    useEffect(() => {
-        getShoppingCart();
+        if (!shoppingCart?.length && parsedShoppingCart?.length) {
+            getShoppingCart(parsedShoppingCart);
+        }
     }, []);
 
-    const getShoppingCart = async () => {
-        const storageCart = getItem('shoppingCart');
+    const getShoppingCart = async (storage: ShoppingCartProps[]) => {
+        const arrayIds = storage.map((element)=> element.id);
+        if (fetchShoppingCart) {
+            await fetchShoppingCart({ products: arrayIds.join(',') });
+        }
     };
 
     return (

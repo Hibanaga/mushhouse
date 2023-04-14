@@ -18,14 +18,10 @@ import { Props } from './types';
 
 const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
     const router = useRouter();
-    const { onAddElement, fetchShoppingCart } = useAppContext();
+    const { onAddElement } = useAppContext();
 
-    const handleAddShoppingCart =  (product: Product) => {
-        const arrayIds = onAddElement && onAddElement(product);
-
-        if (arrayIds && fetchShoppingCart) {
-            fetchShoppingCart({ shoppingIds: arrayIds });
-        }
+    const handleAddElementToShoppingCart = (product: Product) => {
+        onAddElement && onAddElement(product);
     };
 
     return (
@@ -65,7 +61,7 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                     </Button>
                     <Button
                         className="button-add-cart"
-                        onClick={() => handleAddShoppingCart(product)}
+                        onClick={() => handleAddElementToShoppingCart(product)}
                     >
                         Do Koszyka
                     </Button>
