@@ -43,7 +43,7 @@ const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
                 <span className="data-price">{product?.priceDisplay}</span>
 
                 <Button className="button-add-to-cart">
-                    Купить
+                    Do Koszyka
                 </Button>
 
                 <span className="data-description">

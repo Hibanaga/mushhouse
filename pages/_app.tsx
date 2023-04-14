@@ -104,16 +104,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
                 </Head>
                 <AppWrapper>
-                    {router.pathname.includes('/product') ? (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                        >
-                            <Component {...pageProps} />
-                        </motion.div>
-                    ) : <Component {...pageProps} /> }
-
+                    <Component {...pageProps} />
                     <CookiesPanel />
                 </AppWrapper>
             </>
