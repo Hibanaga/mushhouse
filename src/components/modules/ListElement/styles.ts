@@ -61,6 +61,57 @@ export default styled.div`
         }
 
     }
-    @media all and (max-width: ${variables.tabletS}) {
+    @media all and (max-width: ${variables.desktopXS}) {
+        min-height: 34em;
+        
+        .inner-image {
+            position: relative;
+            height: 45%;
+        }
+
+        .inner-main {
+            height: 47.5%;
+        }
+    }
+    
+    @media all and (max-width: ${variables.mobileL}) {
+        min-height: 32em;
+
+        .inner-image {
+            height: 45%;
+        }
+
+        .inner-main {
+            height: 48.75%;
+        }
+    }
+    
+    @media all and (max-width: ${variables.mobileM}) {
+        min-height: 45em;
+
+        .inner-image {
+            height: 55%;
+        }
+
+        .inner-main {
+            padding-bottom: 0;
+            height: 40%;
+
+            .inner-content {
+                .data-name {
+                    height: 3em;
+                }
+            }
+            
+            .inner-action {
+                flex-direction: column;
+
+                .layout-button {
+                    &:first-of-type {
+                        margin-bottom: .5em;
+                    }
+                }
+            }
+        }
     }
 `;

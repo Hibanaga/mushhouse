@@ -9,7 +9,6 @@ import Container from 'components/layout/Container';
 import Header from 'components/layout/Header';
 import HintMarket from 'components/modules/HintMarket';
 import ShoppingCartModal from 'components/modules/ShoppingCartModal';
-import SectionAddress from 'components/pages/Home/sections/Address';
 import SectionContact from 'components/pages/Home/sections/Contact';
 import SectionDetails from 'components/pages/Home/sections/Details';
 import SectionHero from 'components/pages/Home/sections/Hero';
@@ -20,6 +19,7 @@ import StyledComponent from './styles';
 
 const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticStaticProps>> = ({ categories }) => {
     const [isOpenModal, setIsOpenModal] = useState(false);
+    const [isOpenMobileDrawer, setIsOpenMobileDrawer] = useState(false);
     const { shoppingCart, fetchShoppingCart } = useAppContext();
 
     useEffect(() => {
@@ -40,17 +40,20 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
         storageCart && fetchShoppingCart && await fetchShoppingCart({ shoppingIds: JSON.parse(storageCart) });
     };
 
+    const handleCloseMobileDrawer = () => setIsOpenMobileDrawer(false);
+    const handleOpenMobileDrawer = () => setIsOpenMobileDrawer(true);
+
     return (
         <StyledComponent className="page-home">
 
-            {isOpenModal && shoppingCart && (
+            {isOpenModal && !isOpenMobileDrawer && shoppingCart && (
                 <ShoppingCartModal
                     shoppingCart={shoppingCart}
                     onClose={() => setIsOpenModal(false)}
                 />
             )}
 
-            {shoppingCart && shoppingCart.length && !isOpenModal && (
+            {shoppingCart && !isOpenMobileDrawer && shoppingCart.length && !isOpenModal && (
                 <ButtonShoppingCart
                     isOpenShoppingCart={isOpenModal}
                     onToggle={() => setIsOpenModal(!isOpenModal)}
@@ -58,7 +61,11 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
                 />
             )}
 
-            <Header />
+            <Header
+                isOpenMobileDrawer={isOpenMobileDrawer}
+                onOpenDrawer={handleOpenMobileDrawer}
+                onCloseDrawer={handleCloseMobileDrawer}
+            />
             <Container>
                 <HintMarket />
                 <SectionHero categories={categories} />
@@ -67,7 +74,6 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
 
             <SectionShipping />
             <SectionContact />
-            <SectionAddress />
         </StyledComponent>
     );
 };

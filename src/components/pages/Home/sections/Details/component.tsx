@@ -22,7 +22,7 @@ const HomeSectionDetails: FunctionComponent<Props> = ({ categories }) => {
                 <SimpleSelect
                     hasClearButton
                     className="multi-select-category"
-                    placeholder="Please select category..."
+                    placeholder="Выберите категорию"
                     options={categories.map((element) => ({ label: element.name ?? '', value: element.slug ?? '' }))}
                     onChange={(newValue => {
                         setFilters({ ...filters, category: (newValue as Option<string>)?.value  });

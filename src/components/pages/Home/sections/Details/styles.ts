@@ -5,7 +5,6 @@ import variables from 'theme/styles/vars';
 export default styled.main`
     margin: 4em 0;
     
-    
     .inner-filter {
         display: flex;
         align-items: center;
@@ -19,6 +18,15 @@ export default styled.main`
     }
     
     
-    @media all and (max-width: ${variables.tabletS}) {
+    @media all and (max-width: ${variables.mobileL}) {
+
+        .inner-filter {
+            align-items: flex-start;
+            flex-direction: column;
+
+            .headline {
+                margin-bottom: .5em;
+            }
+        }
     }
 `;

@@ -26,11 +26,9 @@ export default styled.section`
         grid-template-columns: repeat(3, 1fr);
         gap: 2%;
         
-        
-        
         .inner {
             background-color: #FFF;
-            box-shadow: 0px 10px 35px 0px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 35px 0 rgba(0,0,0,0.1);
             padding: 1.5em;
             min-height: 9em;
             display: flex;
@@ -96,6 +94,50 @@ export default styled.section`
         }
     }
     
+    @media all and (max-width: ${variables.tabletL}) {
+        .inner-columns {
+            .inner {
+                .data-description {
+                    font-size: 1.05em;
+                }
+                
+                .data-info {
+                    font-size: 1.25em;
+                }   
+            }
+        }
+    }
+    
     @media all and (max-width: ${variables.tabletS}) {
+        .inner-columns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            gap: 2%;
+
+            .inner {
+                margin-bottom: 2em;
+            }
+        }
+    }
+
+    @media all and (max-width: ${variables.mobileL}) {
+        .inner-steps {
+            display: flex;
+            flex-direction: column;
+            
+            .inner-step {
+               margin-bottom: 2em;
+                
+                .step-index {
+                    width: 100%;
+                    border-radius: 1em;
+                }
+     
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
     }
 `;

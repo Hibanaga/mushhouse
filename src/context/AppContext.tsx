@@ -26,9 +26,14 @@ const AppState = (): AppContextProps => {
 
     const fetchShoppingCart = async (params: any) => {
         const arrayIds = params?.shoppingIds.map(({ id }: ShoppingCartProps) => id);
-        const { elements } = await listProducts({ products: arrayIds.join(',') });
 
-        setShoppingCart(elements);
+        console.log('arrayIds: ', arrayIds);
+        if (arrayIds) {
+            const { elements } = await listProducts({ products: arrayIds.join(',') });
+            setShoppingCart(elements);
+        } else {
+            setShoppingCart([]);
+        }
     };
 
     const handleRemoveShoppingCartElement = (productId: string) => {

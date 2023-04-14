@@ -14,7 +14,18 @@ export default styled.section`
             margin-bottom: 5em;
         }
     }
-    
-    @media all and (max-width: ${variables.tabletS}) {
+
+
+    @media all and (max-width: ${variables.tabletM}) {
+        grid-template-columns: repeat(2, 1fr);
+        .module-list-element {
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    @media all and (max-width: ${variables.mobileM}) {
+        grid-template-columns: 1fr;
     }
 `;

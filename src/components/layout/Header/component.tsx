@@ -1,16 +1,17 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
+import { Pivot as Hamburger } from 'hamburger-react';
 
+import Button from 'components/layout/Button';
 import Container from 'components/layout/Container';
-
-import Button from '../Button';
+import translations from 'components/layout/Header/locales/ru.json';
+import SectionMobile from 'components/layout/Header/sections/mobile';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
-
-const LayoutHeader: FunctionComponent<Props> = ({  }) => {
+const LayoutHeader: FunctionComponent<Props> = ({ isOpenMobileDrawer, onOpenDrawer, onCloseDrawer }) => {
     const [active, setActive] = useState(false);
 
     useEffect(() => {
@@ -30,13 +31,6 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
         violation && violation.scrollIntoView({ behavior: 'smooth', block: position });
     };
 
-    const social = [
-        { href: '', imageUrl:'/images/telegram.svg' },
-        { href: '', imageUrl:'/images/viber.svg' },
-        { href: '', imageUrl:'/images/whatsapp.svg' },
-    ];
-
-
     return (
         <StyledComponent className={classNames(['layout-header', { active: active }])}>
             <Container>
@@ -45,12 +39,17 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
                         Szamanita
                         <span className="subheadline">Лесная аптека</span>
                     </h1>
+                    <Hamburger
+                        toggled={isOpenMobileDrawer}
+                        onToggle={() => !isOpenMobileDrawer ? onOpenDrawer() : onCloseDrawer()}
+                    />
+
 
                     <div className="inner-contact">
                         <h3 className="headline-social">Чат с производителем:</h3>
                         <div className="inner-social">
 
-                            {social.map(({ href, imageUrl }) => (
+                            {translations.socials.map(({ href, imageUrl }) => (
                                 <div
                                     key={imageUrl}
                                     className="inner-image"
@@ -68,22 +67,15 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
 
                 <div className="inner-navigation">
                     <ul className="inner-main">
-                        {
-                            [
-                                { label: 'Продукция', value: 'id_products-list', position: 'start' },
-                                { label: 'Контакты', value: 'id_contact', position: 'center' },
-                                { label: 'Доставка', value: 'id_shipping', position: 'center' },
-                                // { label: 'Оплата', value: 'id_payme' },
-                            ].map(({ label, value, position }) => (
-                                <li
-                                    key={value}
-                                    className="list-item"
-                                    onClick={() => handleScrollToSection(value, position as ScrollLogicalPosition)}
-                                >
-                                    <span className="data-label">{label}</span>
-                                </li>
-                            ))
-                        }
+                        {translations.elementNavigations.map(({ label, value, position }) => (
+                            <li
+                                key={value}
+                                className="list-item"
+                                onClick={() => handleScrollToSection(value, position as ScrollLogicalPosition)}
+                            >
+                                <span className="data-label">{label}</span>
+                            </li>
+                        ))}
                     </ul>
 
                     <div className="inner-navigation-button">
@@ -92,8 +84,13 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
                         </Button>
                     </div>
                 </div>
-
             </Container>
+
+            <SectionMobile
+                isOpenMobileDrawer={isOpenMobileDrawer}
+                onOpenDrawer={onOpenDrawer}
+                onCloseDrawer={onCloseDrawer}
+            />
         </StyledComponent>
     );
 };
