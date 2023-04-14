@@ -5,45 +5,42 @@ import variables from 'theme/styles/vars';
 export default styled.div`
     .section-headline {
         color: #271C15;
-        font-weight: 700;
-        font-size: 2.125em;
+        font-weight: 400;
+        font-size: 1.5em;
         position: relative;
         line-height: 150%;
         text-align: center;
         padding: 1em 0;
     }
     
-    .inner-hero {
-        background-color: #D9BBA0;
-        padding: .625em 0;
+    .layout-layout-container {
+         margin-bottom: 2em;
         
-        .layout-hero-container {
+        .section-headline {
+            font-size: 1.25em;
+            text-align: left;
+        }
+        
+        .inner-actions {
             display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
             
-            .data-head {
-                color: #000000;
-                font-weight: 400;
-                font-size: 1.25em;
-                display: block;
-
-                &.data-name {
-                    width: 60%;
+            .layout-forms-simple-input {
+                box-sizing: border-box;
+                width: 50%;
+                padding: .5em;
+                
+                &:nth-child(odd) {
+                    padding-left: 0;
                 }
-                &.data-count {
-                    width: 20%;
-                }
-                &.data-price {
-                    width: 20%;
+                
+                &:nth-child(even) {
+                    padding-right: 0;
                 }
             }
         }
     }
-    
-    .layout-body-container {
-        min-height: 12.5em;
-        border-bottom: .01em solid #000000;
-    }
-    
 
     @media all and (max-width: ${variables.tabletS}) {
     }

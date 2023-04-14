@@ -4,6 +4,7 @@ import Head from 'components/layout/Head';
 import Header from 'components/layout/Header';
 
 import SectionCart from './sections/Cart';
+import SectionContact from './sections/Contact';
 import { Props } from './index';
 import StyledComponent from './styles';
 
@@ -14,6 +15,7 @@ const PageShoppingCart: FunctionComponent<Props> = ({ }) => {
 
             <Header />
             <SectionCart />
+            <SectionContact />
         </StyledComponent>
     );
 };
