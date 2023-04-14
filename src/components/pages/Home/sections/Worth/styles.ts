@@ -17,7 +17,6 @@ export default styled.section`
     
     .layout-layout-container {
         padding: 4em 0;
-       
         
         .data-content {
             font-size: 1.75em;
