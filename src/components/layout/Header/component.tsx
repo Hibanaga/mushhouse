@@ -1,10 +1,11 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import classNames from 'classnames';
 
-import Container from 'components/layout/Container';
+import Routes from 'types/routes';
 
-import Button from '../Button';
+import Container from 'components/layout/Container';
 
 import StyledComponent from './styles';
 import { Props } from './types';
@@ -30,69 +31,34 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
         violation && violation.scrollIntoView({ behavior: 'smooth', block: position });
     };
 
-    const social = [
-        { href: '', imageUrl:'/images/telegram.svg' },
-        { href: '', imageUrl:'/images/viber.svg' },
-        { href: '', imageUrl:'/images/whatsapp.svg' },
-    ];
-
-
     return (
         <StyledComponent className={classNames(['layout-header', { active: active }])}>
-            <Container>
-                <div className="inner-addtional">
-                    <h1 className="headline">
-                        Szamanita
-                        <span className="subheadline">Лесная аптека</span>
-                    </h1>
+            <Container className="layout-layout-container">
+                <Link
+                    href={Routes.Home}
+                    className="innner-image"
+                >
+                    <h1 className="hedline">Szamanita</h1>
+                </Link>
 
-                    <div className="inner-contact">
-                        <h3 className="headline-social">Чат с производителем:</h3>
-                        <div className="inner-social">
-
-                            {social.map(({ href, imageUrl }) => (
-                                <div
-                                    key={imageUrl}
-                                    className="inner-image"
-                                >
-                                    <Image
-                                        src={imageUrl}
-                                        alt={`alt image ${imageUrl}`}
-                                        layout="fill"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                <div className="inner-navigation">
-                    <ul className="inner-main">
-                        {
-                            [
-                                { label: 'Продукция', value: 'id_products-list', position: 'start' },
-                                { label: 'Контакты', value: 'id_contact', position: 'center' },
-                                { label: 'Доставка', value: 'id_shipping', position: 'center' },
-                                // { label: 'Оплата', value: 'id_payme' },
-                            ].map(({ label, value, position }) => (
-                                <li
-                                    key={value}
-                                    className="list-item"
-                                    onClick={() => handleScrollToSection(value, position as ScrollLogicalPosition)}
-                                >
-                                    <span className="data-label">{label}</span>
-                                </li>
-                            ))
-                        }
-                    </ul>
-
-                    <div className="inner-navigation-button">
-                        <Button className="button-telegram">
-                            Телеграм-канал
-                        </Button>
-                    </div>
-                </div>
-
+                <ul className="list">
+                    {
+                        [
+                            { label: 'Продукция', value: 'id_products-list', position: 'start' },
+                            { label: 'Доставка и оплата', value: 'id_shipping-payment', position: 'center' },
+                            { label: 'Контакты', value: 'id_contact', position: 'center' },
+                            { label: 'О нас', value: 'id_about', position: 'start' },
+                        ].map((element) =>  (
+                            <li
+                                key={element.value}
+                                className="list-item"
+                                onClick={() => handleScrollToSection(element.value, element.position as ScrollLogicalPosition)}
+                            >
+                                <span className="data-label">{element.label}</span>
+                            </li>
+                        ))
+                    }
+                </ul>
             </Container>
         </StyledComponent>
     );

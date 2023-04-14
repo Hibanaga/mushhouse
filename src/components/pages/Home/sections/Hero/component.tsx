@@ -1,61 +1,28 @@
 import React, { FunctionComponent } from 'react';
 import Image from 'next/image';
 
-import { getWords } from 'utils/string';
+import Container from 'components/layout/Container';
 
+import { Props } from './index';
 import StyledComponent from './styles';
-import { Props } from './types';
 
 
-const HomeSectionHero: FunctionComponent<Props> = ({ categories }) => {
+const HomeSectionHero: FunctionComponent<Props> = ({  }) => {
     return (
         <StyledComponent className="home-section-hero">
-            <div className="column-image">
-                <div className="inner-image">
-                    <Image
-                        src="/images/capsule.png"
-                        alt="alt-image szamanita"
-                        layout="fill"
-                    />
-                </div>
+            <Image
+                fill
+                objectFit="cover"
+                src="/images/hero.jpg"
+                alt="alt image"
+                className="bg-image"
+            />
 
-                <div className="inner-image">
-                    <Image
-                        src="/images/capsule.png"
-                        alt="alt-image szamanita"
-                        layout="fill"
-                    />
-                </div>
-
-                <div className="inner-image">
-                    <Image
-                        src="/images/capsule.png"
-                        alt="alt-image szamanita"
-                        layout="fill"
-                    />
-                </div>
-            </div>
-            {/*<div className="column-image">*/}
-            {/*    <Image*/}
-            {/*        src="https://static.dw.com/image/59453258_905.jpg"*/}
-            {/*        alt="alt-image szamanita"*/}
-            {/*        layout="fill"*/}
-            {/*    />*/}
-            {/*</div>*/}
-
-            <div className="column-details">
-                <h2 className="short-description">Мухомор красный, молотый в веганских капсулах</h2>
-                <ul className="list">
-                    {categories && categories.map((element) => (
-                        <li
-                            key={element.id}
-                            className="list-item"
-                        >
-                            {element.name && getWords(element.name, 2)}
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            <Container className="layout-layout-container">
+                <h1 className="headline">Mikrodozowanie
+                  Amanita Muscaria, Amanita Panthetina
+                  i inne</h1>
+            </Container>
         </StyledComponent>
     );
 };

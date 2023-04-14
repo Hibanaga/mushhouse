@@ -4,71 +4,78 @@ import variables from 'theme/styles/vars';
 
 export default styled.section`
     position: relative;
-    height: 25em;
-    width: 100%;
     overflow: hidden;
-    
-    &::after {
-        content: '';
-        background-image: url("/images/mushroom-contact.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        filter: blur(10px);
+
+    .section-headline {
+        background-color: #D9BBA0;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        padding: .5em 0;
+        text-align: center;
+        font-weight: 400;
+        font-size: 2em;
     }
     
-    
-    .inner {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        width: 50%;
-        height: 55%;
-        display: flex;
-        flex-direction: column;
-        background-color: #FFF;
-        padding: 2em 1.5em;
-
+    .layout-layout-container {
+        padding: 4em 0;
+        
         .headline {
-            font-size: 2em;
-            color: #000000;
-        }
-        
-        .subheadline {
-            font-size: 1.65em;
-            color: #a0a0aa;
+            display: block;
+            font-size: 1.75em;
+            padding-bottom: 1em;
             font-weight: 300;
-            margin-top: .825em;
+            color: #271C15;
+            text-align: center;
+            line-height: 150%;
         }
         
-        .inner-action {
+        .list-social {
             display: flex;
-            flex-direction: row;
-            margin-top: 2.5em;
+            align-items: center;
+            justify-content: center;
             
-            
-            .layout-forms-simple-input {
-                width: 35%;
-                margin-right: 3em;
+            .list-item {
+                position: relative;
+                margin: 0 .325em;
+                font-size: 1.675em;
                 
-                div {
-                    width: 100%;
+                &.inner-image {
+                    width: 2.375em;
+                    height: 2.375em;
                 }
+            }
+        }
+        
+        .inner-phone {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1em 0;
+            
+            .inner-image {
+                position: relative;
+                width: 4em;
+                height: 4em;
             }
             
-            .button-send-contact {
-                .button {
-                    height: 100%;
-                }
+            .data-phone {
+                display: block;
+                font-size: 1.75em;
+                font-weight: 300;
+                color: #271C15;
+                text-align: center;
+                line-height: 150%;
+                
+                padding-left: .5em;
             }
+        }
+        
+        .data-email {
+            display: block;
+            font-size: 1.75em;
+            font-weight: 300;
+            color: #271C15;
+            text-align: center;
+            line-height: 150%;
         }
     }
     

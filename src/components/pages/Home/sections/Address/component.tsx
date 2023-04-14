@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
+import Container from 'components/layout/Container';
+
 import StyledComponent from './styles';
 import { Props } from './types';
 
@@ -10,9 +12,11 @@ const HomeSectionAddress: FunctionComponent<Props> = ({  }) => {
             id="id_shipping"
             className="home-section-address"
         >
-            <h3 className="headline">Юридический адрес</h3>
-            <span className="contact-address">350087, г. Краснодар, крестьянский переулок 14/1</span>
-            <span className="privacy-policy">2023 - Все права защищены</span>
+            <Container className="layout-layout-container">
+                <span className="data-content data-email">www.szamanita-pantherina.pl </span>
+                <span className="data-content data-policy">All rights reserved</span>
+                <span className="data-content data-policy">{new Date().getFullYear()}</span>
+            </Container>
         </StyledComponent>
     );
 };

@@ -24,9 +24,10 @@ export const list = async (params?: ListRequestParams): Promise<{ meta: Paginati
     const { data } = await axios({ url: 'https://api.szamanita-pantherina.com/api/product', method: 'GET', params })
         .then((data) => data);
 
+    // .map((element: any) => new Product({ ...element, quantity: storageCart ? JSON.parse(storageCart)?.find((item: ShoppingCartProps) => element?.id === item.id)?.quantity : 0 })
     return {
         meta: { totalCount: data.count, page: data.page },
-        elements: data.results.map((element: any) => new Product({ ...element, quantity: storageCart ? JSON.parse(storageCart)?.find((item: ShoppingCartProps) => element?.id === item.id)?.quantity : 0 })),
+        elements: data.results,
     };
 };
 

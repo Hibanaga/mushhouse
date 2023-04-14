@@ -1,3 +1,5 @@
+import Product from 'models/Product';
+
 export interface Props {
-    filters?: {[key:string]: string}
+  products: Product[]
 }

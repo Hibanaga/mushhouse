@@ -7,6 +7,8 @@ import Routes from 'types/routes';
 
 import Product from 'models/Product';
 
+import { getSenteces, shorten } from 'utils/string';
+
 import Button from 'components/layout/Button';
 import { ButtonVariants } from 'components/layout/Button/types';
 
@@ -44,18 +46,13 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                 <div className="inner-content">
                     <h3 className="data-name">{product?.fullDisplayName ?? product?.name}</h3>
                     <div>
-                        <span className="data-category">{product?.category ?? ''}</span>
+                        {product?.description && <span className="data-description">{getSenteces(shorten(product.description, 52), 1)}</span>}
+                        {product?.category && <span className="data-category">{getSenteces(shorten(product.category, 52), 1)}</span>}
                         <span className="data-price">{product?.priceDisplay}</span>
                     </div>
                 </div>
 
                 <div className="inner-action">
-                    <Button
-                        className="button-add-cart"
-                        onClick={() => handleAddShoppingCart(product)}
-                    >
-                        В корзину
-                    </Button>
                     <Button
                         className="button-details"
                         variant={ButtonVariants.Outline}
@@ -64,7 +61,13 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                             query: { id: product.id },
                         })}
                     >
-                        Подробнее
+                        Zobacz Więcej
+                    </Button>
+                    <Button
+                        className="button-add-cart"
+                        onClick={() => handleAddShoppingCart(product)}
+                    >
+                        Do Koszyka
                     </Button>
                 </div>
             </div>

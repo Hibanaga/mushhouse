@@ -3,24 +3,24 @@ import styled from '@emotion/styled';
 import variables from 'theme/styles/vars';
 
 export default styled.section`
-    height: 10em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 2em;
+    background-color: #D9BBA0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     
-    .headline {
-        color: #36363b;
-        font-weight: 700;
-        font-size: 1.35em;
-    }
-    .contact-address {
-        font-size: 1.05em;
-    }
-    .privacy-policy {
-        font-weight: 300;
-        font-size: .925em;
+    .layout-layout-container {
+        padding: 1em 0;
+        
+        .data-content {
+            font-size: 1.75em;
+            display: block;
+            font-weight: 300;
+            color: #271C15;
+            text-align: center;
+            line-height: 150%;
+        } 
     }
     
     @media all and (max-width: ${variables.tabletS}) {

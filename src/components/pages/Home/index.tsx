@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 
-import { list } from 'requests/categories';
+import { list } from 'requests/products';
 
 import Component from './component';
 
@@ -9,11 +9,12 @@ Component.defaultProps = {
 
 export const getStaticStaticProps: GetServerSideProps = async (context) => {
     try {
-        const { elements } = await list();
+        const { meta, elements } = await list();
 
         return {
             props: {
-                categories: elements,
+                meta: meta,
+                products: elements,
             },
         };
     } catch (error) {

@@ -1,72 +1,89 @@
 import React, { FunctionComponent } from 'react';
+import Slider from 'react-slick';
+import Image from 'next/image';
 
 import Container from 'components/layout/Container';
 
+import { Props } from './index';
 import StyledComponent from './styles';
-import { Props } from './types';
+
 
 const HomeSectionShipping: FunctionComponent<Props> = ({  }) => {
-    const elements = [
-        {
-            description: 'Стоимость отправки по России',
-            info: '350 р / от 3000 р. даром',
-            details: '2 - 7 дней',
-        },
-        {
-            description: 'Доставка по Беларуси 2-4 дня',
-            info: 'в дар',
-            details: '1 - 2 дня',
-        },
-        {
-            description: 'Стоимость отправки по миру',
-            info: 'от 500 р ',
-            details: '5 - 14 дней',
-        },
-    ];
-
-    const steps = [
-        'Вы заказываете и оплачиваете товар на сайте',
-        'В течении 12 часов Мы скидываем вам трек-номер и отправляем ваш заказ',
-    ];
-
     return (
-        <StyledComponent className="home-section-shipping">
-            <Container>
-                <h2 className="title">Доставка</h2>
-                <span className="subheadline">
-                Отправка посылки - в течении 24 часов<br />
-                Быстрая доставка почтой 1 классом
-                </span>
+        <StyledComponent
+            id="id_shipping-payment"
+            className="home-section-shipping"
+        >
+            <h3 className="section-headline">
+              Dostawa i Płatność
+            </h3>
 
-                <div className="inner-columns">
-                    {elements.map(({ description, info, details }) => (
-                        <div
-                            key={description}
-                            className="inner"
-                        >
-                            <span className="data-description">{description}</span>
-                            <span className="data-info">{info}</span>
-                            <span className="data-details">{details}</span>
-                        </div>
-                    ))}
-                </div>
+            <Container className="layout-layout-container">
+                <div className="slider-wrapper">
+                    <Slider
+                        swipe
+                        arrows={false}
+                        slidesToShow={1}
+                        slidesToScroll={1}
+                        centerMode={true}
+                        autoplay={true}
+                        autoplaySpeed={5000}
+                        centerPadding="5px"
+                    >
+                        <div className="slide-item">
+                            <h2 className="headline">Dostawa</h2>
+                            <div className="inner-slide-content">
+                                <span className="data-content">
+                                  Generalnie wysyłamy wszystko z Polski. Wysyłka odbywa się w ciągu 24 godzin od momentu opłaty. Po opłacie, zostanie nadany tracking number dostawcy.
+                                </span>
+                                <span className="data-content">
+                                  Produkt z etykietą <span className="strong">“Шаманка”</span> ma większy czas dostawy z powodu zamówienia z Białorusi. Wtedy czas dostawy wynosi około 1 - 2 tygodni. Wysyłamy poprzez:
+                                </span>
 
-                <h2 className="headline-step">
-                    Как происходит процесс доставки?
-                </h2>
-                <div className="inner-steps">
-                    {steps.map((element, idx) => (
-                        <div
-                            key={element}
-                            className="inner-step"
-                        >
-                            <div className="step-index">
-                                <span className="step-index-value">{`0${++idx}`}</span>
+                                <ul className="list">
+                                    {
+                                        ['InPost', 'Poczta Polska', 'DPD']
+                                            .map((element) => (
+                                                <li
+                                                    key={element}
+                                                    className="list-item"
+                                                >
+                                                    {element}
+                                                </li>
+                                            ))
+                                    }
+                                </ul>
+
+                                <div className="inner-image">
+                                    <Image
+                                        fill
+                                        objectFit="contain"
+                                        src="/images/carousel-1.png"
+                                        alt="carousel image mushroom"
+                                    />
+                                </div>
                             </div>
-                            <span className="step-description">{element}</span>
                         </div>
-                    ))}
 
+                        <div className="slide-item">
+                            <h2 className="headline">Płatność</h2>
+                            <div className="inner-slide-content inner-slide-content-shipping">
+                                <span className="data-content">
+                                  Po złożeniu zamówienia, otrzymasz numer zamówienia, który trzeba wskazać jako komentarz podczas przelewu na konto:
+                                </span>
+
+                                <span className="data-label">1234 1245 1234 1234 1244 1244 1244</span>
+                                <span className="data-label spacing">Siarhej Ramanovich</span>
+
+                                <span className="data-content">
+                                  Po otrzymaniu płatności, zweryfikujemy zamówienie i zkontaktujemy się w wybrany sposób (SMS/Telefon/E-mail).
+                                </span>
+                                <span className="data-content">
+                                  Pracujemy nad dodawaniem płatności poprzez kartą bankową na stronie.
+                                </span>
+                            </div>
+                        </div>
+                    </Slider>
                 </div>
             </Container>
         </StyledComponent>

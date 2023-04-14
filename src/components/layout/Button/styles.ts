@@ -44,7 +44,7 @@ export default styled.div`
     }
 
     span {
-        font-weight: 600;
+        font-weight: 400;
         font-size: .925em;
         text-decoration: none;
         cursor: pointer;
@@ -112,7 +112,7 @@ export default styled.div`
     &.style-primary {
         &.variant-primary {
             .button {
-                background-color: #d32d46;
+                background-color: #D9501E;
                 color: #FFF;
             }
 

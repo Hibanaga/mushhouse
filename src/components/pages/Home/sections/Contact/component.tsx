@@ -1,93 +1,61 @@
-import React, { FormEvent, FunctionComponent, useState } from 'react';
-import * as Yup from 'yup';
+import React, { FunctionComponent } from 'react';
+import Image from 'next/image';
 
-import { YupValidateError } from 'types/yup';
-
-import constants from 'utils/constants';
-
-import Button from 'components/layout/Button';
-import SimpleInput from 'components/layout/forms/SimpleInput';
-
-import { ButtonTypes } from '../../../../layout/Button/types';
+import Container from 'components/layout/Container';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const defaultFormState = {
-    fullName: '',
-    phoneNumber: '',
-};
-
-const formStateValidationSchema = Yup.object().shape({
-    fullName: Yup.string()
-        .required('Full Name is required'),
-    phoneNumber: Yup.string().matches(constants.phoneValidation, 'Phone number is not valid'),
-});
-
 const HomeSectionContact: FunctionComponent<Props> = ({  }) => {
-    const [formState, setFormState] = useState<{fullName: string, phoneNumber: string}>({
-        ...defaultFormState,
-    });
-    const [errors, setErrors] = useState<{[key:string]: string}>({});
-    const [isLoading, setIsLoading] = useState(false);
-
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setErrors({});
-        setIsLoading(true);
-
-        try {
-            formStateValidationSchema.validateSync(formState, { abortEarly: false });
-        } catch (error: any) {
-            const yupError: YupValidateError = error;
-            const errors: Record<string, string> = {};
-
-            yupError.inner.forEach(innerError => {
-                errors[innerError.path] = innerError.message;
-            });
-
-            setErrors(errors);
-            return;
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
     return (
         <StyledComponent
             id="id_contact"
             className="home-section-contact"
         >
-            <div className="inner">
-                <h3 className="headline">Контакты</h3>
-                <span className="subheadline">У вас остались вопросы? Свяжитесь с нами!</span>
-                <form
-                    className="inner-action"
-                    onSubmit={handleSubmit}
-                >
-                    <SimpleInput
-                        name="fullName"
-                        className="input-name"
-                        placeholder="Ваше имя"
-                        onChange={(e) => setFormState(prevFormState => ({ ...prevFormState, fullName: e.target.value }))}
-                        value={formState.fullName}
-                        error={errors?.fullName}
-                    />
-                    <SimpleInput
-                        name="phoneNumber"
-                        className="input-phone"
-                        placeholder="Номер телефона"
-                        onChange={(e) => setFormState(prevFormState => ({ ...prevFormState, phoneNumber: e.target.value }))}
-                        value={formState.phoneNumber}
-                        error={errors?.phoneNumber}
-                    />
-                    <Button
-                        type={ButtonTypes.Submit}
-                        className="button-send-contact"
-                        loading={isLoading}
-                    >Оставить заявку</Button>
-                </form>
-            </div>
+            <h3 className="section-headline">Kontakt</h3>
+            <Container className="layout-layout-container">
+                <span className="headline">
+                    Możesz skontaktować się z nami
+                </span>
+
+                <ul className="list-social">
+                    {
+                        [
+                            { 'href': '', 'imageUrl': '/images/telegram.svg' },
+                            { 'href': '', 'imageUrl': '/images/viber.svg' },
+                            { 'href': '', 'imageUrl': '/images/whatsapp.svg' },
+                        ].map((element) => (
+                            <li
+                                key={element.imageUrl}
+                                className="list-item inner-image"
+                            >
+                                <Image
+                                    fill
+                                    objectFit="contain"
+                                    src={element.imageUrl}
+                                    alt={element.imageUrl}
+                                />
+                            </li>
+                        ))
+                    }
+                    <li className="list-item">+375 29 223-51-23</li>
+                </ul>
+
+                <div className="inner-phone">
+                    <div className="inner-image">
+                        <Image
+                            fill
+                            objectFit="contain"
+                            src="/images/contact-icon.svg"
+                            alt="/images/contact-icon.svg"
+                        />
+                    </div>
+                    <span className="data-phone">+48 502-024-998</span>
+                </div>
+
+                <span className="data-email">szamanita.info@gmail.com</span>
+            </Container>
+
         </StyledComponent>
     );
 };
