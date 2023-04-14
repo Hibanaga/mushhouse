@@ -2,6 +2,7 @@ import React, { FunctionComponent, useState } from 'react';
 
 import { Option } from 'types/options';
 
+import Container from 'components/layout/Container';
 import SimpleSelect from 'components/layout/forms/SimpleSelect';
 import List from 'components/modules/List';
 
@@ -17,19 +18,21 @@ const HomeSectionDetails: FunctionComponent<Props> = ({ categories }) => {
             id="id_products-list"
             className="home-section-details"
         >
-            <div className="inner-filter">
-                <h2 className="headline">Наша продукция</h2>
-                <SimpleSelect
-                    hasClearButton
-                    className="multi-select-category"
-                    placeholder="Please select category..."
-                    options={categories.map((element) => ({ label: element.name ?? '', value: element.slug ?? '' }))}
-                    onChange={(newValue => {
-                        setFilters({ ...filters, category: (newValue as Option<string>)?.value  });
-                    })}
-                />
-            </div>
-            <List filters={filters} />
+            <Container>
+                <div className="inner-filter">
+                    <h2 className="headline">Наша продукция</h2>
+                    <SimpleSelect
+                        hasClearButton
+                        className="multi-select-category"
+                        placeholder="Please select category..."
+                        options={categories.map((element) => ({ label: element.name ?? '', value: element.slug ?? '' }))}
+                        onChange={(newValue => {
+                            setFilters({ ...filters, category: (newValue as Option<string>)?.value  });
+                        })}
+                    />
+                </div>
+                <List filters={filters} />
+            </Container>
         </StyledComponent>
     );
 };
