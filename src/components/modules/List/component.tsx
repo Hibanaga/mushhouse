@@ -12,17 +12,17 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 
-const ModuleList: FunctionComponent<Props> = ({ filters }) => {
+const ModuleList: FunctionComponent<Props> = ({ }) => {
     const [meta, setMeta] = useState<PaginationParams | null>(null);
     const [products, setProducts] = useState<Product[] | null>(null);
 
     useEffect(() => {
-        filters && getProducts(filters);
-    }, [JSON.stringify(filters)]);
+        getProducts();
+    }, []);
 
-    async function getProducts(filters: { [key:string]: string }) {
+    async function getProducts() {
         try {
-            const { meta, elements } = await list(filters);
+            const { meta, elements } = await list();
 
             setProducts(elements);
             setMeta(meta);

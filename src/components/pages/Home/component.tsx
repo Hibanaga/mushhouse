@@ -37,7 +37,7 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
     const getShoppingCart = async () => {
         const storageCart = getItem('shoppingCart');
 
-        storageCart && fetchShoppingCart && await fetchShoppingCart({ shoppingIds: JSON.parse(storageCart) });
+        // storageCart && fetchShoppingCart && await fetchShoppingCart({ shoppingIds: JSON.parse(storageCart) });
     };
 
     return (
@@ -61,8 +61,8 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
             <Header />
             <SectionHero />
             <SectionWorth />
+            <SectionDetails />
             <SectionAbout />
-            {/*<SectionDetails categories={categories} />*/}
             <SectionContact />
             <SectionAddress />
         </StyledComponent>
