@@ -1,49 +1,73 @@
 import styled from '@emotion/styled';
 
 export default styled.div`
-    .container {
+    position: relative;
+    width: 100%;
+    padding: 1em auto;
+
+    > ul {
         display: flex;
         justify-content: center;
-        margin: 1em 0;
+        align-items: center;
 
-        .pagination-center {
-            width: 3.5em;
-            height: 3.5em;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
 
-        .border-controls {
-            border: 1px solid #F3F4F6;
-        }
+        > li {
+            margin: 0 1em;
+            list-style: none;
+            font-size: 1em;
+            cursor: pointer;
 
-        .page {
-            margin: 0 .5em;
-
-            &.active {
-                color: #4FC0B3;
+            a {
+                color: #121212;
+                text-decoration: none;
             }
-        }
 
-        .container {
-            display: flex;
-        }
-
-        .next {
-            .next-link {
+            &.selected {
+                a {
+                    font-weight: 600;
+                    color: #D9BBA0;
+                }
             }
-        }
 
-        .prev {
-            .prev-link {
+            &.previous, &.next {
+                margin: 0 .65em;
             }
-        }
+            
+            .inner-image {
+                position: relative;
+                width: 1.5em;
+                height: 1.5em;
+                
+                &:hover {
+                    .image {
+                        filter: invert(85%) sepia(14%) saturate(624%) hue-rotate(342deg) brightness(92%) contrast(83%);
+                    }
+                }
 
-        .break {
-            display: flex;
-            align-items: center;
+                .image {
+                    transition: 150ms;
+                }
+                
+                &.prev-icon {
+                    .image {
+                        transform: rotate(-180deg);
+                    }
+                }
+                
+                &.next-icon {
+                   .image {
+                       transform: rotate(180deg);
+                   } 
+                }
+            }
+
+            .next-icon, .prev-icon {
+                color: #D9BBA0;
+            }
+
+            .next-icon {
+                transform: rotate(180deg);
+            }
         }
     }
 `;

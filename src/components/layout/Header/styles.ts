@@ -39,12 +39,15 @@ export default styled.header`
                 
                 .data-label {
                     cursor: pointer;
-                    font-size: 1em;
+                    font-size: .875em;
                 }
             }
         }   
     }
     
     @media all and (max-width: ${variables.tabletS}) {
+        .layout-container {
+            justify-content: flex-end;
+        }
     }
 `;

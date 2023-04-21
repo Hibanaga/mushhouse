@@ -7,7 +7,6 @@ export default styled.div`
     right: 5%;
     top: 25%;
     cursor: pointer;
-
     padding: .75em;
     background-color: rgba(255,255,255,.8);
     box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%);
@@ -18,12 +17,18 @@ export default styled.div`
     align-items: center;
     justify-content: center;
     z-index: 99999;
-
+    opacity: 0;
+    
+    transition: 150ms;
+    
+    &.active {
+        opacity: 1;
+    }
+    
     img {
         width: 75%;
         height: 75%;
     }
-
     .button-elements {
         position: absolute;
         bottom: -12.5%;
@@ -32,11 +37,9 @@ export default styled.div`
         height: 1.75em;
         background-color: red;
         border-radius: 50%;
-
         display: flex;
         align-items: center;
         justify-content: center;
-
         .content {
             position: absolute;
             top: 52%;

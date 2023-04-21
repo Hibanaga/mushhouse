@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react';
-import { useInView } from 'react-intersection-observer';
+import React, { FunctionComponent, useState } from 'react';
+import Slider from 'react-slick';
 import Image from 'next/image';
 import classNames from 'classnames';
 
@@ -9,33 +9,58 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
-    const [ref, inView] = useInView({
-        threshold: 0,
-        triggerOnce: true,
-    });
+    const [previewImageUrl, setPreviewImageUrl] = useState<string | undefined>(product?.imageUrl);
 
     return (
-        <StyledComponent
-            ref={ref}
-            className={classNames([
-                'product-section-hero',
-                inView ? 'animate-lazy-load': 'lazy-load',
-            ])}
-        >
+        <StyledComponent className="product-section-hero">
             <div className="column-images">
-                {product?.imageUrl && (
+                {previewImageUrl && (
                     <div className="inner-image">
                         <Image
                             fill
                             priority
                             objectFit="cover"
-                            src={product.imageUrl}
+                            src={previewImageUrl}
                             alt="alt image product"
-                            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mMUrAgAADQAeGhY3CwAAAABJRU5ErkJggg=="
-                            placeholder="blur"
                         />
                     </div>
                 )}
+
+                {product?.images && (
+                    <div className="slider-wrapper">
+                        <Slider
+                            swipe
+                            arrows={false}
+                            slidesToShow={3}
+                            slidesToScroll={1}
+                            centerMode={true}
+                            autoplay={true}
+                            autoplaySpeed={5000}
+                            centerPadding="5px"
+                            // nextArrow={<CustomArrowButton />}
+                            // prevArrow={<CustomArrowButton />}
+                        >
+                            {product?.images.map((imageUrl) => (
+                                <div
+                                    key={imageUrl}
+                                    className="slide-item"
+                                    onClick={() => setPreviewImageUrl(imageUrl)}
+                                >
+
+                                    <Image
+                                        fill
+                                        objectFit="cover"
+                                        src={imageUrl}
+                                        alt={imageUrl}
+                                    />
+                                </div>
+                            ))}
+
+                        </Slider>
+                    </div>
+                )}
+
+
             </div>
 
             <div className="column-details">

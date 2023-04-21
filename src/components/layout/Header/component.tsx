@@ -1,9 +1,10 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import classNames from 'classnames';
 
 import Routes from 'types/routes';
+
+import { scrollToPositionId } from 'utils/page';
 
 import Container from 'components/layout/Container';
 
@@ -26,11 +27,6 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
         };
     }, []);
 
-    const handleScrollToSection = (id: string, position:ScrollLogicalPosition = 'start') => {
-        const violation = document.getElementById(id.toLowerCase());
-        violation && violation.scrollIntoView({ behavior: 'smooth', block: position });
-    };
-
     return (
         <StyledComponent className={classNames(['layout-header', { active: active }])}>
             <Container className="layout-layout-container">
@@ -52,7 +48,7 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
                             <li
                                 key={element.value}
                                 className="list-item"
-                                onClick={() => handleScrollToSection(element.value, element.position as ScrollLogicalPosition)}
+                                onClick={() => scrollToPositionId(element.value, element.position as ScrollLogicalPosition)}
                             >
                                 <span className="data-label">{element.label}</span>
                             </li>

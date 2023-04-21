@@ -5,7 +5,7 @@ import variables from 'theme/styles/vars';
 export default styled.div`
     
     .headline {
-        font-size: 1.75em;
+        font-size: 1.525em;
         margin: 1.75em 0 ;
     }
     

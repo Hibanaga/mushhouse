@@ -22,7 +22,7 @@ const AppState = (): AppContextProps => {
 
         const { elements } = await listProducts(params);
 
-        const products = parsedShoppingCart.map((element: ShoppingCartProps) => {
+        const products = parsedShoppingCart?.map((element: ShoppingCartProps) => {
             const searchElement = elements.find((product) => product.id === element.id);
             return new Product({ ...element, ...searchElement });
         });
@@ -57,6 +57,17 @@ const AppState = (): AppContextProps => {
 
         setItem('shoppingCart', JSON.stringify(shoppingCart));
         setStorageShoppingCart(shoppingCart);
+
+        setCart((prevCart: any) => {
+            const existingProduct = prevCart?.find((element: Product) => element.id === product.id);
+            if (existingProduct) {
+                return prevCart.map((element: Product) =>
+                    element.id === product.id ? { ...element, quantity: element.quantity ? element.quantity + 1 : 1 } : element,
+                );
+            } else {
+                return Array.isArray(prevCart) ? [...prevCart, { ...product, quantity: 1 }] : [{ ...product, quantity: 1 }];
+            }
+        });
     };
 
 

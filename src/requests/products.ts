@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-import { PaginationParams, ShoppingCartProps } from 'types/options';
+import { PaginationParams } from 'types/options';
 
 import Product from 'models/Product';
 
 import { getItem } from '../utils/localStorage';
 
-interface ListRequestParams {
+export interface ListRequestParams {
     active?: boolean;
     category?: string;
     has_discount?: boolean;
