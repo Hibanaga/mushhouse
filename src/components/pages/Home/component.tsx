@@ -1,12 +1,12 @@
-import React, { FunctionComponent, useEffect } from 'react';
-import { InferGetServerSidePropsType } from 'next';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { useAppContext } from 'context/AppContext';
 
-import { ShoppingCartProps } from 'types/options';
+import { PaginationParams } from 'types/options';
+import { PageSizes } from 'types/pageSizes';
 
 import Product from 'models/Product';
 
-import { getItem } from 'utils/localStorage';
+import { list, ListRequestParams } from 'requests/products';
 
 import Head from 'components/layout/Head';
 import Header from 'components/layout/Header';
@@ -18,16 +18,29 @@ import SectionHero from 'components/pages/Home/sections/Hero';
 import SectionShipping from 'components/pages/Home/sections/Shipping';
 import SectionWorth from 'components/pages/Home/sections/Worth';
 
-import { getStaticStaticProps } from './index';
+import { Props } from './index';
 import StyledComponent from './styles';
 
-const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticStaticProps>> = ({ meta, products }) => {
+const PageHome: FunctionComponent<Props> = ({  }) => {
     const { shoppingCart, fetchShoppingCart } = useAppContext();
-
+    const [meta, setMeta] = useState<PaginationParams | null>(null);
+    const [products, setProducts] = useState<Product[] | null>(null);
+    const [filters, setFilters] = useState<ListRequestParams>({
+        page_size: PageSizes.Medium,
+    });
 
     useEffect(() => {
-        console.log('shoppingCart: ', shoppingCart);
-    }, [shoppingCart]);
+        filters && getProducts(filters);
+    }, [JSON.stringify(filters)]);
+
+    const getProducts = async (params: ListRequestParams) => {
+        const { meta, elements } = await list(params);
+        setMeta(meta);
+        setProducts(elements.map((element) => new Product(element)));
+        setFilters({ ...filters, page: meta.page });
+    };
+
+    const handleChangeFilter = (filterKey: string, value: string | number | boolean) => setFilters({ ...filters, [filterKey]: value });
 
     return (
         <StyledComponent className="page-home">
@@ -36,9 +49,13 @@ const PageHome: FunctionComponent<InferGetServerSidePropsType<typeof getStaticSt
             <Header />
             <SectionHero />
             <SectionWorth />
+
             <SectionDetails
-                products={products.map((element: any) => new Product(element))}
+                meta={meta}
+                products={products}
+                onChange={handleChangeFilter}
             />
+
             <SectionShipping />
             <SectionAbout />
             <SectionContact />

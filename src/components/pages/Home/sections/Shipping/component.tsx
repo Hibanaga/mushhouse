@@ -9,6 +9,26 @@ import StyledComponent from './styles';
 
 
 const HomeSectionShipping: FunctionComponent<Props> = ({  }) => {
+    const CustomArrowButton = (props: any) => {
+        const { className, style, onClick } = props;
+
+        return (
+            <div
+                className="button-arrow"
+                style={{ ...style }}
+                onClick={onClick}
+            >
+                <Image
+                    fill
+                    objectFit="contain"
+                    src="/images/slider-arrow.svg"
+                    alt="arrow button icon"
+                    className="image"
+                />
+            </div>
+        );
+    };
+
     return (
         <StyledComponent
             id="id_shipping-payment"
@@ -22,13 +42,15 @@ const HomeSectionShipping: FunctionComponent<Props> = ({  }) => {
                 <div className="slider-wrapper">
                     <Slider
                         swipe
-                        arrows={false}
+                        arrows
                         slidesToShow={1}
                         slidesToScroll={1}
                         centerMode={true}
                         autoplay={true}
                         autoplaySpeed={5000}
                         centerPadding="5px"
+                        nextArrow={<CustomArrowButton />}
+                        prevArrow={<CustomArrowButton />}
                     >
                         <div className="slide-item">
                             <h2 className="headline">Dostawa</h2>

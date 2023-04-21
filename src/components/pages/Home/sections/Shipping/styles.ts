@@ -137,6 +137,42 @@ export default styled.section`
                 
             }
 
+            .button-arrow {
+                position: absolute;
+                width: 2em;
+                height: 2em;
+                top: 50%;
+                transform: translateY(-50%);
+                left: -2em;
+                z-index: 10;
+                transition: 250ms;
+
+                .image {
+                    filter: invert(85%) sepia(14%) saturate(624%) hue-rotate(342deg) brightness(92%) contrast(83%);
+                }
+                
+                &:hover {
+                    &:first-of-type {
+                        left: -2.25em;
+                    }
+
+                    &:last-of-type {
+                        right: -2.25em;
+                    }
+                }
+
+                &:first-of-type {
+                   .image {
+                       transform: rotate(180deg);
+                   }
+               }
+                
+                &:last-of-type {
+                    right: -2em;
+                    left: initial;
+                }
+            }
+
             .slick-track {
                 display: flex;
 

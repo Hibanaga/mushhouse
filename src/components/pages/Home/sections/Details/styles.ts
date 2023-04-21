@@ -12,6 +12,10 @@ export default styled.main`
         font-size: 2em;
     }
     
+    .inner-pagination {
+        margin: 6em;
+    }
+    
     @media all and (max-width: ${variables.tabletS}) {
     }
 `;
