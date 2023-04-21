@@ -4,13 +4,11 @@ import { useRouter } from 'next/router';
 import { PageSizes } from 'types/pageSizes';
 import Routes from 'types/routes';
 
-import { list } from 'requests/products';
+import { scrollToPositionId } from 'utils/page';
 
 import Container from 'components/layout/Container';
 import Pagination from 'components/layout/Pagination';
 import List from 'components/modules/List';
-
-import { scrollToPositionId } from '../../../../../utils/page';
 
 import { Props } from './index';
 import StyledComponent from './styles';

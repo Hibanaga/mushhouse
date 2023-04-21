@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { InferGetServerSidePropsType } from 'next';
-import { useRouter } from 'next/router';
 
 import Product from 'models/Product';
 
 import Container from 'components/layout/Container';
+import Header from 'components/layout/Header';
 
 import SectionDetails from './sections/Details';
 import SectionHero from './sections/Hero';
@@ -16,6 +16,8 @@ import StyledComponent from './styles';
 const PageProduct: FunctionComponent<InferGetServerSidePropsType<typeof getStaticStaticProps>> = ({ product }) => {
     return (
         <StyledComponent className="page-product">
+            <Header />
+
             <Container>
                 <SectionHero product={new Product(product)} />
                 <SectionDetails product={new Product(product)} />

@@ -13,8 +13,34 @@ export default styled.div`
         
         .inner-image {
             position: relative;
-            height: 24em;
+            height: 20em;
             width: 100%;
+        }
+
+        .slider-wrapper {
+            position: relative;
+
+            .slick-list {
+                overflow: hidden;
+                border-radius: 1em;
+            }
+
+            .slick-track {
+                display: flex;
+                margin-top: 1em;
+
+                .slick-slide {
+                    cursor: pointer;
+                    overflow: hidden;
+                    position: relative;
+                    background-color: #D9BBA0;
+                    border-radius: .275em;
+                    min-height: 6.25em;
+                    margin: 0 .675em;
+                    padding: 0.75em 3em 0.3em 0.75em;
+                    box-sizing: border-box;
+                }
+            }
         }
     }
     
