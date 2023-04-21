@@ -10,6 +10,8 @@ import Container from 'components/layout/Container';
 import Pagination from 'components/layout/Pagination';
 import List from 'components/modules/List';
 
+import { scrollToPositionId } from '../../../../../utils/page';
+
 import { Props } from './index';
 import StyledComponent from './styles';
 
@@ -32,6 +34,7 @@ const HomeSectionDetails: FunctionComponent<Props> = ({ meta, products, onChange
                             lastPage={meta.totalCount / PageSizes.Medium || 1}
                             onPageChange={(page: number) => {
                                 onChange('page', page);
+                                scrollToPositionId('id_products-list');
                             }}
                         />
                     </div>

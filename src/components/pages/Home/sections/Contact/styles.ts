@@ -53,8 +53,8 @@ export default styled.section`
             
             .inner-image {
                 position: relative;
-                width: 3em;
-                height: 3em;
+                width: 2em;
+                height: 2em;
             }
             
             .data-phone {

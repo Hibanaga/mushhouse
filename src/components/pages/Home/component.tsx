@@ -18,6 +18,8 @@ import SectionHero from 'components/pages/Home/sections/Hero';
 import SectionShipping from 'components/pages/Home/sections/Shipping';
 import SectionWorth from 'components/pages/Home/sections/Worth';
 
+import { scrollToPositionId } from '../../../utils/page';
+
 import { Props } from './index';
 import StyledComponent from './styles';
 
@@ -34,10 +36,14 @@ const PageHome: FunctionComponent<Props> = ({  }) => {
     }, [JSON.stringify(filters)]);
 
     const getProducts = async (params: ListRequestParams) => {
-        const { meta, elements } = await list(params);
-        setMeta(meta);
-        setProducts(elements.map((element) => new Product(element)));
-        setFilters({ ...filters, page: meta.page });
+        try {
+            const { meta, elements } = await list(params);
+            setMeta(meta);
+            setProducts(elements.map((element) => new Product(element)));
+            setFilters({ ...filters, page: meta.page });
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     const handleChangeFilter = (filterKey: string, value: string | number | boolean) => setFilters({ ...filters, [filterKey]: value });
