@@ -39,7 +39,7 @@ export default styled.header`
                 
                 .data-label {
                     cursor: pointer;
-                    font-size: 1em;
+                    font-size: .875em;
                 }
             }
         }   

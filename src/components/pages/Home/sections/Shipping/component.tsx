@@ -46,8 +46,8 @@ const HomeSectionShipping: FunctionComponent<Props> = ({  }) => {
                         slidesToShow={1}
                         slidesToScroll={1}
                         centerMode={true}
-                        autoplay={true}
-                        autoplaySpeed={5000}
+                        // autoplay={true}
+                        // autoplaySpeed={5000}
                         centerPadding="5px"
                         nextArrow={<CustomArrowButton />}
                         prevArrow={<CustomArrowButton />}

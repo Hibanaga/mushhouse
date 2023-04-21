@@ -14,7 +14,7 @@ export default styled.div`
         > li {
             margin: 0 1em;
             list-style: none;
-            font-size: 1.3em;
+            font-size: 1em;
             cursor: pointer;
 
             a {

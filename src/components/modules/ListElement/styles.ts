@@ -4,16 +4,15 @@ import variables from 'theme/styles/vars';
 
 export default styled.div`
     overflow: hidden;
-    min-height: 41.25em;
     box-sizing: border-box;
     
     .inner-image {
         position: relative;
-        height: 52%;
+        min-height: 19em;
     }
     
     .inner-main {
-        height: 45%;
+        min-height: 18.25em;
         padding: 1em;
         display: flex;
         flex-direction: column;
@@ -21,7 +20,7 @@ export default styled.div`
         
         .inner-content {
             .data-name {
-                font-size: 1.4em;
+                font-size: 1.125em;
                 font-weight: 400;
                 height: 4.5em;
                 margin-bottom: .275em;
@@ -31,10 +30,11 @@ export default styled.div`
                 display: block;
                 min-height: 2.675em;
                 margin-bottom: .275em;
+                font-size: .925em;
             }
 
             .data-category {
-                font-size: .875em;
+                font-size: .825em;
                 font-weight: 300;
                 color: #919197;
                 display: block;
@@ -44,7 +44,7 @@ export default styled.div`
 
             .data-price {
                 display: block;
-                font-size: 1.15em;
+                font-size: 1em;
                 color: #000000;
                 margin-bottom: .5em;
             }

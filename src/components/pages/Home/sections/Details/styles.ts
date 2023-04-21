@@ -9,11 +9,11 @@ export default styled.main`
         padding: .5em 0;
         text-align: center;
         font-weight: 400;
-        font-size: 2em;
+        font-size: 1.625em;
     }
     
     .inner-pagination {
-        margin: 6em;
+        margin:  0 0 4em 0;
     }
     
     @media all and (max-width: ${variables.tabletS}) {

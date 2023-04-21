@@ -12,7 +12,7 @@ export default styled.section`
         padding: .5em 0;
         text-align: center;
         font-weight: 400;
-        font-size: 2em;
+        font-size: 1.625em;
     }
     
     .layout-layout-container {
@@ -39,11 +39,11 @@ export default styled.section`
                 width: 100%;
                 height: 100%;
                 padding: 1em;
-                overflow: hidden;
                 position: relative;
                 
                 .headline {
-                    font-size: 1.75em;
+                    margin-top: 1em;
+                    font-size: 1.325em;
                     margin-bottom: 1em;
                     display: block;
                     font-weight: 300;
@@ -57,7 +57,7 @@ export default styled.section`
                     padding: 0 .75em .5em .75em;
                     
                     .data-content {
-                        font-size: 1.25em;
+                        font-size: 1em;
                         display: block;
                         font-weight: 300;
                         color: #271C15;
@@ -73,12 +73,12 @@ export default styled.section`
                     }
                     
                     .list {
-                        margin-top: 2em;
+                        margin-top: .725em;
                         
                         .list-item {
                             font-weight: 300;
                             color: #271C15;
-                            font-size: 1.25em;
+                            font-size: 1em;
                             position: relative;
                             padding-left: 1em;
                             line-height: 150%;
@@ -100,7 +100,7 @@ export default styled.section`
                     .inner-image {
                         position: absolute;
                         right: 2em;
-                        bottom: -6.5em;
+                        bottom: -10em;
                         width: 20em;
                         height: 20em;
                     }
@@ -108,9 +108,9 @@ export default styled.section`
                 
                 .inner-slide-content-shipping {
                     .data-content {
-                        font-size: 1.25em;
+                        font-size: 1em;
                         display: block;
-                        padding-bottom: 1em;
+                        padding-bottom: .375em;
                         font-weight: 300;
                         color: #271C15;
                         line-height: 150%;
@@ -121,7 +121,7 @@ export default styled.section`
                     }
                     
                     .data-label {
-                        font-size: 1.25em;
+                        font-size: 1em;
                         display: block;
                         font-weight: 500;
                         color: #271C15;
@@ -146,6 +146,7 @@ export default styled.section`
                 left: -2em;
                 z-index: 10;
                 transition: 250ms;
+                cursor: pointer;
 
                 .image {
                     filter: invert(85%) sepia(14%) saturate(624%) hue-rotate(342deg) brightness(92%) contrast(83%);
@@ -197,29 +198,6 @@ export default styled.section`
 
                 &:hover {
                     transform: scale(1.35);
-                }
-            }
-
-            .slick-prev {
-                .icon-arrow-slider {
-                    width: 100%;
-                    height: 100%;
-                    background-position: center;
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-image: url('/images/arrow-slider.svg');
-                }
-            }
-
-            .slick-next {
-                .icon-arrow-slider {
-                    width: 100%;
-                    height: 100%;
-                    background-position: center;
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-image: url('/images/arrow-slider.svg');
-                    transform: rotate(180deg);
                 }
             }
         }

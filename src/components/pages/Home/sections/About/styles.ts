@@ -11,15 +11,14 @@ export default styled.section`
         padding: .5em 0;
         text-align: center;
         font-weight: 400;
-        font-size: 2em;
+        font-size: 1.625em;
     }
     
     .layout-layout-container {
         padding: 4em 0;
-       
         
         .data-content {
-            font-size: 1.25em;
+            font-size: 1em;
             display: block;
             padding-bottom: 1em;
             font-weight: 300;
@@ -32,7 +31,7 @@ export default styled.section`
             display: grid;
             grid-template-columns: repeat(3,1fr);
             gap: 1.5em;
-            margin-top: 1em;
+            margin: 1.5em 0;
             
             .list-element {
                 position: relative;

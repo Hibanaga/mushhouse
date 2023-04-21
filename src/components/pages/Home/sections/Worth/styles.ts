@@ -12,14 +12,14 @@ export default styled.section`
         padding: .5em 0;
         text-align: center;
         font-weight: 400;
-        font-size: 2em;
+        font-size: 1.625em;
     }
     
     .layout-layout-container {
         padding: 4em 0;
         
         .data-content {
-            font-size: 1.25em;
+            font-size: 1em;
             display: block;
             padding-bottom: 1em;
             font-weight: 300;
@@ -34,7 +34,7 @@ export default styled.section`
             .list-item {
                 font-weight: 300;
                 color: #271C15;
-                font-size: 1.25em;
+                font-size: 1em;
                 position: relative;
                 padding-left: 1em;
                 line-height: 150%;
@@ -57,7 +57,7 @@ export default styled.section`
     .inner-image {
         position: absolute;
         right: -5em;
-        bottom: -2em;
+        bottom: -4em;
         height: 25em;
         width: 30em;
     }
