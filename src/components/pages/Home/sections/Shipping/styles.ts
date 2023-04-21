@@ -120,6 +120,10 @@ export default styled.section`
                         }
                     }
                     
+                    .inner-payment {
+                        margin: 3em 0 3em 0;
+                    }
+                    
                     .data-label {
                         font-size: 1em;
                         display: block;
@@ -204,6 +208,26 @@ export default styled.section`
     }
 
     
+    @media all and (max-width: ${variables.desktopS}) {
+        .layout-layout-container {
+           .slider-wrapper {
+               width: 90%;
+               margin: 0 auto;
+           }
+        }
+    }
+    
     @media all and (max-width: ${variables.tabletS}) {
+        .layout-layout-container {
+            .slider-wrapper {
+                .slide-item {
+                    .inner-slide-content {
+                        .inner-image {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
     }
 `;

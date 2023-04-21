@@ -15,6 +15,15 @@ export default styled.section`
         }
     }
     
+    @media all and (max-width: ${variables.tabletL}) {
+        gap: 2em 3%;
+    }
+
     @media all and (max-width: ${variables.tabletS}) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media all and (max-width: ${variables.mobileM}) {
+        grid-template-columns: 1fr;
     }
 `;

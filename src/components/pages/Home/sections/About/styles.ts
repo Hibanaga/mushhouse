@@ -41,5 +41,18 @@ export default styled.section`
     }
     
     @media all and (max-width: ${variables.tabletS}) {
+        .layout-layout-container {
+            .list-images {
+                grid-template-columns: repeat(2,1fr);
+            }
+        }
+    }
+    
+    @media all and (max-width: ${variables.mobileM}) {
+        .layout-layout-container {
+            .list-images {
+                grid-template-columns: 1fr;
+            }
+        }
     }
 `;

@@ -56,12 +56,25 @@ export default styled.section`
 
     .inner-image {
         position: absolute;
-        right: -5em;
-        bottom: -4em;
-        height: 25em;
-        width: 30em;
+        right: -2em;
+        bottom: -3em;
+        height: 20em;
+        width: 25em;
     }
     
-    @media all and (max-width: ${variables.tabletS}) {
+    @media all and (max-width: ${variables.mobileL}) {
+        .inner-image {
+            position: absolute;
+            right: -2em;
+            bottom: -3em;
+            width: 17.5em;
+        }
+    }
+    
+    @media all and (max-width: ${variables.mobileM}) {
+        .inner-image {
+            bottom: -6em;
+            width: 17.5em;
+        }
     }
 `;

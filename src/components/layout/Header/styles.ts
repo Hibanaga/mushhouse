@@ -46,5 +46,8 @@ export default styled.header`
     }
     
     @media all and (max-width: ${variables.tabletS}) {
+        .layout-container {
+            justify-content: flex-end;
+        }
     }
 `;

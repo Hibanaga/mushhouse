@@ -94,8 +94,10 @@ const HomeSectionShipping: FunctionComponent<Props> = ({  }) => {
                                   Po złożeniu zamówienia, otrzymasz numer zamówienia, który trzeba wskazać jako komentarz podczas przelewu na konto:
                                 </span>
 
-                                <span className="data-label">1234 1245 1234 1234 1244 1244 1244</span>
-                                <span className="data-label spacing">Siarhej Ramanovich</span>
+                                <div className="inner-payment">
+                                    <span className="data-label">1234 1245 1234 1234 1244 1244 1244</span>
+                                    <span className="data-label spacing">Siarhej Ramanovich</span>
+                                </div>
 
                                 <span className="data-content">
                                   Po otrzymaniu płatności, zweryfikujemy zamówienie i zkontaktujemy się w wybrany sposób (SMS/Telefon/E-mail).

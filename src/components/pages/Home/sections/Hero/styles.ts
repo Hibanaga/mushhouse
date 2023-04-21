@@ -27,6 +27,35 @@ export default styled.section`
     }
     
     
+    @media all and (max-width: ${variables.tabletL}) {
+        .layout-layout-container {
+            .headline {
+                font-size: 3em;
+            }
+        }
+    }
+    
+    @media all and (max-width: ${variables.tabletM}) {
+        .layout-layout-container {
+            .headline {
+                font-size: 2.675em;
+            }
+        }
+    }
+    
     @media all and (max-width: ${variables.tabletS}) {
+        .layout-layout-container {
+            .headline {
+                font-size: 2.325em;
+            }
+        }
+    }
+    
+    @media all and (max-width: ${variables.mobileL}) {
+        .layout-layout-container {
+            .headline {
+                font-size: 2.125em;
+            }
+        }
     }
 `;

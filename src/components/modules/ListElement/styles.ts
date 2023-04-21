@@ -82,6 +82,18 @@ export default styled.div`
         }
     }
     
-    @media all and (max-width: ${variables.tabletS}) {
+    @media all and (max-width: ${variables.tabletL}) {
+        .inner-main {
+            .inner-action {
+                flex-direction: column;
+                margin-top: 1em;
+                
+                .layout-button {
+                    &:first-of-type {
+                        margin-bottom: 1em;
+                    }
+                }
+            }
+        }
     }
 `;
