@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
 import Image from 'next/image';
-import { useAppContext } from 'context/AppContext';
 
 import LayoutCounter from 'components/layout/Counter';
 
@@ -13,17 +12,24 @@ const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) =>
 
     return (
         <StyledComponent className="module-shopping-cart-list-element">
-            {product.imageUrl && (
-                <div className="inner-image">
-                    <Image
-                        src={product.imageUrl}
-                        fill
-                        objectFit="cover"
-                        alt="alt image"
-                    />
+            <div className="inner-main">
+                {product.imageUrl && (
+                    <div className="inner-image">
+                        <Image
+                            src={product.imageUrl}
+                            fill
+                            objectFit="cover"
+                            alt="alt image"
+                        />
+                    </div>
+                )}
+
+                <div className="inner-content">
+                    <h3 className="data-name">{product?.fullDisplayName ?? product?.name}</h3>
+                    <span className="data-description">{product?.description}</span>
+                    <span className="data-category">{product?.category}</span>
                 </div>
-            )}
-            <h3 className="data-name">{product?.fullDisplayName ?? product?.name}</h3>
+            </div>
             <div className="inner-counter">
                 <LayoutCounter
                     value={quantity}
@@ -36,19 +42,6 @@ const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) =>
             <div className="inner-total">
                 {product?.price && product?.getFormattedPrice(product?.price * quantity)}
             </div>
-
-            <div className="inner-remove">
-                <button className="inner-close-button">
-                    <Image
-                        src="/images/remove-circle-icon.svg"
-                        width={32}
-                        height={32}
-                        quality={100}
-                        alt="alt image"
-                    />
-                </button>
-            </div>
-
         </StyledComponent>
     );
 };

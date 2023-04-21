@@ -25,6 +25,10 @@ export default styled.div`
                 font-weight: 400;
                 font-size: 1.25em;
                 display: block;
+                
+                &:not(&:first-of-type) {
+                    text-align: center;
+                }
 
                 &.data-name {
                     width: 60%;
