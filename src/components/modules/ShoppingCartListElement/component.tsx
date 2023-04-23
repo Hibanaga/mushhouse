@@ -40,7 +40,7 @@ const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) =>
             </div>
 
             <div className="inner-total">
-                {product?.price && product?.getFormattedPrice(product?.price * quantity)}
+                {product?.price && product?.priceDisplay}
             </div>
         </StyledComponent>
     );

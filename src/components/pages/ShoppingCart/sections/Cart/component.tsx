@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import Container from 'components/layout/Container';
-
-import ShoppingCartListElement from '../../../../modules/ShoppingCartListElement';
+import ShoppingCartListElement from 'components/modules/ShoppingCartListElement';
 
 import { Props } from './index';
 import StyledComponent from './styles';

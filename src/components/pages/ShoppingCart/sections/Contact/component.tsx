@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
+import Button from 'components/layout/Button';
 import Container from 'components/layout/Container';
 import SimpleInput from 'components/layout/forms/SimpleInput';
 
@@ -31,6 +32,10 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ }) => {
                     <SimpleInput placeholder="Kod pocztowy" />
                 </Container>
             </Container>
+
+            <div className="inner-actions">
+                <Button className="button-add-to-cart">Złoż zamówinie</Button>
+            </div>
         </StyledComponent>
     );
 };

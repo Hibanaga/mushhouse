@@ -16,7 +16,8 @@ export default class Product {
     categories?: OptionName<string>[];
     accesibility?: boolean;
     quantity?: number;
-    totalPrice: number | undefined;
+    totalPrice?: number;
+    totalPriceDisplay?: false | string;
 
     constructor(data: ApiProduct) {
         this.id = data.id;
@@ -33,6 +34,7 @@ export default class Product {
         this.priceDisplay = data.price && this.getFormattedPrice(data.price ?? 0);
         this.quantity = data?.quantity;
         this.totalPrice = data?.price && data?.quantity && this.getTotalPrice(data.price, data.quantity);
+        this.totalPriceDisplay = !!this.totalPrice && this.getTotalPriceDisplay(this?.totalPrice);
     }
 
     getDisplayedName(nameProduct: string, categoryInfo: Record<string, string> ) {
@@ -51,8 +53,10 @@ export default class Product {
     }
 
     getFormattedPrice (price: number): string {
-        const formatter = new Intl.NumberFormat('pl-PL', { style: 'currency', currency: 'PLN' });
+        return `${price} PLN`;
+    }
 
-        return formatter.format(price);
+    getTotalPriceDisplay (totalPrice: number) {
+        return totalPrice ? this.getFormattedPrice(totalPrice) : '0 PLN';
     }
 }
