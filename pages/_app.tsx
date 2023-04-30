@@ -5,6 +5,7 @@ import { Global } from '@emotion/core';
 import { AppContextProvider } from 'context/AppContext';
 
 import stylesBreakpoints from 'theme/styles/breakpoints';
+import styleCookieSent from 'theme/styles/cookieconsent';
 import stylesGlobal from 'theme/styles/global';
 
 import CookiesPanel from '../src/components/layout/CookiesPanel';
@@ -22,6 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     styles={[
                         stylesGlobal,
                         stylesBreakpoints,
+                        styleCookieSent,
                     ]}
                 />
                 <Head>

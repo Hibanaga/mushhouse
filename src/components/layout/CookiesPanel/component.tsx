@@ -51,42 +51,42 @@ const config = {
         en : {
             consent_modal : {
                 title :  '',
-                description : 'Our website uses cookies. The website also uses third-party cookies to use analytical or marketing tools. Do you agree to the use of non-essential cookies described in the Privacy Policy?',
+                description : 'Наш веб-сайт использует файлы cookie. На сайте также используются файлы cookie третьих лиц для использования аналитических или маркетинговых инструментов. Согласны ли вы с использованием неосновных файлов cookie, описанных в Политике конфиденциальности?',
                 primary_btn: {
-                    text: 'I agree',
+                    text: 'Я согласен',
                     role: 'accept_all',  //'accept_selected' or 'accept_all'
                 },
                 secondary_btn: {
-                    text : 'Details',
+                    text : 'Подробности',
                     role : 'settings',   //'settings' or 'accept_necessary'
                 },
 
             },
             settings_modal : {
-                title : 'Cookie settings',
-                save_settings_btn : 'Save the settings',
-                accept_all_btn : 'Accept all consents',
-                close_btn_label: 'Close',
+                title : 'Настройки файлов cookie',
+                save_settings_btn : 'Сохранить настройки',
+                accept_all_btn : 'Принять все соглашения',
+                close_btn_label: 'Закрыть',
                 blocks : [
                     {
-                        title : 'Necessary',
-                        description: 'The use of cookies marked as necessary is necessary for the proper functioning of the Website. Necessary cookies are installed in particular for the purpose of remembering login sessions or filling out forms, as well as for purposes related to setting privacy options.',
+                        title : 'Необходимые',
+                        description: 'Использование файлов cookie, помеченных как необходимые, необходимо для надлежащего функционирования Веб-сайта. Необходимые файлы cookie устанавливаются, в частности, для запоминания сеансов входа в систему или заполнения форм, а также для целей, связанных с настройкой параметров конфиденциальности.',
                         toggle : {
                             value : 'necessary',
                             enabled : true,
                             readonly: true,
                         },
                     }, {
-                        title : 'Functional',
-                        description: 'Functional cookies remember and adapt the Website to the choices made by the User. Lack of consent may cause that the Website will not work properly',
+                        title : 'Функциональные',
+                        description: 'Функциональные файлы cookie запоминают и адаптируют Веб-сайт к выбору, сделанному Пользователем. Отсутствие согласия может привести к тому, что Веб-сайт не будет работать должным образом',
                         toggle : {
                             value : 'functions',
                             enabled : false,
                             readonly: false,
                         },
                     }, {
-                        title : 'Analytical',
-                        description: 'The use of cookies marked as analytical is to check the number of visits and traffic sources on the Website. These files allow you to study statistics and improve the performance of the Website. If the User does not allow the use of these cookies, the Administrator will not know that the User has visited the Website.',
+                        title : 'Аналитические',
+                        description: 'Использование файлов cookie, помеченных как аналитические, заключается в проверке количества посещений и источников трафика на Веб-сайте. Эти файлы позволяют изучать статистику и улучшать работу Веб-сайта. Если Пользователь не разрешит использование этих файлов cookie, Администратор не будет знать, что Пользователь посетил Веб-сайт.',
                         toggle : {
                             value : 'analytics',
                             enabled : false,
