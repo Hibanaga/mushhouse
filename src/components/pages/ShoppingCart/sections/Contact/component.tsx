@@ -33,9 +33,9 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ }) => {
                 </Container>
             </Container>
 
-            <div className="inner-actions">
+            <Container className="inner-actions">
                 <Button className="button-add-to-cart">Złoż zamówinie</Button>
-            </div>
+            </Container>
         </StyledComponent>
     );
 };

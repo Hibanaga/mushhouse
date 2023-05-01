@@ -42,6 +42,23 @@ export default styled.div`
         }
     }
 
+
+    .inner-actions {
+        display: flex;
+        justify-content: center;
+    }
+
+    .layout-button {
+        max-width: 12em;
+
+        &.style-primary.variant-primary {
+            .button {
+                width: 100%;
+                padding: 0.8em 1.5em;
+            }
+        }
+    }
+
     @media all and (max-width: ${variables.tabletS}) {
     }
 `;
