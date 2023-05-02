@@ -53,15 +53,6 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ }) => {
     const [delivery, setDelivery] = useState<Delivery[] | null>(null);
     const [errors, setErrors] = useState<Record<string, string>>({});
 
-    useEffect(() => {
-        getDelivery();
-    }, []);
-
-    const getDelivery = async () => {
-        const elements = await list();
-
-        console.log('elements: ', elements);
-    };
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         setErrors({});

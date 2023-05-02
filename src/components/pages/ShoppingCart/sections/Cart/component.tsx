@@ -6,7 +6,7 @@ import ShoppingCartListElement from 'components/modules/ShoppingCartListElement'
 import { Props } from './index';
 import StyledComponent from './styles';
 
-const ShoppingCartSectionCart: FunctionComponent<Props> = ({ shoppingCart }) => {
+const ShoppingCartSectionCart: FunctionComponent<Props> = ({ delivery, shoppingCart }) => {
     return (
         <StyledComponent className="shopping-cart-section-cart">
             <h2 className="section-headline">Twój koszyk</h2>
@@ -22,6 +22,7 @@ const ShoppingCartSectionCart: FunctionComponent<Props> = ({ shoppingCart }) => 
                 {Array.isArray(shoppingCart) && shoppingCart.length ? shoppingCart.map((element) => (
                     <ShoppingCartListElement
                         key={element.id}
+                        delivery={delivery}
                         product={element}
                     />
                 )) : <span className="data-empty">Kosz na razie pusty</span>}

@@ -1,13 +1,11 @@
 import { GetServerSideProps } from 'next';
 
-import { useAppContext } from '../../../context/AppContext';
-import { list } from '../../../requests/products';
-import { ShoppingCartProps } from '../../../types/options';
-import { getItem } from '../../../utils/localStorage';
+import { list } from 'requests/delivery';
 
 import Component from './component';
 
 export interface Props {
+    delivery: { id: string }[]
 }
 
 
@@ -15,22 +13,11 @@ Component.defaultProps = {
 };
 
 export const getStaticStaticProps: GetServerSideProps = async (context) => {
-    // const { shoppingCart, fetchShoppingCart } = useAppContext();
-
+    const { elements } = await list();
     try {
-        // const storageCart = getItem('shoppingCart');
-        // const parsedShoppingCart = storageCart && JSON.parse(storageCart);
-        // if (!shoppingCart?.length && parsedShoppingCart?.length) {
-        //     const arrayIds = parsedShoppingCart.map((element: ShoppingCartProps)=> element.id);
-        //     if (fetchShoppingCart) {
-        //         await fetchShoppingCart({ products: arrayIds.join(',') });
-        //     }
-        // }
-
-
         return {
             props: {
-
+                delivery: elements,
             },
         };
     } catch (error) {
