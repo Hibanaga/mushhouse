@@ -1,13 +1,12 @@
 import React, { FunctionComponent } from 'react';
 
 import Container from 'components/layout/Container';
-
-import ShoppingCartListElement from '../../../../modules/ShoppingCartListElement';
+import ShoppingCartListElement from 'components/modules/ShoppingCartListElement';
 
 import { Props } from './index';
 import StyledComponent from './styles';
 
-const ShoppingCartSectionCart: FunctionComponent<Props> = ({ shoppingCart }) => {
+const ShoppingCartSectionCart: FunctionComponent<Props> = ({ delivery, shoppingCart }) => {
     return (
         <StyledComponent className="shopping-cart-section-cart">
             <h2 className="section-headline">Twój koszyk</h2>
@@ -20,14 +19,12 @@ const ShoppingCartSectionCart: FunctionComponent<Props> = ({ shoppingCart }) => 
             </div>
             <Container className="layout-body-container">
 
-                {Array.isArray(shoppingCart) ? shoppingCart.map((element) => (
+                {Array.isArray(shoppingCart) && shoppingCart.length ? shoppingCart.map((element) => (
                     <ShoppingCartListElement
                         key={element.id}
                         product={element}
                     />
                 )) : <span className="data-empty">Kosz na razie pusty</span>}
-
-
             </Container>
         </StyledComponent>
     );

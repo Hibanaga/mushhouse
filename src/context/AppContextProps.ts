@@ -7,4 +7,5 @@ export interface AppContextProps {
     storageShoppingCart?: ShoppingCartProps[],
     fetchShoppingCart?: (params?: any) => void;
     onAddElement?: (product: Product, quantity?: number) => void;
+    onRemoveElement?: (product: Product) => void;
 }

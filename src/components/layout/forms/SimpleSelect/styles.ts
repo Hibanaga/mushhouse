@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import variables from 'theme/styles/vars';
 
 export default styled.div`
+    max-width: 20em;
 
     .multi-select-category__control {
         width: 20em;
@@ -19,6 +20,8 @@ export default styled.div`
 
     .multi-select-category__menu {
         background-color: #FFF;
+        z-index: 10;
+        max-width: 20em;
 
         .multi-select-category__option {
             &:hover {
@@ -26,10 +29,14 @@ export default styled.div`
             }
 
             &.multi-select-category__option--is-selected {
-                background-color: #d32d46;
+                background-color: #D9501E;
                 color: #FFF;
             }
         }
+    }
+    
+    .layout-simple-error {
+        max-width: 100%;
     }
 
     @media all and (max-width: ${variables.tabletS}) {

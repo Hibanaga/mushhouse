@@ -3,70 +3,86 @@ import styled from '@emotion/styled';
 import variables from 'theme/styles/vars';
 
 export default styled.div`
-    display: grid;
+    display: flex;
     gap: 2%;
-    grid-template-columns: calc(3 / 12 * 100%) calc(3 / 12 * 100%) calc(2 / 12 * 100%) calc(1.5 / 12 * 100%) calc(2.5 / 12 * 100%);
     margin-bottom: 1em;
+    min-height: 4em;
+    height: 100%;
+    margin-top: 1em;
     
-    .inner-image {
-        width: 100%;
-        height: 6em;
-        position: relative;
+    .inner-main {
+        height: 100%;
+        display: flex;
+        width: 60%;
+        gap: 2em;
         
-        img {
-            width: 100%;
+        .inner-image {
+            width: 20%;
             height: 100%;
-            background-size: cover;
+            position: relative;
+            min-height: 6em;
+
+            img {
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+            }
         }
-    }
-    
-    .data-name {
-        font-size: .875em;
+
+        
+        .inner-content {
+            width: 80%;
+
+            .data-name {
+                display: block;
+                font-size: .855em;
+                margin-bottom: .225em;
+            }
+            
+            .data-description {
+                display: block;
+                font-size: .7em;
+                margin: .5em 0;
+            }
+            
+            .data-category {
+                display: block;
+                font-size: .575em;
+                font-weight: 300;
+                color: #919197;
+            }
+        }
     }
     
     .inner-total {
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    
-    
-    .inner-remove {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        padding-left: 2em;
-
-        .inner-close-button {
-            display: block;
-            position: relative;
-            width: 3em;
-            height: 3em;
-            background-color: transparent;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            border-radius: 50%;
-
-            img {
-                width: 100%;
-                height: 100%;
-                filter: invert(48%) sepia(16%) saturate(5%) hue-rotate(356deg) brightness(87%) contrast(88%);
-            }
-            
-            &:hover {
-                background-color: #f6f6f6;
-            }
-        }
+        width: 20%;
     }
     
     .inner-counter {
-        height: 100%;
-        width: 100%;
+        min-height: 4em;
+        width: 20%;
         display: flex;
         align-items: center;
+        justify-content: center;
+        
+        .layout-counter {
+            .input {
+                max-width: 4.5em;
+            }
+        }
     }
    
-    @media all and (max-width: ${variables.tabletS}) {
+    @media all and (max-width: ${variables.mobileL}) {
+        .inner-main {
+            .inner-content {
+                width: 100%;
+            }
+            .inner-image {
+                display: none;
+            }
+        }
     }
 `;

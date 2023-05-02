@@ -70,12 +70,21 @@ const AppState = (): AppContextProps => {
         });
     };
 
+    const handleRemoveShoppingCartElement = (product: Product) => {
+        const storageCart = storageShoppingCart.filter((element) => element.id !== product.id);
+        setStorageShoppingCart(storageCart);
+        setCart(cart.filter((element) => element.id !== product.id));
+
+        setItem('shoppingCart', JSON.stringify(storageCart));
+    };
+
 
     return {
         shoppingCart: cart,
         storageShoppingCart,
         fetchShoppingCart,
         onAddElement: handleAddShoppingCartElement,
+        onRemoveElement: handleRemoveShoppingCartElement,
     };
 };
 

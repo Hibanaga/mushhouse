@@ -40,10 +40,10 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
                 <ul className="list">
                     {
                         [
-                            { label: 'Продукция', value: 'id_products-list', position: 'start' },
-                            { label: 'Доставка и оплата', value: 'id_shipping-payment', position: 'center' },
-                            { label: 'Контакты', value: 'id_contact', position: 'center' },
-                            { label: 'О нас', value: 'id_about', position: 'start' },
+                            { label: 'Produkty', value: 'id_products-list', position: 'start' },
+                            { label: 'Dostawa i płatność', value: 'id_shipping-payment', position: 'center' },
+                            { label: 'Kontakt', value: 'id_contact', position: 'center' },
+                            { label: 'O nas', value: 'id_about', position: 'start' },
                         ].map((element) =>  (
                             <li
                                 key={element.value}

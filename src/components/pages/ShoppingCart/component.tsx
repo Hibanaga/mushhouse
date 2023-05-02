@@ -3,6 +3,8 @@ import { useAppContext } from 'context/AppContext';
 
 import { ShoppingCartProps } from 'types/options';
 
+import Delivery from 'models/Delivery';
+
 import { getItem } from 'utils/localStorage';
 
 import Head from 'components/layout/Head';
@@ -13,7 +15,7 @@ import SectionContact from './sections/Contact';
 import { Props } from './index';
 import StyledComponent from './styles';
 
-const PageShoppingCart: FunctionComponent<Props> = ({ }) => {
+const PageShoppingCart: FunctionComponent<Props> = ({ delivery }) => {
     const { shoppingCart, fetchShoppingCart } = useAppContext();
 
     useEffect(() => {
@@ -38,8 +40,13 @@ const PageShoppingCart: FunctionComponent<Props> = ({ }) => {
             <Head title="Shopping cart" />
 
             <Header />
-            <SectionCart shoppingCart={shoppingCart} />
-            <SectionContact />
+            <SectionCart
+                delivery={delivery?.map((element) => new Delivery(element))}
+                shoppingCart={shoppingCart}
+            />
+            <SectionContact
+                delivery={delivery?.map((element) => new Delivery(element))}
+            />
         </StyledComponent>
     );
 };

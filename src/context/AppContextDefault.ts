@@ -8,4 +8,5 @@ export const AppContextDefaults: AppContextProps = {
     storageShoppingCart: [],
     fetchShoppingCart: () => null,
     onAddElement: (product: Product) => [],
+    onRemoveElement: (product: Product) => [],
 };

@@ -42,6 +42,41 @@ export default styled.div`
         }
     }
 
+
+    .inner-actions {
+        display: flex;
+        justify-content: center;
+    }
+
+    .layout-button {
+        max-width: 12em;
+
+        &.style-primary.variant-primary {
+            .button {
+                width: 100%;
+                padding: 0.8em 1.5em;
+            }
+            
+            &.disabled {
+                opacity: .8;
+
+                .button {
+                    cursor: default;
+
+                    .button-content {
+                        cursor: default;
+                    }
+                }
+
+                &:hover {
+                    .button {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
     @media all and (max-width: ${variables.tabletS}) {
     }
 `;
