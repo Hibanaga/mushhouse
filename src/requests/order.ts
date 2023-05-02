@@ -1,5 +1,6 @@
+import axios from 'axios';
 
-export interface MakeOrder {
+export interface MakeOrderParams {
   email: string;
   cart: {
     products: { id: string, quantity: number }[],
@@ -11,7 +12,7 @@ export interface MakeOrder {
     city: string,
     postal_code: string,
     address1: string,
-    address2: string,
+    address2?: string,
     first_name: string,
     last_name: string
   },
@@ -22,6 +23,8 @@ export interface MakeOrder {
   }
 }
 
-export const makeOrder = async (params: any) => {
-    return null;
+export const makeOrder = async (body: MakeOrderParams) => {
+    const { data } = await axios.post('https://api.szamanita-pantherina.com/api/order/new-order', body);
+
+    console.log('data: ', data);
 };

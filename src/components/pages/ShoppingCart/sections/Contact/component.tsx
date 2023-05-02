@@ -5,6 +5,8 @@ import * as Yup from 'yup';
 import { Option } from 'types/options';
 import { YupValidateError } from 'types/yup';
 
+import { makeOrder, MakeOrderParams } from 'requests/order';
+
 import Button from 'components/layout/Button';
 import Container from 'components/layout/Container';
 import SimpleInput from 'components/layout/forms/SimpleInput';
@@ -41,7 +43,9 @@ const formStateValidationSchema = Yup.object().shape({
     country: Yup.string().required('Country is required'),
     homeNumber: Yup.string().required('Home number is required'),
     apartamentNumber: Yup.string(),
-    delivery: Yup.string().required('Delivery is required'),
+    delivery: Yup.object().shape({
+        value: Yup.string().required('Delivery is required'),
+    }),
     commentary: Yup.string(),
     city: Yup.string().required('City is required'),
     street: Yup.string().required('Street is required'),
@@ -58,7 +62,7 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
     const [errors, setErrors] = useState<Record<string, string>>({});
 
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         setErrors({});
         setIsLoading(true);
 
@@ -75,6 +79,33 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
             setIsLoading(false);
             setErrors(errors);
         }
+
+        const deliveryElement = delivery.find((element) =>  element.id === formState?.delivery?.value);
+
+        const requestData: MakeOrderParams = {
+            email: formState.email,
+            cart: {
+                products: shoppingCart ? shoppingCart?.map((element) => ({ id: element.id, quantity: element.quantity || 1 })) : [],
+                discount: 0,
+
+            },
+            address: {
+                phone: formState.phoneNumber,
+                country: formState.country,
+                city: formState.city,
+                address1: `${formState.street} ${formState.apartamentNumber || ''}`,
+                first_name: formState.firstName,
+                last_name: formState.lastName,
+                postal_code: formState.postalCode,
+            },
+            delivery: {
+                name: deliveryElement?.name || '',
+                price: deliveryElement?.price || 1,
+                slug: deliveryElement?.slug || '',
+            },
+        };
+
+        await makeOrder(requestData);
     };
 
 
@@ -115,10 +146,10 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
                 <h3 className="section-headline">Dostawa</h3>
                 <SimpleSelect
                     multiline={false}
-                    error={errors?.delivery}
+                    error={errors?.['delivery.value']}
                     options={delivery.map((element) => ({
                         label: element.name || '',
-                        value: element.slug || '' }))
+                        value: element.id || '' }))
                     }
                     onChange={((newValue) => setFormState({ ...formState, delivery: newValue as Option<string> }))}
                 />
