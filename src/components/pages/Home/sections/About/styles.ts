@@ -25,6 +25,30 @@ export default styled.section`
             color: #271C15;
             text-align: justify;
             line-height: 150%;
+            
+            .list {
+                .list-item {
+                    display: block;
+                    font-weight: 300;
+                    color: #271C15;
+                    font-size: 1em;
+                    position: relative;
+                    padding-left: 1em;
+                    line-height: 150%;
+
+                    &:before {
+                        content:"";
+                        width: .5em;
+                        height: .5em;
+                        background-color: #D9501E;
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        border-radius: 50%;
+                    } 
+                }
+            }
         }
         
         .list-images {

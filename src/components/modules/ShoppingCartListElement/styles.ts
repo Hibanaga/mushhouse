@@ -75,6 +75,14 @@ export default styled.div`
         }
     }
    
-    @media all and (max-width: ${variables.tabletS}) {
+    @media all and (max-width: ${variables.mobileL}) {
+        .inner-main {
+            .inner-content {
+                width: 100%;
+            }
+            .inner-image {
+                display: none;
+            }
+        }
     }
 `;

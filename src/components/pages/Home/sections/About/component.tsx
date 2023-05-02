@@ -9,8 +9,10 @@ import StyledComponent from './styles';
 
 const HomeSectionAbout: FunctionComponent<Props> = ({  }) => {
     const contents = [
-        'Zbieramy, suszymy i używamy sami od 2012 roku. Wszystkie nasze produkty powstają przy użyciu wyłącznie czystych biologicznie pochodnych (wegańskie kapsułki, wysokiej jakości alkohol do sporządzania nalewek). Przestrzegane są wszystkie standardy produkcji, zachowując z jednej strony tradycje naszych przodków, a z drugiej strony idąc z duchem czasu, uwzględniając najnowsze badania w dziedzinie mykologii.',
+        'Zbieramy i suszymy od 2012 roku. Wszystkie nasze produkty powstają przy użyciu wyłącznie czystych biologicznie pochodnych (wegańskie kapsułki, wysokiej jakości alkohol do sporządzania nalewek). Przestrzegane są wszystkie standardy produkcji, zachowując z jednej strony tradycje naszych przodków, a z drugiej strony idąc z duchem czasu, uwzględniając najnowsze badania w dziedzinie mykologii.',
         'Główne surowce do naszych produktów pochodzą z lasów Białorusi i Polski, a także z odległych rejonów Syberii, gdzie przyroda zachowała swoją nieskazitelną czystość i nie uległa wpływom człowieka.',
+        '<ul class="list"> <li class="list-item">Wysuszone w temperaturze 40 C.</li> <li class="list-item">Opakowania zbiorcze zapakowane próżniowo oraz przechowywane w suchym ciemnym miejscu.</li> <li class="list-item">Towar do wysyłki przygotowywany na bieżąco, pakowany prózniowo</li> <li class="list-item">Produkt najwyższej jakości, dostępny w formie kapeluszy lub proszku.</li> </ul>',
+        'Produkt nie nadaje się do spożycia przez ludzi. Wykorzystywany wyłącznie do celów badawczo - naukowych.',
     ];
 
     return (
@@ -24,12 +26,11 @@ const HomeSectionAbout: FunctionComponent<Props> = ({  }) => {
 
             <Container className="layout-layout-container">
                 {contents.map((content, idx) =>  (
-                    <span
+                    <div
                         key={idx}
                         className="data-content"
-                    >
-                        {content}
-                    </span>
+                        dangerouslySetInnerHTML={{ __html: content }}
+                    />
                 ))}
 
 
