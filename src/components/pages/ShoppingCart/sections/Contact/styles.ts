@@ -56,6 +56,24 @@ export default styled.div`
                 width: 100%;
                 padding: 0.8em 1.5em;
             }
+            
+            &.disabled {
+                opacity: .8;
+
+                .button {
+                    cursor: default;
+
+                    .button-content {
+                        cursor: default;
+                    }
+                }
+
+                &:hover {
+                    .button {
+                        opacity: 1;
+                    }
+                }
+            }
         }
     }
 

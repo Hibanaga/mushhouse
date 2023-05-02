@@ -44,7 +44,9 @@ const PageShoppingCart: FunctionComponent<Props> = ({ delivery }) => {
                 delivery={delivery?.map((element) => new Delivery(element))}
                 shoppingCart={shoppingCart}
             />
-            <SectionContact />
+            <SectionContact
+                delivery={delivery?.map((element) => new Delivery(element))}
+            />
         </StyledComponent>
     );
 };

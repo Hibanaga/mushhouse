@@ -19,6 +19,8 @@ export default styled.div`
 
     .multi-select-category__menu {
         background-color: #FFF;
+        z-index: 10;
+        max-width: 20em;
 
         .multi-select-category__option {
             &:hover {
@@ -26,7 +28,7 @@ export default styled.div`
             }
 
             &.multi-select-category__option--is-selected {
-                background-color: #d32d46;
+                background-color: #D9501E;
                 color: #FFF;
             }
         }

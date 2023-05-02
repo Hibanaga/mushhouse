@@ -22,7 +22,6 @@ const ShoppingCartSectionCart: FunctionComponent<Props> = ({ delivery, shoppingC
                 {Array.isArray(shoppingCart) && shoppingCart.length ? shoppingCart.map((element) => (
                     <ShoppingCartListElement
                         key={element.id}
-                        delivery={delivery}
                         product={element}
                     />
                 )) : <span className="data-empty">Kosz na razie pusty</span>}

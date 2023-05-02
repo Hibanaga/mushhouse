@@ -1,16 +1,14 @@
-import React, { FormEvent, FunctionComponent, useEffect, useState } from 'react';
+import React, { FormEvent, FunctionComponent, useState } from 'react';
+import { useAppContext } from 'context/AppContext';
 import * as Yup from 'yup';
 
 import { YupValidateError } from 'types/yup';
-
-import Delivery from 'models/Delivery';
-
-import { list } from 'requests/delivery';
 
 import Button from 'components/layout/Button';
 import Container from 'components/layout/Container';
 import SimpleInput from 'components/layout/forms/SimpleInput';
 import SimpleSelect from 'components/layout/forms/SimpleSelect';
+import SimpleTextArea from 'components/layout/forms/SimpleTextArea';
 
 import { Props } from './index';
 import StyledComponent from './styles';
@@ -27,6 +25,7 @@ const defaultFormState = {
     city: '',
     street:'',
     postalCode: '',
+    commentary: '',
 };
 
 const formStateValidationSchema = Yup.object().shape({
@@ -47,10 +46,13 @@ const formStateValidationSchema = Yup.object().shape({
         .matches(/^[0-9]{5}(?:-[0-9]{4})?$/, 'Invalid postal code format'),
 });
 
-const ShoppingCartSectionContact: FunctionComponent<Props> = ({ }) => {
+const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
+    const { shoppingCart } = useAppContext();
+
+    console.log('shoppingCart: ', shoppingCart);
+
     const [isLoading, setIsLoading] = useState(false);
     const [formState, setFormState] = useState(defaultFormState);
-    const [delivery, setDelivery] = useState<Delivery[] | null>(null);
     const [errors, setErrors] = useState<Record<string, string>>({});
 
 
@@ -72,6 +74,7 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ }) => {
             setErrors(errors);
         }
     };
+
 
     return (
         <StyledComponent className="shopping-cart-section-contact">
@@ -104,6 +107,16 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ }) => {
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     />
                 </Container>
+            </Container>
+
+            <Container className="layout-layout-container" >
+                <h3 className="section-headline">Dostawa</h3>
+                <SimpleSelect
+                    options={delivery.map((element) => ({
+                        label: element.name || '',
+                        value: element.slug || '' }))
+                    }
+                />
             </Container>
 
             <Container className="layout-layout-container" >
@@ -149,9 +162,14 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ }) => {
             </Container>
 
             <Container className="layout-layout-container" >
-                <h3 className="section-headline">Dostawa</h3>
-
-                {/*<SimpleSelect options={} />*/}
+                <h3 className="section-headline">Dodatwowa informacja</h3>
+                <SimpleTextArea
+                    rows={6}
+                    placeholder="Komentarz"
+                    value={formState.commentary}
+                    error={errors.commentary}
+                    onChange={(e) => setFormState({ ...formState, commentary: e.target.value })}
+                />
             </Container>
 
             <Container className="inner-actions">
@@ -159,6 +177,7 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ }) => {
                     className="button-add-to-cart"
                     onClick={handleSubmit}
                     loading={isLoading}
+                    disabled={!shoppingCart?.length}
                 >
                   Złoż zamówinie
                 </Button>

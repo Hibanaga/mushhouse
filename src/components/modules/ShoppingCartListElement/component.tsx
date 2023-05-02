@@ -8,7 +8,7 @@ import StyledComponent from './styles';
 import { Props } from './types';
 
 
-const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ delivery, product }) => {
+const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) => {
     const { onAddElement, onRemoveElement } = useAppContext();
     const [quantity, setQuantity] = useState(product?.quantity ?? 1);
 
