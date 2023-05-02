@@ -1,10 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import Select from 'react-select';
 
+import SimpleError from '../SimpleError';
+
 import StyledComponent from './styles';
 import { Props } from './types';
 
-const SimpleInput: FunctionComponent<Props> = ({  multiline, hasClearButton, ...otherSelectProps }) => {
+const SimpleInput: FunctionComponent<Props> = ({  multiline, hasClearButton, error, ...otherSelectProps }) => {
     return (
         <StyledComponent className="layout-form-simple-select">
             <Select
@@ -12,6 +14,8 @@ const SimpleInput: FunctionComponent<Props> = ({  multiline, hasClearButton, ...
                 isMulti={multiline}
                 {...otherSelectProps}
             />
+
+            {error && <SimpleError error={error} />}
         </StyledComponent>
     );
 };

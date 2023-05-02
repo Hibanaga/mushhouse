@@ -2,6 +2,7 @@ import React, { FormEvent, FunctionComponent, useState } from 'react';
 import { useAppContext } from 'context/AppContext';
 import * as Yup from 'yup';
 
+import { Option } from 'types/options';
 import { YupValidateError } from 'types/yup';
 
 import Button from 'components/layout/Button';
@@ -22,6 +23,7 @@ const defaultFormState = {
     country: '',
     homeNumber: '',
     apartamentNumber:'',
+    delivery: { label: '', value: '' },
     city: '',
     street:'',
     postalCode: '',
@@ -39,6 +41,8 @@ const formStateValidationSchema = Yup.object().shape({
     country: Yup.string().required('Country is required'),
     homeNumber: Yup.string().required('Home number is required'),
     apartamentNumber: Yup.string(),
+    delivery: Yup.string().required('Delivery is required'),
+    commentary: Yup.string(),
     city: Yup.string().required('City is required'),
     street: Yup.string().required('Street is required'),
     postalCode: Yup.string()
@@ -48,8 +52,6 @@ const formStateValidationSchema = Yup.object().shape({
 
 const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
     const { shoppingCart } = useAppContext();
-
-    console.log('shoppingCart: ', shoppingCart);
 
     const [isLoading, setIsLoading] = useState(false);
     const [formState, setFormState] = useState(defaultFormState);
@@ -112,10 +114,13 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
             <Container className="layout-layout-container" >
                 <h3 className="section-headline">Dostawa</h3>
                 <SimpleSelect
+                    multiline={false}
+                    error={errors?.delivery}
                     options={delivery.map((element) => ({
                         label: element.name || '',
                         value: element.slug || '' }))
                     }
+                    onChange={((newValue) => setFormState({ ...formState, delivery: newValue as Option<string> }))}
                 />
             </Container>
 

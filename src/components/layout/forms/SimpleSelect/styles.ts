@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import variables from 'theme/styles/vars';
 
 export default styled.div`
+    max-width: 20em;
 
     .multi-select-category__control {
         width: 20em;
@@ -32,6 +33,10 @@ export default styled.div`
                 color: #FFF;
             }
         }
+    }
+    
+    .layout-simple-error {
+        max-width: 100%;
     }
 
     @media all and (max-width: ${variables.tabletS}) {

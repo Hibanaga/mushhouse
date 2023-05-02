@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useAppContext } from 'context/AppContext';
 
 import LayoutCounter from 'components/layout/Counter';
+import LightBox from 'components/layout/LightBox';
 
 import StyledComponent from './styles';
 import { Props } from './types';
@@ -10,13 +11,24 @@ import { Props } from './types';
 
 const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) => {
     const { onAddElement, onRemoveElement } = useAppContext();
+    const [isOpenLightBox, setIsOpenLightBox] = useState(false);
     const [quantity, setQuantity] = useState(product?.quantity ?? 1);
 
     return (
         <StyledComponent className="module-shopping-cart-list-element">
+            {isOpenLightBox && product?.imageUrl && (
+                <LightBox
+                    imageSrc={product?.imageUrl }
+                    onClose={() => setIsOpenLightBox(false)}
+                />
+            )}
+
             <div className="inner-main">
                 {product.imageUrl && (
-                    <div className="inner-image">
+                    <div
+                        className="inner-image"
+                        onClick={() => setIsOpenLightBox(true)}
+                    >
                         <Image
                             src={product.imageUrl}
                             fill
