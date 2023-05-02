@@ -51,8 +51,6 @@ const PageHome: FunctionComponent<Props> = ({  }) => {
 
     const handleChangeFilter = (filterKey: string, value: string | number | boolean) => setFilters({ ...filters, [filterKey]: value });
 
-    console.log('shoppingCart: ', shoppingCart);
-
     return (
         <StyledComponent className="page-home">
             <Head title="Szamanita" />

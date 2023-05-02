@@ -1,11 +1,16 @@
-import React, { FormEvent, FunctionComponent, useState } from 'react';
+import React, { FormEvent, FunctionComponent, useEffect, useState } from 'react';
 import * as Yup from 'yup';
 
 import { YupValidateError } from 'types/yup';
 
+import Delivery from 'models/Delivery';
+
+import { list } from 'requests/delivery';
+
 import Button from 'components/layout/Button';
 import Container from 'components/layout/Container';
 import SimpleInput from 'components/layout/forms/SimpleInput';
+import SimpleSelect from 'components/layout/forms/SimpleSelect';
 
 import { Props } from './index';
 import StyledComponent from './styles';
@@ -27,7 +32,10 @@ const defaultFormState = {
 const formStateValidationSchema = Yup.object().shape({
     firstName: Yup.string().required('First name is required'),
     lastName: Yup.string().required('Last name is required'),
-    phoneNumber: Yup.string().required('Phone number is required'),
+    phoneNumber: Yup
+        .string()
+        .matches(/^[0-9]{9}$/, 'Invalid phone number format')
+        .required('Phone number is required'),
     email: Yup.string().email('Invalid email address').required('Email is required'),
     country: Yup.string().required('Country is required'),
     homeNumber: Yup.string().required('Home number is required'),
@@ -42,9 +50,18 @@ const formStateValidationSchema = Yup.object().shape({
 const ShoppingCartSectionContact: FunctionComponent<Props> = ({ }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [formState, setFormState] = useState(defaultFormState);
+    const [delivery, setDelivery] = useState<Delivery[] | null>(null);
     const [errors, setErrors] = useState<Record<string, string>>({});
 
-    console.log('formState: ', formState);
+    useEffect(() => {
+        getDelivery();
+    }, []);
+
+    const getDelivery = async () => {
+        const elements = await list();
+
+        console.log('elements: ', elements);
+    };
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         setErrors({});
@@ -140,10 +157,17 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ }) => {
                 </Container>
             </Container>
 
+            <Container className="layout-layout-container" >
+                <h3 className="section-headline">Dostawa</h3>
+
+                {/*<SimpleSelect options={} />*/}
+            </Container>
+
             <Container className="inner-actions">
                 <Button
                     className="button-add-to-cart"
                     onClick={handleSubmit}
+                    loading={isLoading}
                 >
                   Złoż zamówinie
                 </Button>

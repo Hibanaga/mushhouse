@@ -19,14 +19,12 @@ const ShoppingCartSectionCart: FunctionComponent<Props> = ({ shoppingCart }) => 
             </div>
             <Container className="layout-body-container">
 
-                {Array.isArray(shoppingCart) ? shoppingCart.map((element) => (
+                {Array.isArray(shoppingCart) && shoppingCart.length ? shoppingCart.map((element) => (
                     <ShoppingCartListElement
                         key={element.id}
                         product={element}
                     />
                 )) : <span className="data-empty">Kosz na razie pusty</span>}
-
-
             </Container>
         </StyledComponent>
     );

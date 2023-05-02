@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import Image from 'next/image';
+import { useAppContext } from 'context/AppContext';
 
 import LayoutCounter from 'components/layout/Counter';
 
@@ -8,6 +9,7 @@ import { Props } from './types';
 
 
 const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) => {
+    const { onAddElement, onRemoveElement } = useAppContext();
     const [quantity, setQuantity] = useState(product?.quantity ?? 1);
 
     return (
@@ -34,7 +36,12 @@ const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) =>
                 <LayoutCounter
                     value={quantity}
                     onChange={(value) => {
-                        setQuantity(value);
+                        if (value > 0) {
+                            setQuantity(value);
+                            onAddElement && onAddElement(product, value);
+                        } else {
+                            onRemoveElement && onRemoveElement(product);
+                        }
                     }}
                 />
             </div>
