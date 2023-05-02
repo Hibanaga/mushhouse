@@ -51,7 +51,7 @@ const formStateValidationSchema = Yup.object().shape({
     street: Yup.string().required('Street is required'),
     postalCode: Yup.string()
         .required('Postal code is required')
-        .matches(/^[0-9]{5}(?:-[0-9]{4})?$/, 'Invalid postal code format'),
+        .matches(/^\d{2}-\d{3}$/, 'Invalid postal code format'),
 });
 
 const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
