@@ -17,14 +17,13 @@ export interface MakeOrderParams {
     last_name: string
   },
   delivery: {
-    name: string,
-    price: number,
-    slug: string
+    id: string;
   }
+  comment: string;
 }
 
 export const makeOrder = async (body: MakeOrderParams) => {
-    const { data } = await axios.post('https://api.szamanita-pantherina.com/api/order/new-order', body);
+    const { data } = await axios.post('https://api.szamanita-pantherina.com/api/order/new-order/', body);
 
-    console.log('data: ', data);
+    return data;
 };

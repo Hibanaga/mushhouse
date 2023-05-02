@@ -69,17 +69,7 @@ const LayoutButton: FunctionComponent<Props> = ({
     };
 
     const getContent = () => {
-        return (loading ? (
-            <div></div>
-            // <Spinner
-            //     css="spinner"
-            // />
-        ) : (
-            <>
-                <span className="button-content">{children}</span>
-                {icon && icon.value && <div className="button-icon">{getIcon()}</div>}
-            </>
-        ));
+        return  <span className="button-content">{children}</span>;
     };
 
     const getElement = () => {

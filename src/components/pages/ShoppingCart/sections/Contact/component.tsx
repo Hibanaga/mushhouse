@@ -1,4 +1,5 @@
-import React, { FormEvent, FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
+import { toast } from 'react-toastify';
 import { useAppContext } from 'context/AppContext';
 import * as Yup from 'yup';
 
@@ -12,6 +13,8 @@ import Container from 'components/layout/Container';
 import SimpleInput from 'components/layout/forms/SimpleInput';
 import SimpleSelect from 'components/layout/forms/SimpleSelect';
 import SimpleTextArea from 'components/layout/forms/SimpleTextArea';
+import Toast from 'components/layout/Toast';
+import { ToastVariants } from 'components/layout/Toast/types';
 
 import { Props } from './index';
 import StyledComponent from './styles';
@@ -61,8 +64,7 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
     const [formState, setFormState] = useState(defaultFormState);
     const [errors, setErrors] = useState<Record<string, string>>({});
 
-
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async () => {
         setErrors({});
         setIsLoading(true);
 
@@ -78,9 +80,8 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
 
             setIsLoading(false);
             setErrors(errors);
+            return null;
         }
-
-        const deliveryElement = delivery.find((element) =>  element.id === formState?.delivery?.value);
 
         const requestData: MakeOrderParams = {
             email: formState.email,
@@ -99,13 +100,32 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
                 postal_code: formState.postalCode,
             },
             delivery: {
-                name: deliveryElement?.name || '',
-                price: deliveryElement?.price || 1,
-                slug: deliveryElement?.slug || '',
+                id: delivery.find((element) =>  element.id === formState?.delivery?.value)?.id || '',
             },
+            comment: formState?.commentary || '',
         };
 
-        await makeOrder(requestData);
+        try {
+            const response = await makeOrder(requestData);
+
+            console.log('response: ', response);
+
+            toast(
+                <Toast
+                    variant={ToastVariants.Success}
+                    message={'Zamówienie zostało przyjęte'}
+                />,
+            );
+        } catch (error: any) {
+            toast(
+                <Toast
+                    variant={ToastVariants.Error}
+                    message={error?.response?.data?.detail || 'Server error! Try again'}
+                />,
+            );
+        } finally {
+            setIsLoading(false);
+        }
     };
 
 
@@ -215,7 +235,7 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
                     loading={isLoading}
                     disabled={!shoppingCart?.length}
                 >
-                  Złoż zamówinie
+                    Złoż zamówinie
                 </Button>
             </Container>
         </StyledComponent>
