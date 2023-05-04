@@ -36,10 +36,11 @@ export default styled.header`
 
             .list-item {
                 margin: 0 .375em;
+                padding: 0 .25em;
+                cursor: pointer;
                 
                 .data-label {
-                    cursor: pointer;
-                    font-size: .875em;
+                    font-size: .925em;
                 }
             }
         }   
@@ -48,6 +49,22 @@ export default styled.header`
     @media all and (max-width: ${variables.tabletS}) {
         .layout-container {
             justify-content: flex-end;
+        }
+    }
+    
+    @media all and (max-width: ${variables.mobileL}) {
+        .layout-layout-container {
+            .innner-image {
+                .hedline {
+                    font-size: 1.675em;
+                }
+            }
+
+            .list {
+                .list-item {
+                    padding: 0;
+                }
+            }
         }
     }
 `;

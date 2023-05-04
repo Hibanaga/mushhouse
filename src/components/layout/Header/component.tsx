@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import classNames from 'classnames';
 
 import Routes from 'types/routes';
@@ -13,6 +14,7 @@ import { Props } from './types';
 
 
 const LayoutHeader: FunctionComponent<Props> = ({  }) => {
+    const router = useRouter();
     const [active, setActive] = useState(false);
 
     useEffect(() => {
@@ -42,13 +44,15 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
                         [
                             { label: 'Produkty', value: 'id_products-list', position: 'start' },
                             { label: 'Dostawa i płatność', value: 'id_shipping-payment', position: 'center' },
-                            { label: 'Kontakt', value: 'id_contact', position: 'center' },
                             { label: 'O nas', value: 'id_about', position: 'start' },
+                            { label: 'Kontakt', value: 'id_contact', position: 'center' },
                         ].map((element) =>  (
                             <li
                                 key={element.value}
                                 className="list-item"
-                                onClick={() => scrollToPositionId(element.value, element.position as ScrollLogicalPosition)}
+                                onClick={() => [ Routes.ShoopingCart].includes(router.pathname as Routes)
+                                    ? router.push(Routes.Home)
+                                    : scrollToPositionId(element.value, element.position as ScrollLogicalPosition)}
                             >
                                 <span className="data-label">{element.label}</span>
                             </li>

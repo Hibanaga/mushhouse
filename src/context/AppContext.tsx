@@ -17,10 +17,18 @@ const AppState = (): AppContextProps => {
     const [cart, setCart] = useState<Product[] | []>([]);
 
     const fetchShoppingCart = async (params: { products?: string }) => {
-        const shoppingCart = getItem('shoppingCart');
-        const parsedShoppingCart = JSON.parse(shoppingCart as string);
+        const shoppingCart = getItem('shoppingCartSzamanita');
+        let parsedShoppingCart: ShoppingCartProps[] = JSON.parse(shoppingCart as string);
 
         const { elements } = await listProducts(params);
+
+        if (Array.isArray(parsedShoppingCart)) {
+            parsedShoppingCart = parsedShoppingCart?.filter((element) => {
+                return elements.map((element) => element.id).includes(element.id);
+            });
+
+            setItem('shoppingCartSzamanita', JSON.stringify(parsedShoppingCart));
+        }
 
         const products = parsedShoppingCart?.map((element: ShoppingCartProps) => {
             const searchElement = elements.find((product) => product.id === element.id);
@@ -32,7 +40,7 @@ const AppState = (): AppContextProps => {
     };
 
     const handleAddShoppingCartElement = (product: Product, quantity?: number) => {
-        const storageCart = getItem('shoppingCart');
+        const storageCart = getItem('shoppingCartSzamanita');
 
         let shoppingCart = null;
         if (!storageCart) {
@@ -55,7 +63,7 @@ const AppState = (): AppContextProps => {
             }
         }
 
-        setItem('shoppingCart', JSON.stringify(shoppingCart));
+        setItem('shoppingCartSzamanita', JSON.stringify(shoppingCart));
         setStorageShoppingCart(shoppingCart);
 
         setCart((prevCart: any) => {
@@ -75,7 +83,7 @@ const AppState = (): AppContextProps => {
         setStorageShoppingCart(storageCart);
         setCart(cart.filter((element) => element.id !== product.id));
 
-        setItem('shoppingCart', JSON.stringify(storageCart));
+        setItem('shoppingCartSzamanita', JSON.stringify(storageCart));
     };
 
 

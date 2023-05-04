@@ -1,10 +1,14 @@
 import React, { FunctionComponent, useState } from 'react';
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/router';
 import { useAppContext } from 'context/AppContext';
 import * as Yup from 'yup';
 
 import { Option } from 'types/options';
+import Routes from 'types/routes';
 import { YupValidateError } from 'types/yup';
+
+import { setItem } from 'utils/localStorage';
 
 import { makeOrder, MakeOrderParams } from 'requests/order';
 
@@ -26,39 +30,36 @@ const defaultFormState = {
     phoneNumber: '',
     email:'',
     country: '',
-    homeNumber: '',
-    apartamentNumber:'',
     delivery: { label: '', value: '' },
     city: '',
-    street:'',
+    address: '',
     postalCode: '',
     commentary: '',
 };
 
 const formStateValidationSchema = Yup.object().shape({
-    firstName: Yup.string().required('First name is required'),
-    lastName: Yup.string().required('Last name is required'),
+    firstName: Yup.string().required('Imię jest wymagane'),
+    lastName: Yup.string().required('Nazwisko jest wymagane'),
     phoneNumber: Yup
         .string()
-        .matches(/^[0-9]{9}$/, 'Invalid phone number format')
-        .required('Phone number is required'),
-    email: Yup.string().email('Invalid email address').required('Email is required'),
-    country: Yup.string().required('Country is required'),
-    homeNumber: Yup.string().required('Home number is required'),
-    apartamentNumber: Yup.string(),
+        .matches(/^\+?[1-9][0-9]{7,14}$/, 'Nieprawidłowy format numeru telefonu')
+        .required('Wymagany jest numer telefonu'),
+    email: Yup.string().email('Nieprawidłowy adres e-mail').required('E-mail jest wymagany'),
+    country: Yup.string().required('Kraj jest wymagany'),
     delivery: Yup.object().shape({
-        value: Yup.string().required('Delivery is required'),
+        value: Yup.string().required('Dostawa jest wymagana'),
     }),
+    address: Yup.string().required('Adres jest wymagany'),
     commentary: Yup.string(),
-    city: Yup.string().required('City is required'),
-    street: Yup.string().required('Street is required'),
+    city: Yup.string().required('Miasto jest wymagane'),
     postalCode: Yup.string()
-        .required('Postal code is required')
-        .matches(/^\d{2}-\d{3}$/, 'Invalid postal code format'),
+        .required('Kod pocztowy jest wymagany')
+        .matches(/^\d{2}-\d{3}$/, 'Nieprawidłowy format kodu pocztowego'),
 });
 
 const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
     const { shoppingCart } = useAppContext();
+    const router = useRouter();
 
     const [isLoading, setIsLoading] = useState(false);
     const [formState, setFormState] = useState(defaultFormState);
@@ -94,7 +95,7 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
                 phone: formState.phoneNumber,
                 country: formState.country,
                 city: formState.city,
-                address1: `${formState.street} ${formState.apartamentNumber || ''}`,
+                address1: formState.address,
                 first_name: formState.firstName,
                 last_name: formState.lastName,
                 postal_code: formState.postalCode,
@@ -108,14 +109,17 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
         try {
             const response = await makeOrder(requestData);
 
-            console.log('response: ', response);
+            if (response) {
+                toast(
+                    <Toast
+                        variant={ToastVariants.Success}
+                        message={'Zamówienie zostało przyjęte'}
+                    />,
+                );
 
-            toast(
-                <Toast
-                    variant={ToastVariants.Success}
-                    message={'Zamówienie zostało przyjęte'}
-                />,
-            );
+                await setItem('shoppingCartSzamanita', JSON.stringify([]));
+                await router.push(Routes.Home);
+            }
         } catch (error: any) {
             toast(
                 <Toast
@@ -127,7 +131,6 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
             setIsLoading(false);
         }
     };
-
 
     return (
         <StyledComponent className="shopping-cart-section-contact">
@@ -151,7 +154,12 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
                         placeholder="Numer. tel."
                         value={formState.phoneNumber}
                         error={errors?.phoneNumber}
-                        onChange={(e) => setFormState({ ...formState, phoneNumber: e.target.value })}
+                        onChange={(e) => {
+                            const pattern = /^[0-9+]*$/;
+                            if (!pattern.test(e.target.value)) return;
+
+                            setFormState({ ...formState, phoneNumber: e.target.value });
+                        }}
                     />
                     <SimpleInput
                         placeholder="Email"
@@ -185,28 +193,16 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
                         onChange={(e) => setFormState({ ...formState, country: e.target.value })}
                     />
                     <SimpleInput
-                        placeholder="Numer domu"
-                        value={formState.homeNumber}
-                        error={errors?.homeNumber}
-                        onChange={(e) => setFormState({ ...formState, homeNumber: e.target.value })}
-                    />
-                    <SimpleInput
                         placeholder="Miasto"
                         value={formState.city}
                         error={errors?.city}
                         onChange={(e) => setFormState({ ...formState, city: e.target.value })}
                     />
                     <SimpleInput
-                        placeholder="Numer mieszkania"
-                        value={formState.apartamentNumber}
-                        error={errors?.apartamentNumber}
-                        onChange={(e) => setFormState({ ...formState, apartamentNumber: e.target.value })}
-                    />
-                    <SimpleInput
-                        placeholder="Ulica"
-                        value={formState.street}
-                        error={errors?.street}
-                        onChange={(e) => setFormState({ ...formState, street: e.target.value })}
+                        placeholder="Address"
+                        value={formState.address}
+                        error={errors?.address}
+                        onChange={(e) => setFormState({ ...formState, address: e.target.value })}
                     />
                     <SimpleInput
                         placeholder="Kod pocztowy"

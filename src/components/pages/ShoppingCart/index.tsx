@@ -14,6 +14,7 @@ Component.defaultProps = {
 
 export const getStaticStaticProps: GetServerSideProps = async (context) => {
     const { elements } = await list();
+
     try {
         return {
             props: {
