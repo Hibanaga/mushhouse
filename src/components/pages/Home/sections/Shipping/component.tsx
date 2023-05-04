@@ -101,7 +101,7 @@ const HomeSectionShipping: FunctionComponent<Props> = ({  }) => {
                                 </div>
 
                                 <span className="data-content data-center">
-                                  Po otrzymaniu płatności, zweryfikujemy zamówienie i zkontaktujemy się w wybrany sposób (SMS/Telefon/E-mail).
+                                  Po otrzymaniu płatności, zweryfikujemy zamówienie i zkontaktujemy się w wybrany sposób. <div className="sub-text">(SMS/Telefon/E-mail)</div>
                                 </span>
                                 <span className="data-content data-center">
                                   Pracujemy nad dodawaniem płatności poprzez kartą bankową na stronie.
