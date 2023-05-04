@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import classNames from 'classnames';
 
 import Routes from 'types/routes';
@@ -13,6 +14,7 @@ import { Props } from './types';
 
 
 const LayoutHeader: FunctionComponent<Props> = ({  }) => {
+    const router = useRouter();
     const [active, setActive] = useState(false);
 
     useEffect(() => {
@@ -48,7 +50,9 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
                             <li
                                 key={element.value}
                                 className="list-item"
-                                onClick={() => scrollToPositionId(element.value, element.position as ScrollLogicalPosition)}
+                                onClick={() => [ Routes.ShoopingCart].includes(router.pathname as Routes)
+                                    ? router.push(Routes.Home)
+                                    : scrollToPositionId(element.value, element.position as ScrollLogicalPosition)}
                             >
                                 <span className="data-label">{element.label}</span>
                             </li>

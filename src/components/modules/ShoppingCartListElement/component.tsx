@@ -1,6 +1,9 @@
 import React, { FunctionComponent, useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useAppContext } from 'context/AppContext';
+
+import Routes from 'types/routes';
 
 import LayoutCounter from 'components/layout/Counter';
 import LightBox from 'components/layout/LightBox';
@@ -10,6 +13,7 @@ import { Props } from './types';
 
 
 const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) => {
+    const router = useRouter();
     const { onAddElement, onRemoveElement } = useAppContext();
     const [isOpenLightBox, setIsOpenLightBox] = useState(false);
     const [quantity, setQuantity] = useState(product?.quantity ?? 1);
@@ -39,7 +43,13 @@ const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) =>
                 )}
 
                 <div className="inner-content">
-                    <h3 className="data-name">{product?.fullDisplayName ?? product?.name}</h3>
+                    <h3
+                        className="data-name"
+                        onClick={() => router.push({
+                            pathname: Routes.Product,
+                            query: { id: product.id },
+                        })}
+                    >{product?.fullDisplayName ?? product?.name}</h3>
                     <span className="data-description">{product?.description}</span>
                     <span className="data-category">{product?.category}</span>
                 </div>

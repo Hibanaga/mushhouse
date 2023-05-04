@@ -21,6 +21,7 @@ export default styled.div`
             height: 100%;
             position: relative;
             min-height: 6em;
+            cursor: pointer;
 
             img {
                 width: 100%;
@@ -37,6 +38,12 @@ export default styled.div`
                 display: block;
                 font-size: .855em;
                 margin-bottom: .225em;
+                cursor: pointer;
+                transition: 150ms;
+                
+                &:hover {
+                    color: #D9BBA0;
+                }
             }
             
             .data-description {
