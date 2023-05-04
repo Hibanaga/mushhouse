@@ -10,7 +10,7 @@ import StyledComponent from './styles';
 
 const HomeSectionShipping: FunctionComponent<Props> = ({  }) => {
     const CustomArrowButton = (props: any) => {
-        const { className, style, onClick } = props;
+        const { style, onClick } = props;
 
         return (
             <div
@@ -90,19 +90,20 @@ const HomeSectionShipping: FunctionComponent<Props> = ({  }) => {
                         <div className="slide-item">
                             <h2 className="headline">Płatność</h2>
                             <div className="inner-slide-content inner-slide-content-shipping">
-                                <span className="data-content">
+                                <span className="data-content data-center">
                                   Po złożeniu zamówienia, otrzymasz numer zamówienia, który trzeba wskazać jako komentarz podczas przelewu na konto:
                                 </span>
 
                                 <div className="inner-payment">
-                                    <span className="data-label">1234 1245 1234 1234 1244 1244 1244</span>
+                                    <span className="data-label">31 1090 2590 0000 0001 5134 2234 EUR</span>
+                                    <span className="data-label">04 1090 2590 0000 0001 5134 2235 ZŁ</span>
                                     <span className="data-label spacing">Siarhej Ramanovich</span>
                                 </div>
 
-                                <span className="data-content">
+                                <span className="data-content data-center">
                                   Po otrzymaniu płatności, zweryfikujemy zamówienie i zkontaktujemy się w wybrany sposób (SMS/Telefon/E-mail).
                                 </span>
-                                <span className="data-content">
+                                <span className="data-content data-center">
                                   Pracujemy nad dodawaniem płatności poprzez kartą bankową na stronie.
                                 </span>
                             </div>

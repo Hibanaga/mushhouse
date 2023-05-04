@@ -17,23 +17,18 @@ export default styled.div`
 
     &.primary-textarea {
         .textarea {
-            color: #6B7280;
+            color: #333;
             padding: .75em 1em .85em;
             box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             font-size: 0.875em;
             line-height: 1.35em;
             border: 1px solid #F3F4F6;
             transition: 150ms;
-
+            
             &::placeholder {
-                color: #AAAAAA;
+                color: #333;
             }
 
-            //&:focus {
-            //    background-color: #F3F4F6;
-            //    border-color: transparent;
-            //    outline: none;
-            //}
 
             &.error-textarea {
                 border: 2px solid #DC2626;

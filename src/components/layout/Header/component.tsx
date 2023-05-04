@@ -42,8 +42,8 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
                         [
                             { label: 'Produkty', value: 'id_products-list', position: 'start' },
                             { label: 'Dostawa i płatność', value: 'id_shipping-payment', position: 'center' },
-                            { label: 'Kontakt', value: 'id_contact', position: 'center' },
                             { label: 'O nas', value: 'id_about', position: 'start' },
+                            { label: 'Kontakt', value: 'id_contact', position: 'center' },
                         ].map((element) =>  (
                             <li
                                 key={element.value}

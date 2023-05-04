@@ -9,25 +9,22 @@ export default styled.div`
         border-radius: 6px;
         outline: none;
         box-sizing: border-box;
+        font-family: 'Comfortaa', cursive;
     }
 
     &.primary-input {
         .input {
-            color: #6B7280;
+            color: #333;
             padding: .75em 1em .85em;
             box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             font-size: 0.875em;
             line-height: 1.35em;
             border: 1px solid #F3F4F6;
 
-            //color: #000000;
-            //border: 1px solid #000000;
-            //padding: 1em 2em;
-            //
-            //&::placeholder {
-            //    color: #AAAAAA;
-            //    color: #000000;
-            //}
+            &::placeholder {
+                color: #333;
+            }
+
 
             &.error-input {
                 border: 2px solid #DC2626;

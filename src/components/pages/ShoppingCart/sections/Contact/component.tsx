@@ -26,11 +26,9 @@ const defaultFormState = {
     phoneNumber: '',
     email:'',
     country: '',
-    homeNumber: '',
-    apartamentNumber:'',
     delivery: { label: '', value: '' },
     city: '',
-    street:'',
+    address: '',
     postalCode: '',
     commentary: '',
 };
@@ -40,18 +38,15 @@ const formStateValidationSchema = Yup.object().shape({
     lastName: Yup.string().required('Last name is required'),
     phoneNumber: Yup
         .string()
-        .matches(/^[0-9]{9}$/, 'Invalid phone number format')
+        .matches(/^\+?[1-9][0-9]{7,14}$/, 'Invalid phone number format')
         .required('Phone number is required'),
     email: Yup.string().email('Invalid email address').required('Email is required'),
     country: Yup.string().required('Country is required'),
-    homeNumber: Yup.string().required('Home number is required'),
-    apartamentNumber: Yup.string(),
     delivery: Yup.object().shape({
         value: Yup.string().required('Delivery is required'),
     }),
     commentary: Yup.string(),
     city: Yup.string().required('City is required'),
-    street: Yup.string().required('Street is required'),
     postalCode: Yup.string()
         .required('Postal code is required')
         .matches(/^\d{2}-\d{3}$/, 'Invalid postal code format'),
@@ -94,7 +89,7 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
                 phone: formState.phoneNumber,
                 country: formState.country,
                 city: formState.city,
-                address1: `${formState.street} ${formState.apartamentNumber || ''}`,
+                address1: formState.address,
                 first_name: formState.firstName,
                 last_name: formState.lastName,
                 postal_code: formState.postalCode,
@@ -128,7 +123,6 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
         }
     };
 
-
     return (
         <StyledComponent className="shopping-cart-section-contact">
             <h2 className="section-headline">Adres dostawy</h2>
@@ -151,7 +145,12 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
                         placeholder="Numer. tel."
                         value={formState.phoneNumber}
                         error={errors?.phoneNumber}
-                        onChange={(e) => setFormState({ ...formState, phoneNumber: e.target.value })}
+                        onChange={(e) => {
+                            const pattern = /^[0-9+]*$/;
+                            if (!pattern.test(e.target.value)) return;
+
+                            setFormState({ ...formState, phoneNumber: e.target.value });
+                        }}
                     />
                     <SimpleInput
                         placeholder="Email"
@@ -185,28 +184,16 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
                         onChange={(e) => setFormState({ ...formState, country: e.target.value })}
                     />
                     <SimpleInput
-                        placeholder="Numer domu"
-                        value={formState.homeNumber}
-                        error={errors?.homeNumber}
-                        onChange={(e) => setFormState({ ...formState, homeNumber: e.target.value })}
-                    />
-                    <SimpleInput
                         placeholder="Miasto"
                         value={formState.city}
                         error={errors?.city}
                         onChange={(e) => setFormState({ ...formState, city: e.target.value })}
                     />
                     <SimpleInput
-                        placeholder="Numer mieszkania"
-                        value={formState.apartamentNumber}
-                        error={errors?.apartamentNumber}
-                        onChange={(e) => setFormState({ ...formState, apartamentNumber: e.target.value })}
-                    />
-                    <SimpleInput
-                        placeholder="Ulica"
-                        value={formState.street}
-                        error={errors?.street}
-                        onChange={(e) => setFormState({ ...formState, street: e.target.value })}
+                        placeholder="Address"
+                        value={formState.address}
+                        error={errors?.address}
+                        onChange={(e) => setFormState({ ...formState, address: e.target.value })}
                     />
                     <SimpleInput
                         placeholder="Kod pocztowy"

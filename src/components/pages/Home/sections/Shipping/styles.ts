@@ -63,6 +63,14 @@ export default styled.section`
                         color: #271C15;
                         line-height: 150%;
                         
+                        &.data-center {
+                            text-align: center;
+                            
+                            &:last-of-type {
+                                margin-top: 1em;
+                            }
+                        }
+                        
                         .strong {
                             font-weight: 500;
                         }
@@ -121,13 +129,13 @@ export default styled.section`
                     }
                     
                     .inner-payment {
-                        margin: 3em 0 3em 0;
+                        margin: 1.5em 0;
                     }
                     
                     .data-label {
                         font-size: 1em;
                         display: block;
-                        font-weight: 500;
+                        font-weight: 700;
                         color: #271C15;
                         text-align: center;
                         line-height: 150%;
