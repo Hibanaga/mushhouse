@@ -34,22 +34,23 @@ const defaultFormState = {
 };
 
 const formStateValidationSchema = Yup.object().shape({
-    firstName: Yup.string().required('First name is required'),
-    lastName: Yup.string().required('Last name is required'),
+    firstName: Yup.string().required('Imię jest wymagane'),
+    lastName: Yup.string().required('Nazwisko jest wymagane'),
     phoneNumber: Yup
         .string()
-        .matches(/^\+?[1-9][0-9]{7,14}$/, 'Invalid phone number format')
-        .required('Phone number is required'),
-    email: Yup.string().email('Invalid email address').required('Email is required'),
-    country: Yup.string().required('Country is required'),
+        .matches(/^\+?[1-9][0-9]{7,14}$/, 'Nieprawidłowy format numeru telefonu')
+        .required('Wymagany jest numer telefonu'),
+    email: Yup.string().email('Nieprawidłowy adres e-mail').required('E-mail jest wymagany'),
+    country: Yup.string().required('Kraj jest wymagany'),
     delivery: Yup.object().shape({
-        value: Yup.string().required('Delivery is required'),
+        value: Yup.string().required('Dostawa jest wymagana'),
     }),
+    address: Yup.string().required('Adres jest wymagany'),
     commentary: Yup.string(),
-    city: Yup.string().required('City is required'),
+    city: Yup.string().required('Miasto jest wymagane'),
     postalCode: Yup.string()
-        .required('Postal code is required')
-        .matches(/^\d{2}-\d{3}$/, 'Invalid postal code format'),
+        .required('Kod pocztowy jest wymagany')
+        .matches(/^\d{2}-\d{3}$/, 'Nieprawidłowy format kodu pocztowego'),
 });
 
 const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
