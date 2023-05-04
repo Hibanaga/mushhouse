@@ -31,7 +31,7 @@ const ModuleShoppingCartModal: FunctionComponent<Props> = ({ shoppingCart, onClo
     const updateCountShoppingList = (product: Product, quantity: number) => {
         const parseStorageCart = JSON.parse(getItem('shoppingCart') as string);
         const shoppingCart = parseStorageCart.map((element: ShoppingCartProps) => element.id === product.id ? { ...element, quantity } : element);
-        setItem('shoppingCart', JSON.stringify(shoppingCart));
+        setItem('shoppingCartSzamanita', JSON.stringify(shoppingCart));
 
         const totalPriceShoppingCart = shoppingCart.reduce((prev: number, { id, quantity }: ShoppingCartProps) => {
             const priceElement = cart?.find((element) => element.id === id)?.price;

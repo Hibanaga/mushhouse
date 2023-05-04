@@ -1,10 +1,14 @@
 import React, { FunctionComponent, useState } from 'react';
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/router';
 import { useAppContext } from 'context/AppContext';
 import * as Yup from 'yup';
 
 import { Option } from 'types/options';
+import Routes from 'types/routes';
 import { YupValidateError } from 'types/yup';
+
+import { setItem } from 'utils/localStorage';
 
 import { makeOrder, MakeOrderParams } from 'requests/order';
 
@@ -55,6 +59,7 @@ const formStateValidationSchema = Yup.object().shape({
 
 const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
     const { shoppingCart } = useAppContext();
+    const router = useRouter();
 
     const [isLoading, setIsLoading] = useState(false);
     const [formState, setFormState] = useState(defaultFormState);
@@ -104,14 +109,17 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
         try {
             const response = await makeOrder(requestData);
 
-            console.log('response: ', response);
+            if (response) {
+                toast(
+                    <Toast
+                        variant={ToastVariants.Success}
+                        message={'Zamówienie zostało przyjęte'}
+                    />,
+                );
 
-            toast(
-                <Toast
-                    variant={ToastVariants.Success}
-                    message={'Zamówienie zostało przyjęte'}
-                />,
-            );
+                await setItem('shoppingCartSzamanita', JSON.stringify([]));
+                await router.push(Routes.Home);
+            }
         } catch (error: any) {
             toast(
                 <Toast

@@ -69,7 +69,7 @@ const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) =>
             </div>
 
             <div className="inner-total">
-                {product?.price && product?.priceDisplay}
+                {product?.price ? `${(product?.price * quantity).toFixed(2)} PLN` : '0.00 PLN'}
             </div>
         </StyledComponent>
     );
