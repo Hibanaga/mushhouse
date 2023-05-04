@@ -11,7 +11,6 @@ import LightBox from 'components/layout/LightBox';
 import StyledComponent from './styles';
 import { Props } from './types';
 
-
 const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) => {
     const router = useRouter();
     const { onAddElement, onRemoveElement } = useAppContext();

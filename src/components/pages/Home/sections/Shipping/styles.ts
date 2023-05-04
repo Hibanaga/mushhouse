@@ -57,7 +57,7 @@ export default styled.section`
                     padding: 0 .75em .5em .75em;
                     
                     .data-content {
-                        font-size: 1em;
+                        font-size: 1.05em;
                         display: block;
                         font-weight: 300;
                         color: #271C15;
@@ -86,7 +86,7 @@ export default styled.section`
                         .list-item {
                             font-weight: 300;
                             color: #271C15;
-                            font-size: 1em;
+                            font-size: 1.05em;
                             position: relative;
                             padding-left: 1em;
                             line-height: 150%;
@@ -116,12 +116,12 @@ export default styled.section`
                 
                 .inner-slide-content-shipping {
                     .data-content {
-                        font-size: 1em;
+                        font-size: 1.05em;
                         display: block;
-                        padding-bottom: .375em;
+                        padding-bottom: .5em;
                         font-weight: 300;
                         color: #271C15;
-                        line-height: 150%;
+                        line-height: 200%;
 
                         .strong {
                             font-weight: 500;

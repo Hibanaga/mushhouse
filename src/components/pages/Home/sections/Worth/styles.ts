@@ -16,16 +16,16 @@ export default styled.section`
     }
     
     .layout-layout-container {
-        padding: 4em 0;
+        padding: 4em 0 2em 0;
         
         .data-content {
-            font-size: 1em;
+            font-size: 1.05em;
             display: block;
             padding-bottom: 1em;
             font-weight: 300;
             color: #271C15;
             text-align: justify;
-            line-height: 150%;
+            line-height: 200%;
         }
         
         .list {
@@ -34,10 +34,10 @@ export default styled.section`
             .list-item {
                 font-weight: 300;
                 color: #271C15;
-                font-size: 1em;
+                font-size: 1.05em;
                 position: relative;
                 padding-left: 1em;
-                line-height: 150%;
+                line-height: 200%;
                 
                 &:before {
                     content:"";

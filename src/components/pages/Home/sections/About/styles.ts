@@ -18,7 +18,7 @@ export default styled.section`
         padding: 4em 0;
         
         .data-content {
-            font-size: 1em;
+            font-size: 1.05em;
             display: block;
             padding-bottom: 1em;
             font-weight: 300;
@@ -31,7 +31,7 @@ export default styled.section`
                     display: block;
                     font-weight: 300;
                     color: #271C15;
-                    font-size: 1em;
+                    font-size: 1.05em;
                     position: relative;
                     padding-left: 1em;
                     line-height: 150%;

@@ -14,7 +14,7 @@ export default styled.section`
         padding: 1em 0;
         
         .data-content {
-            font-size: 1em;
+            font-size: 1.05em;
             display: block;
             font-weight: 300;
             color: #271C15;
