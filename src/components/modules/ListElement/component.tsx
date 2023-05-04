@@ -40,10 +40,10 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
 
             <div className="inner-main">
                 <div className="inner-content">
-                    <h3 className="data-name">{product?.fullDisplayName ?? product?.name}</h3>
+                    <h3 className="data-name">{product?.fullDisplayName || product?.name}</h3>
                     <div>
-                        {product?.description && <span className="data-description">{getSenteces(shorten(product.description, 52), 1)}</span>}
-                        {product?.category && <span className="data-category">{getSenteces(shorten(product.category, 52), 1)}</span>}
+                        {product?.description && <span className="data-description">{shorten(product?.description, 52)}</span>}
+                        {product?.category && <span className="data-category">{shorten(product?.category, 52)}</span>}
                         <span className="data-price">{product?.priceDisplay}</span>
                     </div>
                 </div>

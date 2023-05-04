@@ -20,7 +20,7 @@ export default styled.section`
         
         .headline {
             display: block;
-            font-size: 1em;
+            font-size: 1.05em;
             padding-bottom: 1em;
             font-weight: 300;
             color: #271C15;
@@ -59,7 +59,7 @@ export default styled.section`
             
             .data-phone {
                 display: block;
-                font-size: 1em;
+                font-size: 1.05em;
                 font-weight: 300;
                 color: #271C15;
                 text-align: center;
@@ -71,7 +71,7 @@ export default styled.section`
         
         .data-email {
             display: block;
-            font-size: 1em;
+            font-size: 1.05em;
             font-weight: 300;
             color: #271C15;
             text-align: center;

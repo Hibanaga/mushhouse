@@ -68,6 +68,10 @@ const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
 
             <div className="column-details">
                 <h3 className="data-headline">{product?.fullDisplayName}</h3>
+                <span className="data-description">
+                    {product?.description}
+                </span>
+
                 <span className="data-price">{product?.priceDisplay}</span>
 
                 <Button
@@ -76,10 +80,6 @@ const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
                 >
                     Do Koszyka
                 </Button>
-
-                <span className="data-description">
-                    {product?.description}
-                </span>
             </div>
         </StyledComponent>
     );
