@@ -11,7 +11,7 @@ import StyledComponent from './styles';
 const PageConfirm: FunctionComponent<Props> = ({ }) => {
     return (
         <StyledComponent className="page-confirm">
-            <Head title="Confirm" />
+            <Head title="Order #123321" />
             <Header />
             <SectionDetails />
             <HomeSectionAddress />
