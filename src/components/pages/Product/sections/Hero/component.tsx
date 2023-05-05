@@ -1,7 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import Slider from 'react-slick';
 import Image from 'next/image';
-import classNames from 'classnames';
 import { useAppContext } from 'context/AppContext';
 
 import Button from 'components/layout/Button';
@@ -67,7 +66,7 @@ const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
             </div>
 
             <div className="column-details">
-                <h3 className="data-headline">{product?.fullDisplayName}</h3>
+                <h3 className="data-headline">{product?.name}</h3>
                 <span className="data-description">
                     {product?.description}
                 </span>

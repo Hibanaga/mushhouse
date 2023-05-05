@@ -54,7 +54,26 @@ export default styled.section`
     @media all and (max-width: ${variables.mobileL}) {
         .layout-layout-container {
             .headline {
-                font-size: 2.125em;
+                max-width: 90%;
+                font-size: 1.925em;
+            }
+        }
+    }
+    
+    @media all and (max-width: ${variables.mobileM}) {
+        .layout-layout-container {
+            .headline {
+                max-width: 100%;
+                font-size: 1.7em;
+            }
+        }
+    }
+
+    @media all and (max-width: ${variables.mobileS}) {
+        .layout-layout-container {
+            .headline {
+                max-width: 100%;
+                font-size: 1.375em;
             }
         }
     }

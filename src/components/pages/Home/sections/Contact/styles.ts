@@ -36,7 +36,7 @@ export default styled.section`
             .list-item {
                 position: relative;
                 margin: 0 .325em;
-                font-size: .925em;
+                font-size: .975em;
                 
                 &.inner-image {
                     width: 2.375em;

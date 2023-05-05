@@ -67,4 +67,32 @@ export default styled.header`
             }
         }
     }
+    
+    @media all and (max-width: ${variables.mobileM}) {
+        .layout-layout-container {
+            justify-content: center;
+            
+            .innner-image {
+                .hedline {
+                    display: none;
+                }
+            }
+            
+            .list {
+                
+            }
+        }
+    }
+    
+    @media all and (max-width: ${variables.mobileS}) {
+        .layout-layout-container {
+            .list {
+                .list-item {
+                    .data-label {
+                        font-size: .825em;
+                    }
+                }
+            }
+        }
+    }
 `;

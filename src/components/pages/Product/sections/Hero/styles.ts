@@ -66,6 +66,7 @@ export default styled.div`
         .data-description {
             display: block;
             font-size: .825em;
+            margin-bottom: 1.5em;
         }
     }
     
