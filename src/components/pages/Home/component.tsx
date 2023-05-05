@@ -53,7 +53,7 @@ const PageHome: FunctionComponent<Props> = ({  }) => {
 
     return (
         <StyledComponent className="page-home">
-            <Head title="Szamanita" />
+            <Head title="Szamanita Panterina" />
 
             <ButtonShoppingCart
                 shoppingCart={shoppingCart}

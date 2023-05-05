@@ -19,9 +19,9 @@ const HomeSectionHero: FunctionComponent<Props> = ({  }) => {
             />
 
             <Container className="layout-layout-container">
-                <h1 className="headline">Mikrodozowanie
-                  Amanita Muscaria, Amanita Panthetina
-                  i inne</h1>
+                <h1 className="headline">
+                  Mikrodozowanie Amanita Muscaria, Amanita Panthetina i inne
+                </h1>
             </Container>
         </StyledComponent>
     );

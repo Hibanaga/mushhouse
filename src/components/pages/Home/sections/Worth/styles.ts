@@ -73,8 +73,17 @@ export default styled.section`
     
     @media all and (max-width: ${variables.mobileM}) {
         .inner-image {
+            right: -4em;
             bottom: -6em;
             width: 17.5em;
+        }
+    }
+
+    @media all and (max-width: ${variables.mobileS}) {
+        .inner-image {
+            right: -3em;
+            bottom: -6em;
+            width: 12.5em;
         }
     }
 `;

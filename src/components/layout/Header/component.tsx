@@ -50,7 +50,7 @@ const LayoutHeader: FunctionComponent<Props> = ({  }) => {
                             <li
                                 key={element.value}
                                 className="list-item"
-                                onClick={() => [ Routes.ShoopingCart].includes(router.pathname as Routes)
+                                onClick={() => ![Routes.Home].includes(router.pathname as Routes)
                                     ? router.push(Routes.Home)
                                     : scrollToPositionId(element.value, element.position as ScrollLogicalPosition)}
                             >

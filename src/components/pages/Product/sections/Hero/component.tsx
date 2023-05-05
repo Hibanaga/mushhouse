@@ -1,8 +1,9 @@
 import React, { FunctionComponent, useState } from 'react';
 import Slider from 'react-slick';
 import Image from 'next/image';
-import classNames from 'classnames';
 import { useAppContext } from 'context/AppContext';
+
+import { getWords } from 'utils/string';
 
 import Button from 'components/layout/Button';
 
@@ -67,7 +68,23 @@ const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
             </div>
 
             <div className="column-details">
-                <h3 className="data-headline">{product?.fullDisplayName}</h3>
+                <h3 className="data-headline">{product?.name}</h3>
+                <span className="data-description">
+                    {product?.description}
+                </span>
+                <ul className="list">
+                    {product?.categories?.map((element) => (
+                        <li
+                            key={element.name}
+                            className="list-item"
+                        >
+                            <span className="data-name">{getWords(element.name, 2)}</span>
+                            {' - '}
+                            <span className="data-value">{element.value}</span>
+                        </li>
+                    ))}
+                </ul>
+
                 <span className="data-price">{product?.priceDisplay}</span>
 
                 <Button
@@ -76,10 +93,6 @@ const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
                 >
                     Do Koszyka
                 </Button>
-
-                <span className="data-description">
-                    {product?.description}
-                </span>
             </div>
         </StyledComponent>
     );
