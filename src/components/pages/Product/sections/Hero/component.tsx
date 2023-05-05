@@ -3,6 +3,8 @@ import Slider from 'react-slick';
 import Image from 'next/image';
 import { useAppContext } from 'context/AppContext';
 
+import { getWords } from 'utils/string';
+
 import Button from 'components/layout/Button';
 
 import StyledComponent from './styles';
@@ -70,6 +72,18 @@ const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
                 <span className="data-description">
                     {product?.description}
                 </span>
+                <ul className="list">
+                    {product?.categories?.map((element) => (
+                        <li
+                            key={element.name}
+                            className="list-item"
+                        >
+                            <span className="data-name">{getWords(element.name, 2)}</span>
+                            {' - '}
+                            <span className="data-value">{element.value}</span>
+                        </li>
+                    ))}
+                </ul>
 
                 <span className="data-price">{product?.priceDisplay}</span>
 

@@ -68,6 +68,10 @@ export default styled.div`
             font-size: .825em;
             margin-bottom: 1.5em;
         }
+        
+        .list {
+            margin-bottom: 1em;
+        }
     }
     
     @media all and (max-width: ${variables.tabletL}) {
