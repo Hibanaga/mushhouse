@@ -1,5 +1,5 @@
 export default interface Delivery {
-  id?: string;
+  id: string;
   name?: string;
   slug?: string;
   price?: number;

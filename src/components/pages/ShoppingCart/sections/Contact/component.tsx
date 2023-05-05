@@ -118,7 +118,7 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
                 );
 
                 await setItem('shoppingCartSzamanita', JSON.stringify([]));
-                await router.push(Routes.Home);
+                await router.push(`${Routes.Confirm}/${response.order_id}`);
             }
         } catch (error: any) {
             toast(

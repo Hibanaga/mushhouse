@@ -27,3 +27,10 @@ export const makeOrder = async (body: MakeOrderParams) => {
 
     return data;
 };
+
+
+export const single = async (id: string, params?: any) => {
+    const { data } = await axios.get(`https://api.szamanita-pantherina.com/api/order/${id}/`, params || {});
+
+    return data;
+};

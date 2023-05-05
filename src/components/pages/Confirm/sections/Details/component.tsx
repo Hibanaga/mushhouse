@@ -6,7 +6,7 @@ import { Props } from './index';
 import StyledComponent from './styles';
 
 
-const SectionDetails: FunctionComponent<Props> = ({ }) => {
+const SectionDetails: FunctionComponent<Props> = ({ order }) => {
     return (
         <StyledComponent className="page-confirm-section-details">
 
@@ -16,7 +16,7 @@ const SectionDetails: FunctionComponent<Props> = ({ }) => {
 
                     <div className="inner-order">
                         <span className="data-content data-bold">Nr. zamówienia</span>
-                        <span className="data-content data-bold">2023-03-05/asXd</span>
+                        <span className="data-content data-bold">{order?.number}</span>
                     </div>
                 </div>
 
@@ -30,42 +30,18 @@ const SectionDetails: FunctionComponent<Props> = ({ }) => {
                     </div>
 
                     <div className="tb">
-                        <div className="tr">
-                            <div className="td td-number">
-                                1
+                        {order.products?.map((element, idx)  => (
+                            <div
+                                className="tr"
+                                key={element.id}
+                            >
+                                <div className="td td-number">{idx + 1}</div>
+                                <div className="td td-name">{element.name}</div>
+                                <div className="td td-quantity">{element.quantity}</div>
+                                <div className="td td-price">{`${element.price} PLN`}</div>
+                                <div className="td td-total">{`${element.totalPrice} PLN`}</div>
                             </div>
-                            <div className="td td-name">
-                                Entire hear hospital than fill.
-                            </div>
-                            <div className="td td-quantity">
-                                1
-                            </div>
-                            <div className="td td-price">
-                                10
-                            </div>
-                            <div className="td td-total">
-                                120 PLN
-                            </div>
-                        </div>
-
-
-                        <div className="tr">
-                            <div className="td td-number">
-                                1
-                            </div>
-                            <div className="td td-name">
-                                Entire hear hospital than fill.
-                            </div>
-                            <div className="td td-quantity">
-                                1
-                            </div>
-                            <div className="td td-price">
-                                10
-                            </div>
-                            <div className="td td-total">
-                                120 PLN
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
 
@@ -73,18 +49,18 @@ const SectionDetails: FunctionComponent<Props> = ({ }) => {
                     <div className="column column-labels">
                         <h3 className="section-headline">Dane kupującego</h3>
                         <ul className="list">
-                            <li className="list-item">Imie Nazwisko</li>
-                            <li className="list-item">E-mail</li>
-                            <li className="list-item">Telefon</li>
+                            <li className="list-item">{order?.fullDisplayName}</li>
+                            <li className="list-item">{order?.country}</li>
+                            <li className="list-item">{order?.phone}</li>
                         </ul>
                     </div>
 
                     <div className="column column-values">
                         <h3 className="section-headline">Dane dostawy</h3>
                         <ul className="list">
-                            <li className="list-item">Kraj</li>
-                            <li className="list-item">Miasto, kod pocztowy</li>
-                            <li className="list-item">Adres</li>
+                            <li className="list-item">{order?.country}</li>
+                            <li className="list-item">{order?.fullDisplayAddress}</li>
+                            <li className="list-item">{order?.address}</li>
                         </ul>
                     </div>
                 </div>
