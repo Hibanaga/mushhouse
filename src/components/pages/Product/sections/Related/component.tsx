@@ -40,7 +40,7 @@ const ProductSectionRelated: FunctionComponent<Props> = ({ product }) => {
                 inView ? 'animate-lazy-load': 'lazy-load',
             ])}
         >
-            <h2 className="headline">Похожие продукты</h2>
+            <h2 className="headline">Podobne produkty</h2>
             <div className="inner">
                 {relatedProducts && relatedProducts.map((element) => (
                     <ListElement

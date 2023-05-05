@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { useRouter } from 'next/router';
 
 import Head from 'components/layout/Head';
 import Header from 'components/layout/Header';
@@ -9,9 +10,11 @@ import { Props } from './index';
 import StyledComponent from './styles';
 
 const PageConfirm: FunctionComponent<Props> = ({ }) => {
+    const router = useRouter();
+
     return (
         <StyledComponent className="page-confirm">
-            <Head title="Order #123321" />
+            <Head title={`Order #${router.query.id}`} />
             <Header />
             <SectionDetails />
             <HomeSectionAddress />

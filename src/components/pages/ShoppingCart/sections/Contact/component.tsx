@@ -214,7 +214,7 @@ const ShoppingCartSectionContact: FunctionComponent<Props> = ({ delivery }) => {
             </Container>
 
             <Container className="layout-layout-container" >
-                <h3 className="section-headline">Dodatwowa informacja</h3>
+                <h3 className="section-headline">Dodatkowa informacja</h3>
                 <SimpleTextArea
                     rows={6}
                     placeholder="Komentarz"
