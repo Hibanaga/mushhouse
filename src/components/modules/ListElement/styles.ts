@@ -22,7 +22,7 @@ export default styled.div`
             .data-name {
                 font-size: 1.125em;
                 font-weight: 400;
-                height: 4.5em;
+                height: 4em;
                 margin-bottom: .275em;
             }
             

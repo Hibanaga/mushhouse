@@ -6,51 +6,65 @@ import { useAppContext } from 'context/AppContext';
 import { getWords } from 'utils/string';
 
 import Button from 'components/layout/Button';
+import LightBox from 'components/layout/LightBox';
 
 import StyledComponent from './styles';
 import { Props } from './types';
 
 const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
     const { onAddElement } = useAppContext();
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-    const [previewImageUrl, setPreviewImageUrl] = useState<string | undefined>(product?.imageUrl);
+    const CustomArrowButton = (props: any) => {
+        const { style, onClick } = props;
+
+        return (
+            <div
+                className="button-arrow"
+                style={{ ...style }}
+                onClick={onClick}
+            >
+                <Image
+                    fill
+                    objectFit="contain"
+                    src="/images/icon-chevron-right.svg"
+                    alt="arrow button icon"
+                    className="image"
+                />
+            </div>
+        );
+    };
 
     return (
         <StyledComponent className="product-section-hero">
-            <div className="column-images">
-                {previewImageUrl && (
-                    <div className="inner-image">
-                        <Image
-                            fill
-                            priority
-                            objectFit="cover"
-                            src={previewImageUrl}
-                            alt="alt image product"
-                        />
-                    </div>
-                )}
+            {selectedImage && (
+                <LightBox
+                    imageSrc={selectedImage}
+                    onClose={() =>setSelectedImage(null)}
+                />
+            )}
 
+            <div className="column-images">
                 {product?.images && (
                     <div className="slider-wrapper">
                         <Slider
                             swipe
-                            arrows={false}
-                            slidesToShow={3}
+                            arrows
+                            slidesToShow={1}
                             slidesToScroll={1}
                             centerMode={true}
                             autoplay={true}
                             autoplaySpeed={5000}
-                            centerPadding="5px"
-                            // nextArrow={<CustomArrowButton />}
-                            // prevArrow={<CustomArrowButton />}
+                            centerPadding="0"
+                            nextArrow={<CustomArrowButton />}
+                            prevArrow={<CustomArrowButton />}
                         >
                             {product?.images.map((imageUrl) => (
                                 <div
                                     key={imageUrl}
                                     className="slide-item"
-                                    onClick={() => setPreviewImageUrl(imageUrl)}
+                                    onClick={() => setSelectedImage(imageUrl)}
                                 >
-
                                     <Image
                                         fill
                                         objectFit="cover"
@@ -63,15 +77,11 @@ const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
                         </Slider>
                     </div>
                 )}
-
-
             </div>
 
             <div className="column-details">
                 <h3 className="data-headline">{product?.name}</h3>
-                <span className="data-description">
-                    {product?.description}
-                </span>
+
                 <ul className="list">
                     {product?.categories?.map((element) => (
                         <li

@@ -35,7 +35,7 @@ const PageProduct: FunctionComponent<InferGetServerSidePropsType<typeof getStati
 
             <Container>
                 <SectionHero product={new Product(product)} />
-                {/*<SectionDetails product={new Product(product)} />*/}
+                <SectionDetails product={new Product(product)} />
                 <SectionRelated product={new Product(product)} />
             </Container>
 

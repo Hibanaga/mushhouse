@@ -49,7 +49,7 @@ const ModuleShoppingCartListElement: FunctionComponent<Props> = ({ product }) =>
                             query: { id: product.id },
                         })}
                     >{product?.fullDisplayName ?? product?.name}</h3>
-                    <span className="data-description">{product?.description}</span>
+                    <span className="data-description">{product?.shortDescription}</span>
                     <span className="data-category">{product?.category}</span>
                 </div>
             </div>
