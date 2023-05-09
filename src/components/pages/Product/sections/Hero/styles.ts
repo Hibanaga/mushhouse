@@ -89,22 +89,6 @@ export default styled.div`
                 }
             }
 
-            //.slick-track {
-            //    display: flex;
-            //
-            //    .slick-slide {
-            //        cursor: pointer;
-            //        overflow: hidden;
-            //        position: relative;
-            //        background-color: #D9BBA0;
-            //        border-radius: .275em;
-            //        min-height: 12.5em;
-            //        //margin: 0 .675em;
-            //        padding: 0.75em 1.25em 0.3em 0.75em;
-            //        box-sizing: border-box;
-            //    }
-            //}
-
             .slick-arrow {
                 width: 1.5em;
                 height: 1.5em;
