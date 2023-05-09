@@ -5,6 +5,7 @@ export default class Product {
     id: string;
     name?: string;
     description?: string;
+    shortDescription?: string;
     imageUrl?: string;
     images?: string[];
     price?: number;
@@ -23,6 +24,7 @@ export default class Product {
         this.id = data.id;
         this.name = data.name && data.name;
         this.description = data?.description?.description_long && data?.description?.description_long;
+        this.shortDescription = data?.description?.description_short && data?.description?.description_short;
         this.imageUrl = data?.description?.media && data?.description?.media[0].file;
         this.price = data.price && data.price;
         this.category =  data?.category?.name && data?.category?.name;

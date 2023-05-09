@@ -3,7 +3,13 @@ import styled from '@emotion/styled';
 import variables from 'theme/styles/vars';
 
 export default styled.div`
-    
+
+    .data-description {
+        display: block;
+        font-size: 1em;
+        margin-bottom: 5em;
+    }
+
     .headline {
         font-size: 1.525em;
         margin: 1.75em 0 ;

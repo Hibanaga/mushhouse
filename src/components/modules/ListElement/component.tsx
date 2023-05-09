@@ -7,8 +7,6 @@ import Routes from 'types/routes';
 
 import Product from 'models/Product';
 
-import { getSenteces, shorten } from 'utils/string';
-
 import Button from 'components/layout/Button';
 import { ButtonVariants } from 'components/layout/Button/types';
 
@@ -42,8 +40,19 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                 <div className="inner-content">
                     <h3 className="data-name">{product?.fullDisplayName || product?.name}</h3>
                     <div>
-                        {product?.description && <span className="data-description">{shorten(product?.description, 52)}</span>}
-                        {product?.category && <span className="data-category">{shorten(product?.category, 52)}</span>}
+
+                        {product?.shortDescription && (
+                            <span
+                                className="data-description"
+                                dangerouslySetInnerHTML={{ __html: product?.shortDescription }}
+                            />
+                        )}
+                        {product?.category && (
+                            <span
+                                className="data-category"
+                                dangerouslySetInnerHTML={{ __html: product?.category }}
+                            />
+                        )}
                         <span className="data-price">{product?.priceDisplay}</span>
                     </div>
                 </div>
