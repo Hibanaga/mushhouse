@@ -35,16 +35,17 @@ export default styled.div`
         right: -5%;
         width: 1.75em;
         height: 1.75em;
-        background-color: red;
+        background-color: #D9501E;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
+        
         .content {
             position: absolute;
             top: 52%;
             left: 52%;
-            transform: translate(-50%, -50%);
+            transform: translate(-55%, -45%);
             font-size: 1em;
             color: #FFF;
         }

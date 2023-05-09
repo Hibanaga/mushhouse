@@ -27,7 +27,7 @@ const ProductSectionHero: FunctionComponent<Props> = ({ product }) => {
                 <Image
                     fill
                     objectFit="contain"
-                    src="/images/slider-arrow.svg"
+                    src="/images/icon-chevron-right.svg"
                     alt="arrow button icon"
                     className="image"
                 />

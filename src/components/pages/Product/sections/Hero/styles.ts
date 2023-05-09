@@ -37,8 +37,7 @@ export default styled.div`
                 .slide-item {
                     width: 100%;
                     height: 100%;
-                    //padding: .5em;
-                    min-height: 18em;
+                    min-height: 22em;
                     overflow: hidden;
                     flex: 1 1 100%;
                    
@@ -47,7 +46,6 @@ export default styled.div`
                     border-radius: .275em;
                     padding: 0.75em 1.25em 0.3em 0.75em;
                     box-sizing: border-box;
-                    //margin: 0 .675em;
                     background-color: #D9BBA0;
                     position: relative;
                   
@@ -66,7 +64,7 @@ export default styled.div`
                 cursor: pointer;
 
                 .image {
-                    filter: invert(85%) sepia(14%) saturate(624%) hue-rotate(342deg) brightness(92%) contrast(83%);
+                    filter: invert(42%) sepia(51%) saturate(1657%) hue-rotate(344deg) brightness(85%) contrast(100%);
                 }
 
                 &:hover {
