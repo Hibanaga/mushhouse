@@ -38,7 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     />
                     <meta
                         property="og:description"
-                        content="Your best mushroom helper!"
+                        content="Kupić muchomor czerowny lub Amanita Muscaria w Polsce. Najlepsza jakość i przyjemne ceny. Dostawa w całej Polsce."
                     />
                     <meta
                         property="og:image"
@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     />
                     <meta
                         name="keywords"
-                        content="Mushroom, szamanita, panterina, szamanita-panterina"
+                        content="amanita muscaria, muchomor czerwony, мухомор красный, amanita patherina, amanita muscaria kupic, amanita muscaria polksa, amanita pantherina polska, amanita kupic, amanita pantherina buy poland, amanita muscaria buy europe, amanita pantherina kupic polska, мухомор купить польша, мухомор пантерный купить польша"
                     />
                     <meta
                         name="description"

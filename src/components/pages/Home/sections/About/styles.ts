@@ -60,6 +60,7 @@ export default styled.section`
             .list-element {
                 position: relative;
                 min-height: 20em;
+                cursor: pointer;
             }
         }
     }

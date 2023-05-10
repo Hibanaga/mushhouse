@@ -1,13 +1,16 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import Image from 'next/image';
 
 import Container from 'components/layout/Container';
+import LightBox from 'components/layout/LightBox';
 
 import { Props } from './index';
 import StyledComponent from './styles';
 
 
 const HomeSectionAbout: FunctionComponent<Props> = ({  }) => {
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
     const contents = [
         'Zbieramy i suszymy od 2012 roku. Wszystkie nasze produkty powstają przy użyciu wyłącznie czystych biologicznie pochodnych (wegańskie kapsułki, wysokiej jakości alkohol do sporządzania nalewek). Przestrzegane są wszystkie standardy produkcji, zachowując z jednej strony tradycje naszych przodków, a z drugiej strony idąc z duchem czasu, uwzględniając najnowsze badania w dziedzinie mykologii.',
         'Główne surowce do naszych produktów pochodzą z lasów Białorusi i Polski, a także z odległych rejonów Syberii, gdzie przyroda zachowała swoją nieskazitelną czystość i nie uległa wpływom człowieka.',
@@ -20,6 +23,12 @@ const HomeSectionAbout: FunctionComponent<Props> = ({  }) => {
             id="id_about"
             className="home-section-about"
         >
+            {selectedImage && (
+                <LightBox
+                    imageSrc={selectedImage}
+                    onClose={() =>setSelectedImage(null)}
+                />
+            )}
             <h3 className="section-headline">
               O nas
             </h3>
@@ -36,11 +45,12 @@ const HomeSectionAbout: FunctionComponent<Props> = ({  }) => {
 
                 <ul className="list-images">
                     {
-                        ['/images/about-1.jpg', '/images/about-2.jpg', '/images/about-3.jpg']
-                            .map((imageUrl) => (
+                        ['/images/slides-about/slide-1.jpg', '/images/slides-about/slide-2.jpg', '/images/slides-about/slide-3.jpg', '/images/slides-about/slide-4.jpg', '/images/slides-about/slide-5.jpg', '/images/slides-about/slide-6.jpg']
+                            .map((imageUrl, idx) => (
                                 <div
-                                    key={imageUrl}
+                                    key={idx}
                                     className="list-element"
+                                    onClick={() => setSelectedImage(imageUrl)}
                                 >
                                     <Image
                                         fill
