@@ -51,42 +51,42 @@ const config = {
         en : {
             consent_modal : {
                 title :  '',
-                description : 'Наш веб-сайт использует файлы cookie. На сайте также используются файлы cookie третьих лиц для использования аналитических или маркетинговых инструментов. Согласны ли вы с использованием неосновных файлов cookie, описанных в Политике конфиденциальности?',
+                description : 'Nasza strona internetowa wykorzystuje pliki cookies. Strona korzysta również z plików cookies podmiotów trzecich w celach analitycznych lub narzędzi marketingowych. Czy zgadzasz się na wykorzystywanie plików cookies innych niż podstawowe, opisanych w Polityce Prywatności?',
                 primary_btn: {
-                    text: 'Я согласен',
+                    text: 'Zgadzam się.',
                     role: 'accept_all',  //'accept_selected' or 'accept_all'
                 },
                 secondary_btn: {
-                    text : 'Подробности',
+                    text : 'Szczegóły',
                     role : 'settings',   //'settings' or 'accept_necessary'
                 },
 
             },
             settings_modal : {
-                title : 'Настройки файлов cookie',
-                save_settings_btn : 'Сохранить настройки',
-                accept_all_btn : 'Принять все соглашения',
-                close_btn_label: 'Закрыть',
+                title : 'Ustawienia plików cookie',
+                save_settings_btn : 'Zapisz ustawienia',
+                accept_all_btn : 'Akceptacja wszystkich umów',
+                close_btn_label: 'Zamknij',
                 blocks : [
                     {
-                        title : 'Необходимые',
-                        description: 'Использование файлов cookie, помеченных как необходимые, необходимо для надлежащего функционирования Веб-сайта. Необходимые файлы cookie устанавливаются, в частности, для запоминания сеансов входа в систему или заполнения форм, а также для целей, связанных с настройкой параметров конфиденциальности.',
+                        title : 'Wymagane',
+                        description: 'Stosowanie plików cookies oznaczonych jako niezbędne jest konieczne do prawidłowego funkcjonowania Serwisu. Niezbędne pliki cookies ustawiane są m.in. w celu zapamiętania sesji logowania lub wypełniania formularzy oraz w celach związanych z określeniem ustawień prywatności.',
                         toggle : {
                             value : 'necessary',
                             enabled : true,
                             readonly: true,
                         },
                     }, {
-                        title : 'Функциональные',
-                        description: 'Функциональные файлы cookie запоминают и адаптируют Веб-сайт к выбору, сделанному Пользователем. Отсутствие согласия может привести к тому, что Веб-сайт не будет работать должным образом',
+                        title : 'Funkcjonalne',
+                        description: 'Funkcjonalne pliki cookies zapamiętują i dostosowują Stronę do wyborów dokonanych przez Użytkownika. Brak zgody może spowodować, że Strona nie będzie działać prawidłowo.',
                         toggle : {
                             value : 'functions',
                             enabled : false,
                             readonly: false,
                         },
                     }, {
-                        title : 'Аналитические',
-                        description: 'Использование файлов cookie, помеченных как аналитические, заключается в проверке количества посещений и источников трафика на Веб-сайте. Эти файлы позволяют изучать статистику и улучшать работу Веб-сайта. Если Пользователь не разрешит использование этих файлов cookie, Администратор не будет знать, что Пользователь посетил Веб-сайт.',
+                        title : 'Analityczne',
+                        description: 'Wykorzystanie plików cookies oznaczonych jako analityczne ma na celu sprawdzenie liczby odwiedzin i źródeł ruchu na Stronie internetowej. Te pliki cookies pozwalają badać statystyki i poprawiać działanie Strony. Jeżeli Użytkownik nie wyrazi zgody na wykorzystanie tych plików cookies, Administrator nie będzie wiedział, że Użytkownik odwiedził Stronę.',
                         toggle : {
                             value : 'analytics',
                             enabled : false,
