@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /home/ubuntu/szamanita
+cd /home/ec2-user/szamanita
 npm install
