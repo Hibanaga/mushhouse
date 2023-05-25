@@ -7,12 +7,12 @@ phases:
 
     commands:
       # install npm
-      - npm install
+      - npm run install
 
   build:
     commands:
       # run build script
-      - npm build
+      - npm run build
 
 artifacts:
   # include all files required to run application
