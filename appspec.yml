@@ -6,7 +6,7 @@ files:
     overwrite: true
 permissions:
   - object: /
-    owner: ubuntu
+    owner: ec2-user
 
 hooks:
   BeforeInstall:
