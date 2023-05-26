@@ -21,6 +21,7 @@ artifacts:
     - .next/**/*
     - scripts/**/*
     - next.config.js
+    - appspec.yml
     - next-env.d.ts
     - package.json
     - .eslintrc.json
