@@ -46,7 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     />
                     <meta
                         property="og:url"
-                        content="https://szamanita-panterina.pl"
+                        content="https://szamanita-pantherina.pl"
                     />
                     <meta
                         property="og:type"
