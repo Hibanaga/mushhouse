@@ -34,11 +34,11 @@ export default function App({ Component, pageProps }: AppProps) {
                     />
                     <meta
                         property="og:title"
-                        content="Szamanita Pantherina"
+                        content="Mikrodawkowanie Amanita Muscaria"
                     />
                     <meta
                         property="og:description"
-                        content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 5 lat. Dostawa w całej Polsce oraz innych krajach EU."
+                        content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU."
                     />
                     <meta
                         property="og:image"
@@ -58,7 +58,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     />
                     <meta
                         name="description"
-                        content="Mikrodozowanie Amanita Muscaria, Amanita Panthetina i inne"
+                        content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU."
                     />
 
                     <link

@@ -26,7 +26,10 @@ const PageProduct: FunctionComponent<InferGetServerSidePropsType<typeof getStati
 
     return (
         <StyledComponent className="page-product">
-            <Head title={product.name || 'Szamanita product'} />
+            <Head
+                title={product.name || 'Szamanita product'}
+                description={ product?.description?.description_short || 'Shamanita product description'}
+            />
             <Header />
 
             <ButtonShoppingCart
