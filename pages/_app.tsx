@@ -38,7 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     />
                     <meta
                         property="og:description"
-                        content="Kupić muchomor czerowny lub Amanita Muscaria w Polsce. Najlepsza jakość i przyjemne ceny. Dostawa w całej Polsce."
+                        content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 5 lat. Dostawa w całej Polsce oraz innych krajach EU."
                     />
                     <meta
                         property="og:image"
@@ -46,7 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     />
                     <meta
                         property="og:url"
-                        content="https://szamanita-pantherina.pl"
+                        content="https://szamanita-panterina.pl"
                     />
                     <meta
                         property="og:type"
