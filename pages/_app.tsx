@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     />
                     <meta
                         property="og:title"
-                        content="Szamanita Panterina"
+                        content="Szamanita Pantherina"
                     />
                     <meta
                         property="og:description"
