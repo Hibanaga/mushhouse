@@ -29,7 +29,16 @@ const PageProduct: FunctionComponent<InferGetServerSidePropsType<typeof getStati
             <Head
                 title={product.name || 'Szamanita product'}
                 description={ product?.description?.description_short || 'Shamanita product description'}
-            />
+            >
+                <meta
+                    name="description"
+                    content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU. Kupić w Polsce. Dostawa na terenie całego kraju."
+                />
+                <meta
+                    property="og:description"
+                    content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU. Kupić w Polsce. Dostawa na terenie całego kraju."
+                />
+            </Head>
             <Header />
 
             <ButtonShoppingCart

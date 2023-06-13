@@ -37,10 +37,6 @@ export default function App({ Component, pageProps }: AppProps) {
                         content="Mikrodawkowanie Amanita Muscaria"
                     />
                     <meta
-                        property="og:description"
-                        content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU. Kupić w Polsce. Dostawa na terenie całego kraju."
-                    />
-                    <meta
                         property="og:image"
                         content="https://szamanita-pantherina.pl/images/favicons/android-chrome-192x192.png"
                     />
@@ -58,9 +54,12 @@ export default function App({ Component, pageProps }: AppProps) {
                     />
                     <meta
                         name="description"
-                        content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU. Kupić w Polsce. Dostawa na terenie całego kraju."
+                        content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU."
                     />
-
+                    <meta
+                        property="og:description"
+                        content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU."
+                    />
                     <link
                         rel="shortcut icon"
                         href="/images/favicons/favicon.ico"
