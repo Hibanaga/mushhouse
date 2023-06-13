@@ -9,6 +9,7 @@ Component.defaultProps = {
 
 export const getStaticStaticProps: GetServerSideProps = async (context) => {
     const { query } = context;
+
     try {
         const response = await single(query.id as string);
 

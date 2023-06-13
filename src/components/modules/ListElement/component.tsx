@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useAppContext } from 'context/AppContext';
 
@@ -58,15 +59,18 @@ const ModuleListElement: FunctionComponent<Props> = ({ product }) => {
                 </div>
 
                 <div className="inner-action">
+
                     <Button
                         className="button-details"
                         variant={ButtonVariants.Outline}
-                        onClick={() => router.push({
-                            pathname: Routes.Product,
-                            query: { id: product.id },
-                        })}
                     >
-                        Zobacz Więcej
+
+                        <Link
+                            className="link-item"
+                            href={`${Routes.Product}?id=${product.id}`}
+                        >
+                                Zobacz Więcej
+                        </Link>
                     </Button>
                     <Button
                         className="button-add-cart"

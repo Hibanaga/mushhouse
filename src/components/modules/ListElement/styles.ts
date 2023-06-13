@@ -58,13 +58,13 @@ export default styled.div`
             .layout-button {
                 width: 100%;
                 
+                
                 .button {
                     border-radius: .825em;
                     width: 100%;
                 }
                 
                 &.button-details {
-
                     &:hover {
                         opacity: .9;
                     }
@@ -72,6 +72,13 @@ export default styled.div`
                     .button {
                         background-color: #FFF;
                         border: .01em solid #000000;
+                        padding: 0;
+
+                        .link-item {
+                            display: block;
+                            color: #000000;
+                            padding: 0.7em 1.5em;
+                        }
                         
                         .button-content {
                             color: #000000;
