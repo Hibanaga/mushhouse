@@ -24,6 +24,8 @@ const PageProduct: FunctionComponent<InferGetServerSidePropsType<typeof getStati
         fetchShoppingCart && fetchShoppingCart();
     }, []);
 
+    console.log('product?.description?.description_short: ', product?.description?.description_short);
+
     return (
         <StyledComponent className="page-product">
             <Head
@@ -32,11 +34,11 @@ const PageProduct: FunctionComponent<InferGetServerSidePropsType<typeof getStati
             >
                 <meta
                     name="description"
-                    content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU. Kupić w Polsce. Dostawa na terenie całego kraju."
+                    content={product?.description?.description_short ? `${product?.description?.description_short}. Kupić w Polsce. Dostawa na terenie całego kraju.` : 'Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU. Kupić w Polsce. Dostawa na terenie całego kraju.'}
                 />
                 <meta
                     property="og:description"
-                    content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU. Kupić w Polsce. Dostawa na terenie całego kraju."
+                    content={product?.description?.description_short ? `${product?.description?.description_short}. Kupić w Polsce. Dostawa na terenie całego kraju.` : 'Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU. Kupić w Polsce. Dostawa na terenie całego kraju.'}
                 />
             </Head>
             <Header />
