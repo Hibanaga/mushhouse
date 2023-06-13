@@ -33,10 +33,6 @@ export default function App({ Component, pageProps }: AppProps) {
                         content="initial-scale=1.0, width=device-width"
                     />
                     <meta
-                        property="og:title"
-                        content="Mikrodawkowanie Amanita Muscaria"
-                    />
-                    <meta
                         property="og:image"
                         content="https://szamanita-pantherina.pl/images/favicons/android-chrome-192x192.png"
                     />
@@ -51,14 +47,6 @@ export default function App({ Component, pageProps }: AppProps) {
                     <meta
                         name="keywords"
                         content="amanita muscaria, muchomor czerwony, мухомор красный, amanita patherina, amanita muscaria kupic, amanita muscaria polksa, amanita pantherina polska, amanita kupic, amanita pantherina buy poland, amanita muscaria buy europe, amanita pantherina kupic polska, мухомор купить польша, мухомор пантерный купить польша"
-                    />
-                    <meta
-                        name="description"
-                        content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU."
-                    />
-                    <meta
-                        property="og:description"
-                        content="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU."
                     />
                     <link
                         rel="shortcut icon"

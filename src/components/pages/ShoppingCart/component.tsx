@@ -51,7 +51,11 @@ const PageShoppingCart: FunctionComponent<Props> = ({ delivery }) => {
 
     return (
         <StyledComponent className="page-shopping-cart">
-            <Head title="Shopping cart" />
+            <Head
+                title="Shopping cart"
+                name="Mikrodawkowanie Amanita Muscaria"
+                description="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU."
+            />
 
             <Header />
             <SectionCart

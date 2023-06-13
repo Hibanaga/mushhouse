@@ -24,23 +24,15 @@ const PageProduct: FunctionComponent<InferGetServerSidePropsType<typeof getStati
         fetchShoppingCart && fetchShoppingCart();
     }, []);
 
-    console.log('product?.description?.description_short: ', product?.description?.description_short);
+    console.log('product.name: ', product.name);
 
     return (
         <StyledComponent className="page-product">
             <Head
-                title={product.name || 'Szamanita product'}
-                description={ product?.description?.description_short || 'Shamanita product description'}
-            >
-                <meta
-                    name="description"
-                    content={product?.description?.description_short ? `${product?.description?.description_short}. Kupić w Polsce. Dostawa na terenie całego kraju.` : 'Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU. Kupić w Polsce. Dostawa na terenie całego kraju.'}
-                />
-                <meta
-                    property="og:description"
-                    content={product?.description?.description_short ? `${product?.description?.description_short}. Kupić w Polsce. Dostawa na terenie całego kraju.` : 'Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU. Kupić w Polsce. Dostawa na terenie całego kraju.'}
-                />
-            </Head>
+                title={product?.name || 'Szamanita product'}
+                name={product?.name || 'Szamanita product'}
+                description={product?.description?.description_short ? `${product?.description?.description_short}. Kupić w Polsce. Dostawa na terenie całego kraju.` : 'Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU. Kupić w Polsce. Dostawa na terenie całego kraju.'}
+            />
             <Header />
 
             <ButtonShoppingCart

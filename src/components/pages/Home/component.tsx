@@ -53,7 +53,11 @@ const PageHome: FunctionComponent<Props> = ({  }) => {
 
     return (
         <StyledComponent className="page-home">
-            <Head title="Szamanita Pantherina" />
+            <Head
+                title="Szamanita Pantherina"
+                name="Mikrodawkowanie Amanita Muscaria"
+                description="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU."
+            />
 
             <ButtonShoppingCart
                 shoppingCart={shoppingCart}

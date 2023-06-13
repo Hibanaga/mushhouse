@@ -13,7 +13,11 @@ import StyledComponent from './styles';
 const PageConfirm: FunctionComponent<Props> = ({ order }) => {
     return (
         <StyledComponent className="page-confirm">
-            <Head title={`Zamówienie #${order.number}`} />
+            <Head
+                title={`Zamówienie #${order.number}`}
+                name="Mikrodawkowanie Amanita Muscaria"
+                description="Produkty na podstawie muchomora czerwonego. Maści, kapsułki, kapelusze, proszek, Zbieramy i suszymy od 2012 roku. Dostawa w całej Polsce oraz innych krajach EU."
+            />
             <Header />
             <SectionDetails order={new Order(order)} />
             <HomeSectionAddress />
