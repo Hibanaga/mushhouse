@@ -1,5 +1,18 @@
 import Component from './component';
-import { ToastVariants } from './types';
+
+export enum ToastVariants {
+    Success = 'success',
+    Error = 'error',
+    Info = 'information',
+}
+
+
+export interface Props {
+    variant: ToastVariants,
+    message: string,
+    closeToast?: () => void;
+}
+
 
 Component.defaultProps = {
     variant: ToastVariants.Info,

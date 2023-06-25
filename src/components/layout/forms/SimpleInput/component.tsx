@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import SimpleError from 'components/layout/forms/SimpleError';
 import SimpleLabel from 'components/layout/forms/SimpleLabel';
 
+import { Props } from './index';
 import StyledComponent from './styles';
-import { Props } from './types';
 
 const SimpleInput: FunctionComponent<Props> = ({ id, label, placeholder, value, onChange, css, type, name, className, error, disabled, variant, onFocus, onBlur }) => {
     return (

@@ -2,8 +2,8 @@ import React, { ChangeEvent, FunctionComponent } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 
+import { Props } from './index';
 import StyledComponent from './styles';
-import { Props } from './types';
 
 const LayoutCounter: FunctionComponent<Props> = ({ size, value, onChange }) => {
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

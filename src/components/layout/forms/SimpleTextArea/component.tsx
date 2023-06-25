@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import SimpleError from 'components/layout/forms/SimpleError';
 import SimpleLabel from 'components/layout/forms/SimpleLabel';
 
+import { Props } from './index';
 import StyledComponent from './styles';
-import { Props } from './types';
 
 const SimpleTextArea: FunctionComponent<Props> = ({ id, label, placeholder, value, onChange, css, name, wrapperCss, error, disabled, variant, onFocus, rows }) => {
     return (

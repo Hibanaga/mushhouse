@@ -1,6 +1,7 @@
 import Component from './component';
 
 export interface Props {
+
 }
 
 Component.defaultProps = {

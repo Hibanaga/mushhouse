@@ -2,8 +2,8 @@ import { FunctionComponent } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 
+import { Props } from './index';
 import StyledComponent from './styles';
-import { Props } from './types';
 
 const LayoutImage: FunctionComponent<Props> = (props) => {
     const { className, imageUrl, altText, ...restProps } = props;
