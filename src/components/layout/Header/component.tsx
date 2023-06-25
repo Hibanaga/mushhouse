@@ -9,8 +9,8 @@ import { scrollToPositionId } from 'utils/page';
 
 import Container from 'components/layout/Container';
 
-import { Props } from './index';
 import StyledComponent from './styles';
+import { Props } from './types';
 
 
 const LayoutHeader: FunctionComponent<Props> = ({  }) => {

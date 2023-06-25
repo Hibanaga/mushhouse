@@ -1,17 +1,5 @@
 import Component from './component';
-
-export enum CounterSizes {
-    small = 'small',
-    medium = 'medium',
-    large = 'large',
-}
-
-export interface Props {
-    size?: CounterSizes;
-    value?: number;
-    onChange: (value: number) => void;
-}
-
+import { CounterSizes } from './types';
 
 Component.defaultProps = {
     size: CounterSizes.medium,

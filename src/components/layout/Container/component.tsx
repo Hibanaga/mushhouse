@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
 
-import { Props } from './index';
 import StyledComponent from './styles';
+import { Props } from './types';
 
 const LayoutContainer: FunctionComponent<Props> = ({ className, children }) => {
     return (

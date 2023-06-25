@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import Image from 'next/image';
 
-import { Props } from './index';
 import StyledComponent from './styles';
+import { Props } from './types';
 
 const LayoutModal: FunctionComponent<Props> = ({ children, hasCancelButton, onClose }) => {
     return (

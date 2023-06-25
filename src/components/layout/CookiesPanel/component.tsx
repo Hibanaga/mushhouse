@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect } from 'react';
 
-import { Props } from './index';
+import { Props } from './types';
 
 import 'vanilla-cookieconsent';
 import 'vanilla-cookieconsent/dist/cookieconsent.css';

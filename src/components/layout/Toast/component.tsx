@@ -2,8 +2,8 @@ import React, { FunctionComponent } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 
-import { Props, ToastVariants } from './index';
 import StyledComponent from './styles';
+import { Props, ToastVariants } from './types';
 
 const LayoutToast: FunctionComponent<Props> = ({ variant, message, closeToast }) => {
     const variantImage = (variant: ToastVariants) => {

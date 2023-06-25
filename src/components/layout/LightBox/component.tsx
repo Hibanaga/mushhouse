@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
-import { Props } from './index';
 import StyledComponent from './styles';
+import { Props } from './types';
 
 const LightBox: FunctionComponent<Props> = ({ imageSrc, onClose }) => {
     return (

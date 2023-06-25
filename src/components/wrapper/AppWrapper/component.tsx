@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { Theme, ToastContainer, ToastPosition } from 'react-toastify';
 
-import { Props } from './index';
 import StyledComponent from './styles';
+import { Props } from './types';
 
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';

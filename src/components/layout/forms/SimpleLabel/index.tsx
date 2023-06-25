@@ -1,16 +1,5 @@
 import Component from './component';
-
-export enum LabelVariants {
-    Checkbox = 'checkbox',
-    Select = 'select',
-}
-
-export interface Props {
-    label: string;
-    name?: string;
-    variant?: LabelVariants;
-}
-
+import { LabelVariants } from './types';
 
 Component.defaultProps = {
     variant: LabelVariants.Select,

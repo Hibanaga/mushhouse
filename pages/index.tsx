@@ -1,3 +1,3 @@
-import Component from 'components/pages/Index';
+import Component from 'components/pages/Home';
 
 export default Component;

@@ -2,8 +2,9 @@ import { FunctionComponent } from 'react';
 import { useRouter } from 'next/router';
 import classnames from 'classnames';
 
-import { ButtonElements, ButtonIconTypes, Props } from './index';
+// import Spinner from 'components/layout/Spinner';
 import StyledComponent from './styles';
+import { ButtonElements, ButtonIconTypes, Props } from './types';
 
 const LayoutButton: FunctionComponent<Props> = ({
     children,
